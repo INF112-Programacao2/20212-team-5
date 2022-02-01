@@ -7,9 +7,9 @@
 
 <h3> Integrantes do projeto </h3>
 <ul>
-  <li>Gabriel Theophilo</li>
-  <li>Gabriela Ouriques</li>
-  <li>Guilherme Nunes</li>
-  <li>Libiane Gomes</li>
-  <li>Pedro Moura</li>
+  <li><a href="https://github.com/GabrielTheophilo">Gabriel Theophilo</a></li>
+  <li><a href="https://github.com/Gabrielaogd">Gabriela Ouriques</a></li>
+  <li><a href="https://github.com/guinlops">Guilherme Nunes</a></li>
+  <li><a href="https://github.com/Libianegomes">Libiane Gomes</a></li>
+  <li><a href="https://github.com/pedroohm">Pedro Moura</a></li>
 </ul>
