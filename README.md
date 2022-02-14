@@ -2,6 +2,9 @@
   Grupo 5 | Candy Crush
 </h1>
 <h2 align="center">
+  Nós, do grupo 5, decidimos recriar o famoso jogo Candy Crush em C++ na biblioteca Allegro
+  O projeto contará com uma interface inspirada na do jogo original, mas com modificações "saborosas" que permitirão o usuário redescobrir o famoso jogo com uma dinâmica um pouco diferente.
+  
   Repositório do grupo 5 de INF 112 para o projeto final da disciplina
 </h2>
 
