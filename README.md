@@ -8,13 +8,16 @@
   Repositório do grupo 5 de INF 112 para o projeto final da disciplina
 </h3>
 
-<img align="center" src="https://i.imgur.com/LKOFabQ.png" />
+<div align="center">
+  <img  src="https://i.imgur.com/LKOFabQ.png" width="415px" heigth="405px"/>
+
 
 <h3> Integrantes do projeto </h3>
-<ul>
-  <li><a href="https://github.com/GabrielTheophilo">Gabriel Theophilo</a></li>
-  <li><a href="https://github.com/Gabrielaogd">Gabriela Ouriques</a></li>
-  <li><a href="https://github.com/guinlops">Guilherme Nunes</a></li>
-  <li><a href="https://github.com/Libianegomes">Libiane Gomes</a></li>
-  <li><a href="https://github.com/pedroohm">Pedro Moura</a></li>
-</ul>
+
+  <h4><a href="https://github.com/GabrielTheophilo"><em>Gabriel Theophilo</em></a>
+  <h4><a href="https://github.com/Gabrielaogd"><em>Gabriela Ouriques</em></a></h4>
+  <h4><a href="https://github.com/guinlops"><em>Guilherme Nunes</em></a></h4>
+  <h4><a href="https://github.com/Libianegomes"><em>Libiane Gomes</em></a></h4>
+  <h4><a href="https://github.com/pedroohm"><em>Pedro Moura</em></a></h4>
+
+</div>
