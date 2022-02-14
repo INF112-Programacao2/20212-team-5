@@ -1,7 +1,7 @@
 /*
-        Bem vindo ao jogo do Candy Crush SAGA
-    Trabalho final de INF112, consiste em recriar o game CandyCrush em C++, disponível para computadores Windows/Linux x64
-FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lallegro_font -lallegro_ttf
+                                            Bem vindo ao jogo do Candy Crush SAGA
+            Trabalho final de INF112, consiste em recriar o game CandyCrush em C++, disponível para computadores Windows/Linux x64
+                    FLAGS NECESSÁRIAS PARA O COMPILADOR/LINKADOR -> -lallegro -lallegro_image -lallegro_font -lallegro_ttf
 */
 
 
@@ -21,18 +21,10 @@ const int SCREEN_H = 950;
 const int QUAD_SIZE = 20;
 
 
-ALLEGRO_COLOR *cor = NULL;        // Ponteiro de COR para a fonte
-ALLEGRO_FONT *font = NULL;        // Ponteiro de FONTE para inicializar o objeto
 ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 ALLEGRO_TIMER *timer = NULL;
 ALLEGRO_BITMAP *menu = NULL;
-
-
-
-bool sair = false;
-bool redraw = true;
-
 
 int inicializa() {
     
@@ -77,8 +69,15 @@ int inicializa() {
         return 0;
     }
     menu = al_load_bitmap("CandyCrushResources/menu.bmp");
-    al_init_font_addon();    // INICIALIZAR AS FUNÇÕES DE FONTE 
-    al_init_ttf_addon();     // INICIALIZAR ESTE ADDON -APÓS- INICIALIZAR O font_addon
+    if(!menu){
+        cout << "FALHA AO CARREGAR O MENU" << endl;
+
+        al_destroy_display(display);
+        
+        return 0;
+    }
+    al_init_font_addon();  
+    al_init_ttf_addon();     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
@@ -89,24 +88,17 @@ int inicializa() {
     return 1;
 }
 
-int main(int argc, char **argv)
-{
+
+int main(int argc, char **argv){
 	if(!inicializa()) return -1;
-    while(!sair)
-    {
+    while(!sair){
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
-
-       		
-			redraw = false;
-            al_clear_to_color(al_map_rgb(0,255,0));
-            al_draw_bitmap(menu, 0,0,0);
-	
-			al_flip_display();
-        
+        al_clear_to_color(al_map_rgb(0,255,0));
+        al_draw_bitmap(menu, 0,0,0);
+		al_flip_display();
 
 	}
-
     al_destroy_timer(timer);
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
