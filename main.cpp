@@ -117,6 +117,24 @@ int main(int argc, char **argv){
         
             redraw = true;
         }
+        else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+        {
+            switch(ev.keyboard.keycode)
+            {
+            
+            }
+        }
+	    //<------------------------------------------------------->
+
+        else if(ev.type == ALLEGRO_EVENT_KEY_UP)
+        {
+            switch(ev.keyboard.keycode)
+            {
+            case ALLEGRO_KEY_ESCAPE:
+                sair = true;
+                break;
+            }
+        }
         else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
         {
                 mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
