@@ -1,10 +1,7 @@
-1_else if(ev.type == ALLEGRO_EVENT_KEY_DOWN) //SE A TECLA ESTIVER PRESSIONADA
-        
+1_ O tabuleiro é desenhado mas o MENU não.
 
-        else if(ev.type == ALLEGRO_EVENT_KEY_UP) //SE A TECLA *NÃO* ESTIVER PRESSIONADA
-            case ALLEGRO_KEY_ESCAPE: // SE ESC FOR PRESSIONADO,
-
--> O botão do mouse ainda não aparece;
--> Ainda não dá pra fechar o app pelo próprio//CORRIGIDO. * já conseguimos fechar apertando esc, mas clicando no X da aba, ainda não.
-   
+2_Como a imagem do tabuleiro é 8x8, a matriz MAPA é definida como [8][8].
+3_Vai sortear um valor de 0 a 2, que está definindo o tipo da peça. // não definitivo, apenas teste.
+4_Vai fazer o spawn da peça de acordo com a leitura da matriz e do tipo de peça, e da coordenada;
+5_Cada quadrado do tabuleiro tem +ou- uns 62bits, as coordenadas e as imagens das peças devem ser ajustadas.
     
