@@ -1,23 +1,26 @@
-<h1 align="center">
-  Grupo 5 | Candy Crush
-</h1>
-<h3 align="center">
-  Nós, do grupo 5, decidimos recriar o famoso jogo Candy Crush em C++ na biblioteca Allegro
-  O projeto contará com uma interface inspirada na do jogo original, mas com modificações "saborosas" que permitirão o usuário redescobrir o famoso jogo com uma dinâmica um pouco diferente.
+1_ALLEGRO_BITMAP *mouse=NULL; // declara o ponteiro para a variavel mouse;
+2 if(!al_install_mouse())... //inicializa a função para instalar o mouse;
+3_mouse=al_load_bitmap("CandyCrushResources/personagem.png");  //atribui uma imagem ao mouse;
+4_ al_register_event_source(event_queue, al_get_mouse_event_source()); // coloca o mouse na fila de eventos;
 
-  Repositório do grupo 5 de INF 112 para o projeto final da disciplina
-</h3>
+5_
+ if(ev.type == ALLEGRO_EVENT_TIMER) // Verifica se o tempo está passando, ou seja, se o aplicativo está rodando
+        
+        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //SE DER O CLICK
+   
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP) // SE SOLTAR O CLICK, NAO TIVER PRESSIONADO
 
-<div align="center">
-  <img  src="https://i.imgur.com/LKOFabQ.png" width="415px" heigth="405px"/>
+
+6_ Não entendi o objetivo dessas funções:
+
+//al_init_font_addon();  // marcado para possibilitar a execução
+//al_init_ttf_addon();  //  marcado para possibilitar a execução
 
 
-<h3> Integrantes do projeto </h3>
+OBS: As coordenadas do mouse vão ser impressas, assim como o CLICK.
+PROBLEMAS:
 
-  <h4><a href="https://github.com/GabrielTheophilo"><em>Gabriel Theophilo</em></a>
-  <h4><a href="https://github.com/Gabrielaogd"><em>Gabriela Ouriques</em></a></h4>
-  <h4><a href="https://github.com/guinlops"><em>Guilherme Nunes</em></a></h4>
-  <h4><a href="https://github.com/Libianegomes"><em>Libiane Gomes</em></a></h4>
-  <h4><a href="https://github.com/pedroohm"><em>Pedro Moura</em></a></h4>
-
-</div>
+-> O botão do mouse ainda não aparece;
+-> Ainda não dá pra fechar o app pelo próprio;
+    
