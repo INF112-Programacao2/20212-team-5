@@ -26,6 +26,8 @@ ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 ALLEGRO_TIMER *timer = NULL;
 ALLEGRO_BITMAP *menu = NULL;
 
+bool sair = false;
+
 int inicializa() {
     
     if(!al_init())
