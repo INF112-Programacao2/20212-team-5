@@ -25,8 +25,12 @@ ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 ALLEGRO_TIMER *timer = NULL;
 ALLEGRO_BITMAP *menu = NULL;
+ALLEGRO_BITMAP *mouse=NULL;
 
+bool redraw = true;   
 bool sair = false;
+bool pressao=false;
+int mouse_x, mouse_y;
 
 int inicializa() {
     
@@ -62,6 +66,15 @@ int inicializa() {
         return 0;
     }
 
+    mouse=al_load_bitmap("CandyCrushResources/personagem.png"); 
+    if(!al_install_mouse())
+    {
+        cout << "Falha ao inicializar o mouse" << endl;
+        return 0;
+    }
+
+
+
     event_queue = al_create_event_queue();
     if(!event_queue)
     {
@@ -78,11 +91,14 @@ int inicializa() {
         
         return 0;
     }
-    al_init_font_addon();  
-    al_init_ttf_addon();     
+    //al_init_font_addon();  // marcado para possibilitar a execução
+    //al_init_ttf_addon();  //  marcado para possibilitar a execução
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
+
+    al_register_event_source(event_queue, al_get_mouse_event_source());
+
     al_clear_to_color(al_map_rgb(0,0,0));
     al_flip_display();
     al_start_timer(timer);
@@ -96,11 +112,42 @@ int main(int argc, char **argv){
     while(!sair){
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
+         if(ev.type == ALLEGRO_EVENT_TIMER)
+        {
+        
+            redraw = true;
+        }
+        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
+        {
+                mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
+                mouse_y=(ev.mouse.y);
+                
+
+                cout<<mouse_x<<" "<< mouse_y<<endl;
+                
+                
+        }
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
+        {
+            if(ev.mouse.button & 1){ // &1 = botão esquerdo
+                pressao=true;   //pressionado= TRUE
+                cout<<"CLICK"<<endl;
+            }
+             
+        }
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+        {       
+                pressao=false;              
+
+        }
+
         al_clear_to_color(al_map_rgb(0,255,0));
         al_draw_bitmap(menu, 0,0,0);
 		al_flip_display();
 
 	}
+
+    
     al_destroy_timer(timer);
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
