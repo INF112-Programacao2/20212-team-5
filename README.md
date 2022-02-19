@@ -1,7 +1,23 @@
-1_ O tabuleiro é desenhado mas o MENU não.
+<h1 align="center">
+  Grupo 5 | Candy Crush
+</h1>
+<h3 align="center">
+  Nós, do grupo 5, decidimos recriar o famoso jogo Candy Crush em C++ na biblioteca Allegro
+  O projeto contará com uma interface inspirada na do jogo original, mas com modificações "saborosas" que permitirão o usuário redescobrir o famoso jogo com uma dinâmica um pouco diferente.
 
-2_Como a imagem do tabuleiro é 8x8, a matriz MAPA é definida como [8][8].
-3_Vai sortear um valor de 0 a 2, que está definindo o tipo da peça. // não definitivo, apenas teste.
-4_Vai fazer o spawn da peça de acordo com a leitura da matriz e do tipo de peça, e da coordenada;
-5_Cada quadrado do tabuleiro tem +ou- uns 62bits, as coordenadas e as imagens das peças devem ser ajustadas.
-    
+  Repositório do grupo 5 de INF 112 para o projeto final da disciplina
+</h3>
+
+<div align="center">
+  <img  src="https://i.imgur.com/LKOFabQ.png" width="415px" heigth="405px"/>
+
+
+<h3> Integrantes do projeto </h3>
+
+  <h4><a href="https://github.com/GabrielTheophilo"><em>Gabriel Theophilo</em></a>
+  <h4><a href="https://github.com/Gabrielaogd"><em>Gabriela Ouriques</em></a></h4>
+  <h4><a href="https://github.com/guinlops"><em>Guilherme Nunes</em></a></h4>
+  <h4><a href="https://github.com/Libianegomes"><em>Libiane Gomes</em></a></h4>
+  <h4><a href="https://github.com/pedroohm"><em>Pedro Moura</em></a></h4>
+
+</div>
