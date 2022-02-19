@@ -1,1 +1,1 @@
-g++ -o teste.exe main.cpp -lallegro -lallegro_image -lallegro_ttf -lallegro_font -mwindows
+g++ -o candycrush.exe main.cpp -lallegro -lallegro_image -lallegro_ttf -lallegro_font  || sleep 5s

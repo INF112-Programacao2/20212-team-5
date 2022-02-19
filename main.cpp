@@ -9,9 +9,11 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>   
-#include <allegro5/allegro_ttf.h>    
+#include <allegro5/allegro_ttf.h> 
 #include <iostream>
 #include <stdlib.h>
+
+#include "main.h"   
 
 using namespace std;
 
@@ -30,6 +32,8 @@ ALLEGRO_BITMAP *dlaranja = NULL;
 ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
 
+const int OFFSETX = 300;
+const int OFFSETY = 270;
 
 bool redraw = true;   
 bool sair = false;
@@ -187,26 +191,26 @@ int jogo(ALLEGRO_EVENT &ev){
 
                 al_clear_to_color(al_map_rgb(0,0,0));
 
-                al_draw_bitmap(mapa,0,0,0);
+                al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
 
                 al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
 
                 for (int i=0; i<8; i++){
                     for (int j=0; j<8; j++){
                         if(MAPA[i][j]==0){ //Se for 0, desenha a peça laranha
-                            al_draw_bitmap(dlaranja,j*q,i*q,0);//função desenha
+                            al_draw_bitmap(dlaranja,(j*q)+OFFSETX,(i*q)+OFFSETY,0);//função desenha
                         }
                         if(MAPA[i][j]==1){ //Se for 1, desenha a peça roxa;
-                           al_draw_bitmap(droxo,j*q,i*q,0); //função desenha
+                           al_draw_bitmap(droxo,(j*q)+OFFSETX,(i*q)+OFFSETY,0); //função desenha
 
                            if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                                al_draw_bitmap(dlaranja,j*q,i*q,0);
+                                al_draw_bitmap(dlaranja,(j*q)+OFFSETX,(i*q)+OFFSETY,0);
                            }
                         }
                         if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
-                            al_draw_bitmap(dverde,j*q,i*q,0); //função desenha
+                            al_draw_bitmap(dverde,(j*q)+OFFSETX,(i*q)+OFFSETY,0); //função desenha
                             if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                                al_draw_bitmap(dlaranja,j*q,i*q,0);
+                                al_draw_bitmap(dlaranja,(j*q)+OFFSETX,(i*q)+OFFSETY,0);
                             }                        
                         }
                     }
@@ -259,11 +263,7 @@ int main(int argc, char **argv){
     while(!sair){
         mainmenu();
     }
-    
-    
     desinicializa();
-                
-    
     return 0;
 }
 
