@@ -96,6 +96,7 @@ int inicializa() {
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
+    
 
     al_register_event_source(event_queue, al_get_mouse_event_source());
 
@@ -107,68 +108,73 @@ int inicializa() {
 }
 
 
-int main(int argc, char **argv){
-	if(!inicializa()) return -1;
-    while(!sair){
-        ALLEGRO_EVENT ev;
-        al_wait_for_event(event_queue, &ev);
-         if(ev.type == ALLEGRO_EVENT_TIMER)
-        {
-        
-            redraw = true;
+
+int mainmenu(){
+    
+    ALLEGRO_EVENT event;
+    al_draw_bitmap(menu,0,0,0);
+    al_flip_display();
+    al_wait_for_event(event_queue, &event);
+    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
+        while(!sair){
+        al_wait_for_event(event_queue, &event);
+        if(event.type == ALLEGRO_EVENT_TIMER){
+                redraw = true;
         }
-        else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+        else if(event.type == ALLEGRO_EVENT_KEY_DOWN)
         {
-            switch(ev.keyboard.keycode)
+            switch(event.keyboard.keycode)
             {
             
             }
         }
 	    //<------------------------------------------------------->
 
-        else if(ev.type == ALLEGRO_EVENT_KEY_UP)
+        else if(event.type == ALLEGRO_EVENT_KEY_UP)
         {
-            switch(ev.keyboard.keycode)
+            switch(event.keyboard.keycode)
             {
             case ALLEGRO_KEY_ESCAPE:
                 sair = true;
                 break;
             }
         }
-        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
+        else if(event.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
         {
-                mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
-                mouse_y=(ev.mouse.y);
+                mouse_x=(event.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
+                mouse_y=(event.mouse.y);
                 
 
                 cout<<mouse_x<<" "<< mouse_y<<endl;
                 
                 
         }
-        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
-        {
-            if(ev.mouse.button & 1){ // &1 = botão esquerdo
-                pressao=true;   //pressionado= TRUE
-                cout<<"CLICK"<<endl;
-            }
-             
-        }
-        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+        else if (event.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
         {       
                 pressao=false;              
 
         }
-
         al_clear_to_color(al_map_rgb(0,255,0));
-        al_draw_bitmap(menu, 0,0,0);
+        al_draw_bitmap(mouse, 0,0,0);
 		al_flip_display();
-
+        pressao=true;   //pressionado= TRUE
+        cout<<"CLICK"<<endl;
 	}
-
     
-    al_destroy_timer(timer);
-    al_destroy_display(display);
-    al_destroy_event_queue(event_queue);
+    }
+    else{
+        return 0;
+    }
+}
 
+
+int main(int argc, char **argv){
+	if(!inicializa()) return -1;
+    while(!sair){
+        mainmenu();
+    }
+    
+    
     return 0;
 }
+
