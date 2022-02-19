@@ -72,7 +72,7 @@ int inicializa() {
         return 0;
     }
 
-    mapa = al_load_bitmap("tab.bmp");
+    mapa = al_load_bitmap("CandyCrushRecursos/tab.bmp");
     if(!mapa)
     {
         cout << "Falha ao carregar o mapa!" << endl;
@@ -80,7 +80,7 @@ int inicializa() {
         return 0;
     }
 
-    mouse=al_load_bitmap("CandyCrushResources/personagem.png"); 
+    mouse=al_load_bitmap("CandyCrushRecursos/personagem.png"); 
     if(!al_install_mouse())
     {
         cout << "Falha ao inicializar o mouse" << endl;
@@ -97,7 +97,7 @@ int inicializa() {
 
         return 0;
     }
-    menu = al_load_bitmap("CandyCrushResources/menu.bmp");
+    menu = al_load_bitmap("CandyCrushRecursos/menu.bmp");
     if(!menu){
         cout << "FALHA AO CARREGAR O MENU" << endl;
 
@@ -105,7 +105,7 @@ int inicializa() {
         
         return 0;
     }
-    dlaranja = al_load_bitmap("dlaranja.tga"); //carrega a imagem da cabeca
+    dlaranja = al_load_bitmap("CandyCrushRecursos/dlaranja.tga"); //carrega a imagem da cabeca
 	if(!dlaranja)
     {
         cout << "Falha ao carregar o doce laranja!" << endl;
@@ -114,7 +114,7 @@ int inicializa() {
     }
 
     
-    droxo = al_load_bitmap("droxo.tga"); //carrega a imagem da cabeca
+    droxo = al_load_bitmap("CandyCrushRecursos/droxo.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         cout << "Falha ao carregar o doce roxo" << endl;
@@ -122,7 +122,7 @@ int inicializa() {
         return 0;
     }
 
-    dverde = al_load_bitmap("dverde.tga"); //carrega a imagem da cabeca
+    dverde = al_load_bitmap("CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         cout << "Falha ao carregar o doce verde" << endl;
