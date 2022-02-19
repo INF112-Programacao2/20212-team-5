@@ -143,103 +143,79 @@ int inicializa() {
 
     return 1;
 }
-
-
-
-int mainmenu(){
+int jogo(ALLEGRO_EVENT &ev){
     
-    ALLEGRO_EVENT event;
-    al_draw_bitmap(menu,0,0,0);
-    al_flip_display();
-    al_wait_for_event(event_queue, &event);
-    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
-        while(!sair){
-        
-        if(event.type == ALLEGRO_EVENT_TIMER)
-        {
-        
-            redraw = true;
-        }
-        else if(event.type == ALLEGRO_EVENT_KEY_DOWN)
-        {
-            switch(event.keyboard.keycode)
-            {
+    while(!sair){
+            al_wait_for_event(event_queue, &ev);
+            if(ev.type == ALLEGRO_EVENT_TIMER){
             
+                redraw = true;
             }
-        }
-	    //<------------------------------------------------------->
-
-        else if(event.type == ALLEGRO_EVENT_KEY_UP)
-        {
-            switch(event.keyboard.keycode)
-            {
-            case ALLEGRO_KEY_ESCAPE:
-                sair = true;
-                break;
-            }
-        }
-        else if(event.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
-        {
-                mouse_x=(event.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
-                mouse_y=(event.mouse.y);
-                
-
-                cout<<mouse_x<<" "<< mouse_y<<endl;
-                
-                
-        }
-        else if (event.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
-        {
-            if(event.mouse.button & 1){ // &1 = botão esquerdo
-                pressao=true;   //pressionado= TRUE
-                cout<<"CLICK"<<endl;
-            }
-             
-        }
-        else if (event.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
-        {       
-                pressao=false;              
-
-        }
-        if(redraw && al_is_event_queue_empty(event_queue)) //se REDRAW (redesenhar for true e a fila estiver vazia)
-        {
-            redraw = false;
-
-            al_clear_to_color(al_map_rgb(0,0,0));
-            
-            al_draw_bitmap(mapa,0,0,0);
-            
-            al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
-
-            for (int i=0; i<8; i++){
-                for (int j=0; j<8; j++){
-                    if(MAPA[i][j]==0){ //Se for 0, desenha a peça laranha
-                        al_draw_bitmap(dlaranja,j*q,i*q,0);//função desenha
+	        //<------------------------------------------------------->
+            else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+                        break;
                     }
-                    if(MAPA[i][j]==1){ //Se for 1, desenha a peça roxa;
-                       al_draw_bitmap(droxo,j*q,i*q,0); //função desenha
-
-                       if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                            al_draw_bitmap(dlaranja,j*q,i*q,0);
-                       }
+            else if(ev.type == ALLEGRO_EVENT_KEY_UP){
+                switch(ev.keyboard.keycode){
+                    case ALLEGRO_KEY_ESCAPE:
+                        sair = true;
+                        break;
                     }
-                    if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
-                        al_draw_bitmap(dverde,j*q,i*q,0); //função desenha
-                        if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                            al_draw_bitmap(dlaranja,j*q,i*q,0);
-                        }                        
+            }
+            else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES){ //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
+
+                    mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
+                    mouse_y=(ev.mouse.y);
+
+
+                    cout<<mouse_x<<" "<< mouse_y<<endl;
+            }
+            else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){ //se der o click no mouse
+                if(ev.mouse.button & 1){ // &1 = botão esquerdo
+                    pressao=true;   //pressionado= TRUE
+                    cout<<"CLICK"<<endl;
+                }
+
+            }
+            else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP){
+         
+                    pressao=false;              
+
+            }
+            if(redraw && al_is_event_queue_empty(event_queue)){ //se REDRAW (redesenhar for true e a fila estiver vazia)
+            
+                redraw = false;
+
+                al_clear_to_color(al_map_rgb(0,0,0));
+
+                al_draw_bitmap(mapa,0,0,0);
+
+                al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
+
+                for (int i=0; i<8; i++){
+                    for (int j=0; j<8; j++){
+                        if(MAPA[i][j]==0){ //Se for 0, desenha a peça laranha
+                            al_draw_bitmap(dlaranja,j*q,i*q,0);//função desenha
+                        }
+                        if(MAPA[i][j]==1){ //Se for 1, desenha a peça roxa;
+                           al_draw_bitmap(droxo,j*q,i*q,0); //função desenha
+
+                           if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
+                                al_draw_bitmap(dlaranja,j*q,i*q,0);
+                           }
+                        }
+                        if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
+                            al_draw_bitmap(dverde,j*q,i*q,0); //função desenha
+                            if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
+                                al_draw_bitmap(dlaranja,j*q,i*q,0);
+                            }                        
+                        }
                     }
                 }
+		    	//al_draw_bitmap(dlaranja,j*q,i*q,0); //desenha a cabeca da cobra
+                al_flip_display();
+
             }
-			//al_draw_bitmap(dlaranja,j*q,i*q,0); //desenha a cabeca da cobra
-            al_flip_display();
-        
-        }
-    }
-    
-    }
-    else{
-        return 0;
     }
 }
 
@@ -252,14 +228,33 @@ int desinicializa(){
     al_destroy_timer(timer);
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
+    al_destroy_display(display);
+    return 0;
 }
+
+int mainmenu(){
+    
+    ALLEGRO_EVENT event;
+    al_draw_bitmap(menu,0,0,0);
+    al_flip_display();
+    al_wait_for_event(event_queue, &event);
+    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
+        jogo(event);
+    }
+    
+}
+
+
 int main(int argc, char **argv){
 	if(!inicializa()) return -1;
     while(!sair){
         mainmenu();
     }
     
+    
     desinicializa();
+                
+    
     return 0;
 }
 
