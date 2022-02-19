@@ -1,0 +1,1 @@
+g++ -o teste.exe main.cpp -lallegro -lallegro_image -lallegro_ttf -lallegro_font -mwindows
