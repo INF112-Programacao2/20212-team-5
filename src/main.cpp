@@ -31,9 +31,10 @@ ALLEGRO_BITMAP *mouse=NULL;
 ALLEGRO_BITMAP *dlaranja = NULL;
 ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
+ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 
-const int OFFSETX = 300;
-const int OFFSETY = 270;
+const int OFFSETX = 240;
+const int OFFSETY = 210;
 
 bool redraw = true;   
 bool sair = false;
@@ -41,6 +42,10 @@ bool pressao=false;
 int mouse_x, mouse_y;
 int MAPA[8][8];
 int q = 62;
+
+
+
+
 
 int inicializa() {
     
@@ -76,7 +81,7 @@ int inicializa() {
         return 0;
     }
 
-    mapa = al_load_bitmap("CandyCrushRecursos/tab.bmp");
+    mapa = al_load_bitmap("assets/tab.bmp");
     if(!mapa)
     {
         cout << "Falha ao carregar o mapa!" << endl;
@@ -84,14 +89,14 @@ int inicializa() {
         return 0;
     }
 
-    mouse=al_load_bitmap("CandyCrushRecursos/personagem.png"); 
+    mouse=al_load_bitmap("assets/personagem.png"); 
     if(!al_install_mouse())
     {
         cout << "Falha ao inicializar o mouse" << endl;
         return 0;
     }
 
-
+    
 
     event_queue = al_create_event_queue();
     if(!event_queue)
@@ -101,7 +106,7 @@ int inicializa() {
 
         return 0;
     }
-    menu = al_load_bitmap("CandyCrushRecursos/menu.bmp");
+    menu = al_load_bitmap("assets/menu.bmp");
     if(!menu){
         cout << "FALHA AO CARREGAR O MENU" << endl;
 
@@ -109,7 +114,7 @@ int inicializa() {
         
         return 0;
     }
-    dlaranja = al_load_bitmap("CandyCrushRecursos/dlaranja.tga"); //carrega a imagem da cabeca
+    dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
 	if(!dlaranja)
     {
         cout << "Falha ao carregar o doce laranja!" << endl;
@@ -118,7 +123,7 @@ int inicializa() {
     }
 
     
-    droxo = al_load_bitmap("CandyCrushRecursos/droxo.tga"); //carrega a imagem da cabeca
+    droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         cout << "Falha ao carregar o doce roxo" << endl;
@@ -126,7 +131,15 @@ int inicializa() {
         return 0;
     }
 
-    dverde = al_load_bitmap("CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
+    cursor = al_create_mouse_cursor(droxo, 0, 0);
+    if(!cursor)
+        {
+            cout << "Falha ao carregar o cursor" << endl;
+            al_destroy_mouse_cursor(cursor);
+            return 0;
+        }
+
+    dverde = al_load_bitmap("assets/dverde.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         cout << "Falha ao carregar o doce verde" << endl;
@@ -193,24 +206,24 @@ int jogo(ALLEGRO_EVENT &ev){
 
                 al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
 
-                al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
-
+                //al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
+                al_set_mouse_cursor(display, cursor);
                 for (int i=0; i<8; i++){
                     for (int j=0; j<8; j++){
                         if(MAPA[i][j]==0){ //Se for 0, desenha a peça laranha
-                            al_draw_bitmap(dlaranja,(j*q)+OFFSETX,(i*q)+OFFSETY,0);//função desenha
+                            al_draw_bitmap(dlaranja,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0);//função desenha
                         }
                         if(MAPA[i][j]==1){ //Se for 1, desenha a peça roxa;
-                           al_draw_bitmap(droxo,(j*q)+OFFSETX,(i*q)+OFFSETY,0); //função desenha
+                           al_draw_bitmap(droxo,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0); //função desenha
 
                            if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                                al_draw_bitmap(dlaranja,(j*q)+OFFSETX,(i*q)+OFFSETY,0);
+                                al_draw_bitmap(dlaranja,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0);
                            }
                         }
                         if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
-                            al_draw_bitmap(dverde,(j*q)+OFFSETX,(i*q)+OFFSETY,0); //função desenha
+                            al_draw_bitmap(dverde,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0); //função desenha
                             if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                                al_draw_bitmap(dlaranja,(j*q)+OFFSETX,(i*q)+OFFSETY,0);
+                                al_draw_bitmap(dlaranja,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0);
                             }                        
                         }
                     }
@@ -260,6 +273,7 @@ int mainmenu(){
 
 int main(int argc, char **argv){
 	if(!inicializa()) return -1;
+    srand(time(NULL));
     while(!sair){
         mainmenu();
     }
