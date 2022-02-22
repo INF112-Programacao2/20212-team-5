@@ -5,7 +5,6 @@
 */
 
 
-//
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>   
@@ -21,6 +20,11 @@ const float FPS = 10;
 const int SCREEN_W = 950;
 const int SCREEN_H = 950;
 const int QUAD_SIZE = 20;
+const int OFFSETX = 240;
+const int OFFSETY = 210;
+
+const char *nome = NULL;
+
 
 ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
@@ -33,8 +37,6 @@ ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 
-const int OFFSETX = 240;
-const int OFFSETY = 210;
 
 bool redraw = true;   
 bool sair = false;
@@ -42,12 +44,13 @@ bool pressao=false;
 int mouse_x, mouse_y;
 int MAPA[8][8];
 int q = 62;
-
-
-
+int keyboardState = 0;
 
 
 int inicializa() {
+    
+    nome = "Candy Crush";
+    al_set_app_name(nome);
     
     if(!al_init())
     {
@@ -257,9 +260,28 @@ int mainmenu(){
     al_draw_bitmap(menu,0,0,0);
     al_flip_display();
     al_wait_for_event(event_queue, &event);     //ESPERA POR UM EVENTO (No caso da condição abaixo, iniciará o jogo). SE FOR QUEBRADO(receber um break), A CONDIÇÃO RETORNA O PROGRAMA AO MENU INICIAR
-    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
-        jogo(event);
+    if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_UP){
+        if(keyboardState<3){
+            
+            keyboardState += 1;
+        }
+        
     }
+    if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_DOWN){
+        if(keyboardState>0){
+            keyboardState -= 1;
+            
+        }
+    }
+       
+    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
+        if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
+            jogo(event);
+        }
+    }
+    //if keyboardState == 2 { segundaFase() }
+    //if keyboardState == 3 { terceiraFase() }
+    //if keyboardState == 4 { quartaFase() }
 
     else if(event.type == ALLEGRO_EVENT_KEY_UP){
         if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
