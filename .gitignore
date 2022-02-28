@@ -1,4 +1,3 @@
 *.dll
 .vscode/
-.release/
 *.exe
