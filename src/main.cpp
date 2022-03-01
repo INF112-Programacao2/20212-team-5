@@ -43,6 +43,8 @@ ALLEGRO_BITMAP *Maozinha = NULL;
 ALLEGRO_BITMAP *Muda1 = NULL;
 ALLEGRO_BITMAP *Nave = NULL;
 ALLEGRO_BITMAP *fundo = NULL;
+
+
 bool redraw = true;   
 bool sair = false;
 bool pressao=false;
@@ -134,7 +136,7 @@ int inicializa() {
     droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
-        std::cout << "Falha ao carregar o doce verde" << std::endl;
+        std::cout << "Falha ao carregar o doce roxo" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -202,6 +204,69 @@ int inicializa() {
         al_destroy_display(display);
         return 0;
     }
+    dverde = al_load_bitmap("assets/CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
+	if(!droxo)
+    {
+        std::cout << "Falha ao carregar o doce verde" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+     Pirulito = al_load_bitmap("assets/Pirulito.bmp");
+    if(!Pirulito)
+    {
+        std::cout << "Falha ao carregar o pirulito!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
+    if(!fundosugar)
+    {
+        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Festa = al_load_bitmap("assets/Festa.bmp");
+    if(!Festa)
+    {
+        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
+    if(!fundorosa)
+    {
+        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
+    if(!Maozinha)
+    {
+        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Muda1 = al_load_bitmap("assets/Muda1.bmp");
+    if(!Muda1)
+    {
+        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Nave = al_load_bitmap("assets/Nave.bmp");
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
     //al_init_font_addon();  // marcado para possibilitar a execução
     //al_init_ttf_addon();  //  marcado para possibilitar a execução
     al_register_event_source(event_queue, al_get_display_event_source(display));
@@ -224,7 +289,6 @@ int jogo(ALLEGRO_EVENT &ev){
             
                 redraw = true;
             }
-	        //<------------------------------------------------------->
             else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 sair=true;
                         break;
@@ -239,7 +303,6 @@ int jogo(ALLEGRO_EVENT &ev){
                     mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
                     mouse_y=(ev.mouse.y);
 
-
                     std::cout<<mouse_x<<" "<< mouse_y<<std::endl;
             }
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){ //se der o click no mouse
@@ -247,21 +310,19 @@ int jogo(ALLEGRO_EVENT &ev){
                     pressao=true;   //pressionado= TRUE
                     std::cout<<"CLICK"<<std::endl;
                 }
-
             }
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP){
-         
                     pressao=false;              
-
             }
             if(redraw && al_is_event_queue_empty(event_queue)){ //se REDRAW (redesenhar for true e a fila estiver vazia)
             
                 redraw = false;
-
                 al_clear_to_color(al_map_rgb(0,0,0));
+
                 al_draw_bitmap(dlaranja,mouse_x,mouse_y,0);  //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
 
                 al_draw_bitmap(fundo,0,0,0);
+
                 al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
                 al_draw_bitmap(fundorosa,380,450,100);
                 al_draw_bitmap(Maozinha,400,465,100);
@@ -317,6 +378,7 @@ int desinicializa(){
     al_destroy_bitmap(Muda1);
     al_destroy_bitmap(Nave);
     al_destroy_bitmap(fundo);
+
     return 0;
 }
 
@@ -331,18 +393,15 @@ int mainmenu(){
     al_wait_for_event(event_queue, &event);     //ESPERA POR UM EVENTO (No caso da condição abaixo, iniciará o jogo). SE FOR QUEBRADO(receber um break), A CONDIÇÃO RETORNA O PROGRAMA AO MENU INICIAR
     if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_UP){
         if(keyboardState<3){
-            
             keyboardState += 1;
         }
-        
     }
     if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_DOWN){
         if(keyboardState>0){
             keyboardState -= 1;
-            
         }
     }
-       
+
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
         jogo(event);

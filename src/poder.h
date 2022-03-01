@@ -1,0 +1,14 @@
+#ifndef PODER_H
+#define PODER_H
+
+
+class Poder {
+    private:
+     ////////////////////////////////
+    protected:
+     ////////////////////////////////
+    public:
+     ////////////////////////////////
+};
+
+#endif
