@@ -80,7 +80,7 @@ int inicializa() {
         return 0;
     }
 
-    mapa = al_load_bitmap("CandyCrushRecursos/tabuleiro.bmp");
+    mapa = al_load_bitmap("CandyCrushRecursos/tab.bmp");
     if(!mapa)
     {
         std::cout << "Falha ao carregar o mapa!" << std::endl;
