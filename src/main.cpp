@@ -36,7 +36,13 @@ ALLEGRO_BITMAP *dlaranja = NULL;
 ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
-
+ALLEGRO_BITMAP *Pirulito = NULL;
+ALLEGRO_BITMAP *fundosugar = NULL;
+ALLEGRO_BITMAP *Festa = NULL;
+ALLEGRO_BITMAP *fundorosa = NULL;
+ALLEGRO_BITMAP *Maozinha = NULL;
+ALLEGRO_BITMAP *Muda1 = NULL;
+ALLEGRO_BITMAP *Nave = NULL;
 
 bool redraw = true;   
 bool sair = false;
@@ -54,32 +60,32 @@ int inicializa() {
     
     if(!al_init())
     {
-        cout << "Falha ao carregar Allegro" << endl;
+        std::cout << "Falha ao carregar Allegro" << std::endl;
         return 0;
     }
 
     if(!al_install_keyboard())
     {
-        cout << "Falha ao inicializar o teclado" << endl;
+        std::cout << "Falha ao inicializar o teclado" << std::endl;
         return 0;
     }
 
     timer = al_create_timer(1.0 / FPS);
     if(!timer)
     {
-        cout << "Falha ao inicializar o temporizador" << endl;
+        std::cout << "Falha ao inicializar o temporizador" << std::endl;
         return 0;
     }
 
     if(!al_init_image_addon())
     {
-        cout <<"Falha ao iniciar al_init_image_addon!" << endl;
+        std::cout <<"Falha ao iniciar al_init_image_addon!" << std::endl;
         return 0;
     }
     display = al_create_display(SCREEN_W, SCREEN_H);
     if(!display)
     {
-        cout << "Falha ao inicializar a tela" << endl;
+        std::cout << "Falha ao inicializar a tela" << std::endl;
         al_destroy_timer(timer);
         return 0;
     }
@@ -87,7 +93,7 @@ int inicializa() {
     mapa = al_load_bitmap("assets/tab.bmp");
     if(!mapa)
     {
-        cout << "Falha ao carregar o mapa!" << endl;
+        std::cout << "Falha ao carregar o mapa!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -95,7 +101,7 @@ int inicializa() {
     mouse=al_load_bitmap("assets/personagem.png"); 
     if(!al_install_mouse())
     {
-        cout << "Falha ao inicializar o mouse" << endl;
+        std::cout << "Falha ao inicializar o mouse" << std::endl;
         return 0;
     }
 
@@ -104,14 +110,14 @@ int inicializa() {
     event_queue = al_create_event_queue();
     if(!event_queue)
     {
-        cout << "Falha ao criar a fila de eventos" << endl;
+        std::cout << "Falha ao criar a fila de eventos" << std::endl;
         al_destroy_display(display);
 
         return 0;
     }
     menu = al_load_bitmap("assets/menu.bmp");
     if(!menu){
-        cout << "FALHA AO CARREGAR O MENU" << endl;
+        std::cout << "FALHA AO CARREGAR O MENU" << std::endl;
 
         al_destroy_display(display);
         
@@ -120,7 +126,7 @@ int inicializa() {
     dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
 	if(!dlaranja)
     {
-        cout << "Falha ao carregar o doce laranja!" << endl;
+        std::cout << "Falha ao carregar o doce laranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -129,7 +135,7 @@ int inicializa() {
     droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
-        cout << "Falha ao carregar o doce roxo" << endl;
+        std::cout << "Falha ao carregar o doce roxo" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -146,6 +152,69 @@ int inicializa() {
 	if(!droxo)
     {
         cout << "Falha ao carregar o doce verde" << endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    dverde = al_load_bitmap("assets/CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
+	if(!droxo)
+    {
+        std::cout << "Falha ao carregar o doce verde" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+     Pirulito = al_load_bitmap("assets/Pirulito.bmp");
+    if(!Pirulito)
+    {
+        std::cout << "Falha ao carregar o pirulito!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
+    if(!fundosugar)
+    {
+        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Festa = al_load_bitmap("assets/Festa.bmp");
+    if(!Festa)
+    {
+        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
+    if(!fundorosa)
+    {
+        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
+    if(!Maozinha)
+    {
+        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Muda1 = al_load_bitmap("assets/Muda1.bmp");
+    if(!Muda1)
+    {
+        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Nave = al_load_bitmap("assets/Nave.bmp");
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -171,7 +240,6 @@ int jogo(ALLEGRO_EVENT &ev){
             
                 redraw = true;
             }
-	        //<------------------------------------------------------->
             else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 sair=true;
                 break;
@@ -185,28 +253,30 @@ int jogo(ALLEGRO_EVENT &ev){
 
                     mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
                     mouse_y=(ev.mouse.y);
-
-
-                    cout<<mouse_x<<" "<< mouse_y<<endl;
+                    std::cout<<mouse_x<<" "<< mouse_y<<std::endl;
             }
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){ //se der o click no mouse
                 if(ev.mouse.button & 1){ // &1 = botão esquerdo
                     pressao=true;   //pressionado= TRUE
-                    cout<<"CLICK"<<endl;
+                    std::cout<<"CLICK"<<std::endl;
                 }
-
             }
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP){
-         
                     pressao=false;              
-
             }
             if(redraw && al_is_event_queue_empty(event_queue)){ //se REDRAW (redesenhar for true e a fila estiver vazia)
             
                 redraw = false;
-
                 al_clear_to_color(al_map_rgb(0,0,0));
-
+                al_draw_bitmap(mapa,0,0,0);
+                al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
+                al_draw_bitmap(Pirulito,0,0,2); 
+                al_draw_bitmap(fundosugar,0,0,6); 
+                al_draw_bitmap(Festa,0,0,8); 
+                al_draw_bitmap(fundorosa,0,0,10); 
+                al_draw_bitmap(Maozinha,0,0,12); 
+                al_draw_bitmap(Muda1,0,0,14); 
+                al_draw_bitmap(Nave,0,0,16); 
                 al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
 
                 //al_draw_bitmap(dlaranja,mouse_x,mouse_y,0); //vai desenhar uma peça laranha no mouse, apenas para teste nao achei um ponteiro top ainda kkkkkk
@@ -248,6 +318,13 @@ int desinicializa(){
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
     al_destroy_display(display);
+    al_destroy_bitmap(Pirulito);
+    al_destroy_bitmap(fundorosa);
+    al_destroy_bitmap(Festa);
+    al_destroy_bitmap(fundosugar);
+    al_destroy_bitmap(Maozinha);
+    al_destroy_bitmap(Muda1);
+    al_destroy_bitmap(Nave);
     return 0;
 }
 
@@ -262,18 +339,15 @@ int mainmenu(){
     al_wait_for_event(event_queue, &event);     //ESPERA POR UM EVENTO (No caso da condição abaixo, iniciará o jogo). SE FOR QUEBRADO(receber um break), A CONDIÇÃO RETORNA O PROGRAMA AO MENU INICIAR
     if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_UP){
         if(keyboardState<3){
-            
             keyboardState += 1;
         }
-        
     }
     if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_DOWN){
         if(keyboardState>0){
             keyboardState -= 1;
-            
         }
     }
-       
+
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
             jogo(event);
@@ -302,4 +376,3 @@ int main(int argc, char **argv){
     desinicializa();
     return 0;
 }
-
