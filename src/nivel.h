@@ -9,7 +9,7 @@ class Nivel {
      ////////////////////////////////
     public:
      ////////////////////////////////
-}
+};
 
 class FaseUm : public Nivel {
     private:
@@ -18,7 +18,7 @@ class FaseUm : public Nivel {
      ////////////////////////////////
     public:
      ////////////////////////////////
-}
+};
 
 class FaseDois : public Nivel {
     private:
@@ -27,6 +27,6 @@ class FaseDois : public Nivel {
      ////////////////////////////////
     public:
      ////////////////////////////////
-}
+};
 
 #endif

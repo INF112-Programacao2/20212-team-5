@@ -13,6 +13,6 @@ namespace Pontuacao {
             fimDaFase();
     }
 
-}
+};
 
 #endif
