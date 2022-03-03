@@ -1,6 +1,5 @@
-#include "allegro.h"
+#include "inicializa.h"
 #include "main.h"
-#include <iostream>
 
 int inicializa() {
     
@@ -247,5 +246,7 @@ int desinicializa(){
     al_destroy_bitmap(Maozinha);
     al_destroy_bitmap(Muda1);
     al_destroy_bitmap(Nave);
+    al_destroy_bitmap(fundo);
+
     return 0;
 }

@@ -6,8 +6,9 @@
 
 #include <stdlib.h>
 #include "main.h"
-#include "allegro.h"
-#include "inicializa.h"
+#include "inicializa.cpp"
+#include "nivel.cpp"
+#include "menu.cpp"
 
 
 int main(int argc, char **argv){
