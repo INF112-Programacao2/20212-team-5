@@ -13,7 +13,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-#include "teste.h"
 
 const float FPS = 10;
 const int SCREEN_W = 950;
@@ -130,7 +129,7 @@ int inicializa() {
         return 0;
     }
 
-    dverde = al_load_bitmap("CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
+    dverde = al_load_bitmap("assets/dverde.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         std::cout << "Falha ao carregar o doce verde" << std::endl;
@@ -138,7 +137,7 @@ int inicializa() {
         return 0;
     }
 
-     Pirulito = al_load_bitmap("Pirulito.bmp");
+     Pirulito = al_load_bitmap("assets/Pirulito.bmp");
     if(!Pirulito)
     {
         std::cout << "Falha ao carregar o pirulo!" << std::endl;
@@ -146,7 +145,7 @@ int inicializa() {
         return 0;
     }
 
-    fundosugar = al_load_bitmap("fundosugar.bmp");
+    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
     if(!fundosugar)
     {
         std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
@@ -154,7 +153,7 @@ int inicializa() {
         return 0;
     }
 
-    Festa = al_load_bitmap("Festa.bmp");
+    Festa = al_load_bitmap("assets/Festa.bmp");
     if(!Festa)
     {
         std::cout << "Falha ao carregar ajuda festa!" << std::endl;
@@ -162,7 +161,7 @@ int inicializa() {
         return 0;
     }
 
-    fundorosa = al_load_bitmap("fundorosa.bmp");
+    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
     if(!fundorosa)
     {
         std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
@@ -170,7 +169,7 @@ int inicializa() {
         return 0;
     }
 
-    Maozinha = al_load_bitmap("Maozinha.bmp");
+    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
     if(!Maozinha)
     {
         std::cout << "Falha ao carregar ajuda mao!" << std::endl;
@@ -178,7 +177,7 @@ int inicializa() {
         return 0;
     }
 
-    Muda1 = al_load_bitmap("Muda1.bmp");
+    Muda1 = al_load_bitmap("assets/Muda1.bmp");
     if(!Muda1)
     {
         std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
@@ -186,7 +185,7 @@ int inicializa() {
         return 0;
     }
 
-    Nave = al_load_bitmap("Nave.bmp");
+    Nave = al_load_bitmap("assets/Nave.bmp");
     if(!Nave)
     {
         std::cout << "Falha ao carregar ajuda nave!" << std::endl;
