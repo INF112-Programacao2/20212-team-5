@@ -3,7 +3,7 @@
 
 #include "allegro.h"
 
-#include "main.h"
+#include "main.hpp"
 
 int mainmenu();
 

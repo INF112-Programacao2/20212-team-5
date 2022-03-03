@@ -2,7 +2,7 @@
 #define INICIALIZA_H
 
 #include "allegro.h"
-#include "main.h"
+#include "main.hpp"
 #include <iostream>
 
 int inicializa();

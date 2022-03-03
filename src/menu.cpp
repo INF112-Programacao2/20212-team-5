@@ -1,7 +1,7 @@
 #ifndef MENU_CPP
 #define MENU_CPP
 
-#include "menu.h"
+#include "menu.hpp"
 #include "nivel.cpp"
 
 

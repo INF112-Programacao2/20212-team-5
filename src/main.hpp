@@ -1,8 +1,8 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
 #include "allegro.h"
-#include "inicializa.h"
+#include "inicializa.hpp"
 
 const float FPS = 10;
 const int SCREEN_W = 1000;
@@ -27,6 +27,7 @@ ALLEGRO_BITMAP *dvermelho = NULL;
 ALLEGRO_BITMAP *dazul = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 ALLEGRO_FONT *font = NULL;
+ALLEGRO_BITMAP *fundo = NULL;
 
 
 bool redraw = true;   
