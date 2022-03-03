@@ -125,6 +125,9 @@ int inicializa() {
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
+    al_init_font_addon();    
+    al_init_ttf_addon();    
+    font = al_load_ttf_font("assets/candycrush.ttf", 26, 0); 
 
     al_register_event_source(event_queue, al_get_mouse_event_source());
 

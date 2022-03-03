@@ -26,7 +26,7 @@ ALLEGRO_BITMAP *dverde = NULL;
 ALLEGRO_BITMAP *dvermelho = NULL;
 ALLEGRO_BITMAP *dazul = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
-
+ALLEGRO_FONT *font = NULL;
 
 
 bool redraw = true;   
@@ -36,7 +36,7 @@ int mouse_x, mouse_y;
 int MAPA[8][8];
 int q = 62;
 int keyboardState = 0;
-
+int pontuacao = 0;
 
 int jogo(ALLEGRO_EVENT &ev);
 

@@ -5,14 +5,20 @@
 
 class Doce {
     public:
+        ////////////
+    
         
 };
 
 class DoceLaranja : Doce {
+    
     public:
         ALLEGRO_BITMAP *doce = al_load_bitmap("dlaranja.tga");
         
+
 };
+
+
 
 class Poder {
     private:
