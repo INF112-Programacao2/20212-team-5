@@ -3,12 +3,12 @@
 
 #include "allegro.h"
 
-int jogo(ALLEGRO_EVENT &ev);
+
 
 class Nivel {
-    
     public:
-    ///////////
+        int faseUm(ALLEGRO_EVENT &ev);
+        
 };
 
 class FaseUm : public Nivel {

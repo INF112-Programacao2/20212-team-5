@@ -1,3 +1,6 @@
+#ifndef INICIALIZA_CPP
+#define INICIALIZA_CPP
+
 #include "inicializa.h"
 #include "main.h"
 
@@ -88,132 +91,35 @@ int inicializa() {
         return 0;
     }
 
-     Pirulito = al_load_bitmap("assets/Pirulito.bmp");
-    if(!Pirulito)
-    {
-        std::cout << "Falha ao carregar o pirulito!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
-    if(!fundosugar)
-    {
-        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Festa = al_load_bitmap("assets/festa.bmp");
-    if(!Festa)
-    {
-        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
-    if(!fundorosa)
-    {
-        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
-    if(!Maozinha)
-    {
-        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Muda1 = al_load_bitmap("assets/Muda.bmp");
-    if(!Muda1)
-    {
-        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Nave = al_load_bitmap("assets/Nave.bmp");
-    if(!Nave)
-    {
-        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    fundo = al_load_bitmap("assets/Fundo2.bmp");
-    if(!Nave)
-    {
-        std::cout << "Falha ao carregar fundo!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-    dverde = al_load_bitmap("assets/CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
-	if(!droxo)
+    dverde = al_load_bitmap("assets/dverde.tga");
+    if(!dverde)
     {
         std::cout << "Falha ao carregar o doce verde" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-
-     Pirulito = al_load_bitmap("assets/Pirulito.bmp");
-    if(!Pirulito)
+    dvermelho = al_load_bitmap("assets/dvermelho.tga");
+    if(!dvermelho)
     {
-        std::cout << "Falha ao carregar o pirulito!" << std::endl;
+        std::cout << "Falha ao carregar o doce vermelho" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    dazul = al_load_bitmap("assets/dazul.tga");
+    if(!dazul)
+    {
+        std::cout << "Falha ao carregar o doce azul" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
-    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
-    if(!fundosugar)
-    {
-        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Festa = al_load_bitmap("assets/Festa.bmp");
-    if(!Festa)
-    {
-        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
-    if(!fundorosa)
-    {
-        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
-    if(!Maozinha)
-    {
-        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Muda1 = al_load_bitmap("assets/Muda1.bmp");
-    if(!Muda1)
-    {
-        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    Nave = al_load_bitmap("assets/Nave.bmp");
-    if(!Nave)
-    {
-        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
+    cursor = al_create_mouse_cursor(droxo, 0, 0);
+    if(!cursor)
+        {
+            std::cout << "Falha ao carregar o cursor" << std::endl;
+            al_destroy_mouse_cursor(cursor);
+            return 0;
+        }
     //al_init_font_addon();  // marcado para possibilitar a execução
     //al_init_ttf_addon();  //  marcado para possibilitar a execução
     al_register_event_source(event_queue, al_get_display_event_source(display));
@@ -239,14 +145,16 @@ int desinicializa(){
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
     al_destroy_display(display);
-    al_destroy_bitmap(Pirulito);
-    al_destroy_bitmap(fundorosa);
-    al_destroy_bitmap(Festa);
-    al_destroy_bitmap(fundosugar);
-    al_destroy_bitmap(Maozinha);
-    al_destroy_bitmap(Muda1);
-    al_destroy_bitmap(Nave);
-    al_destroy_bitmap(fundo);
 
     return 0;
 }
+
+int sorteia(int mapa[][8]){
+    for(int i=0;i<8; i++){
+        for(int j=0;j<8;j++){
+            mapa[i][j] = rand() % 5;
+        }
+    }
+}
+
+#endif
