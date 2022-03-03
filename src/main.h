@@ -8,7 +8,7 @@ const float FPS = 10;
 const int SCREEN_W = 1000;
 const int SCREEN_H = 561;
 const int QUAD_SIZE = 20;
-const int OFFSETX = 600;
+const int OFFSETX = 500;
 const int OFFSETY = 100;
 
 const char *nome = NULL;
@@ -23,6 +23,8 @@ ALLEGRO_BITMAP *mouse=NULL;
 ALLEGRO_BITMAP *dlaranja = NULL;
 ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
+ALLEGRO_BITMAP *dvermelho = NULL;
+ALLEGRO_BITMAP *dazul = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 
 

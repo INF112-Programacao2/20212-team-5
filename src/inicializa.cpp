@@ -1,3 +1,6 @@
+#ifndef INICIALIZA_CPP
+#define INICIALIZA_CPP
+
 #include "inicializa.h"
 #include "main.h"
 
@@ -88,6 +91,28 @@ int inicializa() {
         return 0;
     }
 
+    dverde = al_load_bitmap("assets/dverde.tga");
+    if(!dverde)
+    {
+        std::cout << "Falha ao carregar o doce verde" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    dvermelho = al_load_bitmap("assets/dvermelho.tga");
+    if(!dvermelho)
+    {
+        std::cout << "Falha ao carregar o doce vermelho" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    dazul = al_load_bitmap("assets/dazul.tga");
+    if(!dazul)
+    {
+        std::cout << "Falha ao carregar o doce azul" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
     cursor = al_create_mouse_cursor(droxo, 0, 0);
     if(!cursor)
         {
@@ -123,3 +148,13 @@ int desinicializa(){
 
     return 0;
 }
+
+int sorteia(int mapa[][8]){
+    for(int i=0;i<8; i++){
+        for(int j=0;j<8;j++){
+            mapa[i][j] = rand() % 5;
+        }
+    }
+}
+
+#endif

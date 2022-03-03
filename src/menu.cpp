@@ -1,5 +1,9 @@
+#ifndef MENU_CPP
+#define MENU_CPP
+
 #include "menu.h"
 #include "nivel.cpp"
+
 
 int mainmenu(){
     /*
@@ -24,6 +28,7 @@ int mainmenu(){
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
+        sorteia(MAPA);
         nivel.faseUm(event);
         }
     }
@@ -39,3 +44,5 @@ int mainmenu(){
     }
     
 }
+
+#endif
