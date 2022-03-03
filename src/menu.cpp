@@ -12,7 +12,9 @@ int mainmenu(){
     */
     ALLEGRO_EVENT event;                        //INICIA UMA ÚNICA FILA DE EVENTOS
     Nivel nivel;
-    al_draw_bitmap(menu,0,0,0);
+    
+    al_draw_bitmap(fundo,0,0,0);
+    al_draw_bitmap(logo,0,50,0);
     al_flip_display();
     al_wait_for_event(event_queue, &event);     //ESPERA POR UM EVENTO (No caso da condição abaixo, iniciará o jogo). SE FOR QUEBRADO(receber um break), A CONDIÇÃO RETORNA O PROGRAMA AO MENU INICIAR
     if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_UP){

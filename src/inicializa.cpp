@@ -74,6 +74,14 @@ int inicializa() {
         
         return 0;
     }
+    logo = al_load_bitmap("assets/logo.bmp");
+    if(!logo){
+        std::cout << "FALHA AO CARREGAR O Logo" << std::endl;
+
+        al_destroy_display(display);
+        
+        return 0;
+    }
     dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
 	if(!dlaranja)
     {
