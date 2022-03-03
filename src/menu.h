@@ -1,13 +1,11 @@
 #ifndef MENU_H
 #define MENU_H
 
-class Menu {
-    private:
-     ////////////////////////////////
-    protected:
-     ////////////////////////////////
-    public:
-     ////////////////////////////////
-};
+#include "allegro.h"
+#include "main.h"
+
+int mainmenu();
+
+
 
 #endif

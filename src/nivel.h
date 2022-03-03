@@ -1,14 +1,14 @@
 #ifndef NIVEL_H
 #define NIVEL_H
 
+#include "allegro.h"
+
+int jogo(ALLEGRO_EVENT &ev);
 
 class Nivel {
-    private:
-     ////////////////////////////////
-    protected:
-     ////////////////////////////////
+    
     public:
-     ////////////////////////////////
+    ///////////
 };
 
 class FaseUm : public Nivel {

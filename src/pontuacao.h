@@ -7,11 +7,11 @@ namespace Pontuacao {
             int pontuacao;
             int movRestantes;
         public:
-            pontuacao();
-            objRestantes();
-            movrestantes();
-            fimDaFase();
-    }
+            int pontuacao();
+            int objRestantes();
+            int movrestantes();
+            int fimDaFase();
+    };
 
 };
 
