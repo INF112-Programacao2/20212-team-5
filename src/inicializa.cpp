@@ -4,6 +4,9 @@
 
 int inicializa() {
     
+    nome = "Candy Crush";
+    al_set_app_name(nome);
+    
     if(!al_init())
     {
         std::cout << "Falha ao carregar Allegro" << std::endl;
@@ -36,7 +39,7 @@ int inicializa() {
         return 0;
     }
 
-    mapa = al_load_bitmap("CandyCrushRecursos/tabuleiro.bmp");
+    mapa = al_load_bitmap("assets/tabuleiro.bmp");
     if(!mapa)
     {
         std::cout << "Falha ao carregar o mapa!" << std::endl;
@@ -44,7 +47,7 @@ int inicializa() {
         return 0;
     }
 
-    mouse=al_load_bitmap("CandyCrushRecursos/personagem.png"); 
+    mouse=al_load_bitmap("assets/personagem.png"); 
     if(!al_install_mouse())
     {
         std::cout << "Falha ao inicializar o mouse" << std::endl;
@@ -61,7 +64,7 @@ int inicializa() {
 
         return 0;
     }
-    menu = al_load_bitmap("CandyCrushRecursos/menu.bmp");
+    menu = al_load_bitmap("assets/menu.bmp");
     if(!menu){
         std::cout << "FALHA AO CARREGAR O MENU" << std::endl;
 
@@ -69,7 +72,7 @@ int inicializa() {
         
         return 0;
     }
-    dlaranja = al_load_bitmap("CandyCrushRecursos/dlaranja.tga"); //carrega a imagem da cabeca
+    dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
 	if(!dlaranja)
     {
         std::cout << "Falha ao carregar o doce laranja!" << std::endl;
@@ -78,7 +81,7 @@ int inicializa() {
     }
 
     
-    droxo = al_load_bitmap("CandyCrushRecursos/droxo.tga"); //carrega a imagem da cabeca
+    droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         std::cout << "Falha ao carregar o doce roxo" << std::endl;
@@ -86,7 +89,70 @@ int inicializa() {
         return 0;
     }
 
-    dverde = al_load_bitmap("assets/dverde.tga"); //carrega a imagem da cabeca
+     Pirulito = al_load_bitmap("assets/Pirulito.bmp");
+    if(!Pirulito)
+    {
+        std::cout << "Falha ao carregar o pirulito!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
+    if(!fundosugar)
+    {
+        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Festa = al_load_bitmap("assets/festa.bmp");
+    if(!Festa)
+    {
+        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
+    if(!fundorosa)
+    {
+        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
+    if(!Maozinha)
+    {
+        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Muda1 = al_load_bitmap("assets/Muda.bmp");
+    if(!Muda1)
+    {
+        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Nave = al_load_bitmap("assets/Nave.bmp");
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundo = al_load_bitmap("assets/Fundo2.bmp");
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar fundo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    dverde = al_load_bitmap("assets/CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
 	if(!droxo)
     {
         std::cout << "Falha ao carregar o doce verde" << std::endl;
@@ -97,7 +163,7 @@ int inicializa() {
      Pirulito = al_load_bitmap("assets/Pirulito.bmp");
     if(!Pirulito)
     {
-        std::cout << "Falha ao carregar o pirulo!" << std::endl;
+        std::cout << "Falha ao carregar o pirulito!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
