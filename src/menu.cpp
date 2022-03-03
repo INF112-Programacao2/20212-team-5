@@ -3,6 +3,7 @@
 
 #include "menu.hpp"
 #include "nivel.cpp"
+#include "inicializa.cpp"
 
 
 int mainmenu(){
