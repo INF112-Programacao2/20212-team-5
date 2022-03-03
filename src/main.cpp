@@ -16,6 +16,10 @@ int main(int argc, char **argv){
     while(!sair){
         mainmenu();
     }
+    
+    
     desinicializa();
+                
+    
     return 0;
 }
