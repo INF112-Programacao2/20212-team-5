@@ -3,10 +3,12 @@
 
 #include "main.h"
 #include "nivel.hpp"
+#include "pontuacao.cpp"
 #include <iostream> //TEMPORARIO  -- SOMENTE DEBUG
 
 int Nivel::faseUm(ALLEGRO_EVENT &ev){
-    
+    Pontos Pontos;
+    pontuacao += Pontos.getPontuacao();
     while(!sair){
             al_wait_for_event(event_queue, &ev);
             
@@ -60,6 +62,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                         //}
                         if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
                             al_draw_bitmap(dverde,j*q,i*q,0); //função desenha
+                            
                         }
                         if(MAPA[i][j]==3){//Se for 2, desenha a peça verde;
                             al_draw_bitmap(dvermelho,j*q,i*q,0); //função desenha
@@ -73,6 +76,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                         
                     }
                 }
+                al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", pontuacao);
 		    	//al_draw_bitmap(dlaranja,j*q,i*q,0); //desenha a cabeca da cobra
                 al_flip_display();
 

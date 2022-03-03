@@ -4,7 +4,6 @@
 #include "allegro.h"
 
 
-
 class Nivel {
     public:
         int faseUm(ALLEGRO_EVENT &ev);
