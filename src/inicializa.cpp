@@ -1,8 +1,8 @@
 #ifndef INICIALIZA_CPP
 #define INICIALIZA_CPP
 
-#include "inicializa.h"
-#include "main.h"
+#include "inicializa.hpp"
+#include "main.hpp"
 
 int inicializa() {
     
@@ -112,7 +112,7 @@ int inicializa() {
         al_destroy_display(display);
         return 0;
     }
-
+    fundo = al_load_bitmap("assets/Fundo2.bmp");
     cursor = al_create_mouse_cursor(droxo, 0, 0);
     if(!cursor)
         {

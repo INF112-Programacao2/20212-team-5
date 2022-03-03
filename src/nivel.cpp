@@ -1,7 +1,7 @@
 #ifndef NIVEL_CPP
 #define NIVEL_CPP
 
-#include "main.h"
+#include "main.hpp"
 #include "nivel.hpp"
 #include "pontuacao.cpp"
 #include <iostream> //TEMPORARIO  -- SOMENTE DEBUG
@@ -44,6 +44,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
             
                 redraw = false;
                 al_clear_to_color(al_map_rgb(0,0,0));
+                al_draw_bitmap(fundo,0,0,0);
                 al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
                 al_set_mouse_cursor(display, cursor);
                 

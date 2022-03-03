@@ -5,7 +5,7 @@
 */
 
 #include <stdlib.h>
-#include "main.h"
+#include "main.hpp"
 #include "inicializa.cpp"
 #include "nivel.cpp"
 #include "menu.cpp"
