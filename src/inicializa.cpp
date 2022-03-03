@@ -40,7 +40,14 @@ int inicializa() {
         al_destroy_timer(timer);
         return 0;
     }
+    event_queue = al_create_event_queue();
+    if(!event_queue)
+    {
+        std::cout << "Falha ao criar a fila de eventos" << std::endl;
+        al_destroy_display(display);
 
+        return 0;
+    }
     mapa = al_load_bitmap("assets/tabuleiro.bmp");
     if(!mapa)
     {
@@ -53,17 +60,6 @@ int inicializa() {
     if(!al_install_mouse())
     {
         std::cout << "Falha ao inicializar o mouse" << std::endl;
-        return 0;
-    }
-
-
-
-    event_queue = al_create_event_queue();
-    if(!event_queue)
-    {
-        std::cout << "Falha ao criar a fila de eventos" << std::endl;
-        al_destroy_display(display);
-
         return 0;
     }
     menu = al_load_bitmap("assets/menu.bmp");
@@ -120,23 +116,36 @@ int inicializa() {
         al_destroy_display(display);
         return 0;
     }
+    botao = al_load_bitmap("assets/botao.bmp");
+    if(!botao)
+    {
+        std::cout << "Falha ao carregar o botão" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
     fundo = al_load_bitmap("assets/Fundo2.bmp");
+    if(!fundo)
+    {
+        std::cout << "Falha ao carregar o fundo" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
     cursor = al_create_mouse_cursor(droxo, 0, 0);
     if(!cursor)
-        {
-            std::cout << "Falha ao carregar o cursor" << std::endl;
-            al_destroy_mouse_cursor(cursor);
-            return 0;
-        }
-    //al_init_font_addon();  // marcado para possibilitar a execução
-    //al_init_ttf_addon();  //  marcado para possibilitar a execução
+    {
+        std::cout << "Falha ao carregar o cursor" << std::endl;
+        al_destroy_mouse_cursor(cursor);
+        return 0;
+    }
+
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
-    al_init_font_addon();    
-    al_init_ttf_addon();    
-    font = al_load_ttf_font("assets/candycrush.ttf", 26, 0); 
 
+    al_init_font_addon();    
+    al_init_ttf_addon();   
+
+    font = al_load_ttf_font("assets/candycrush.ttf", 26, 0); 
     al_register_event_source(event_queue, al_get_mouse_event_source());
 
     al_clear_to_color(al_map_rgb(0,0,0));

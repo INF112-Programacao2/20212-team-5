@@ -13,6 +13,9 @@ const int OFFSETY = 100;
 
 const char *nome = NULL;
 
+const char *FaseUm = "Fase Um";
+const char *FaseDois = "Fase Dois";
+
 
 ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
@@ -27,6 +30,7 @@ ALLEGRO_BITMAP *dvermelho = NULL;
 ALLEGRO_BITMAP *dazul = NULL;
 ALLEGRO_BITMAP *fundo = NULL;
 ALLEGRO_BITMAP *logo = NULL;
+ALLEGRO_BITMAP *botao = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 ALLEGRO_FONT *font = NULL;
 
