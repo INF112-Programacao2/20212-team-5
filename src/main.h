@@ -8,7 +8,7 @@ const float FPS = 10;
 const int SCREEN_W = 1000;
 const int SCREEN_H = 561;
 const int QUAD_SIZE = 20;
-const int OFFSETX = 500;
+const int OFFSETX = 600;
 const int OFFSETY = 100;
 
 const char *nome = NULL;
@@ -24,14 +24,7 @@ ALLEGRO_BITMAP *dlaranja = NULL;
 ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
-ALLEGRO_BITMAP *Pirulito = NULL;
-ALLEGRO_BITMAP *fundosugar = NULL;
-ALLEGRO_BITMAP *Festa = NULL;
-ALLEGRO_BITMAP *fundorosa = NULL;
-ALLEGRO_BITMAP *Maozinha = NULL;
-ALLEGRO_BITMAP *Muda1 = NULL;
-ALLEGRO_BITMAP *Nave = NULL;
-ALLEGRO_BITMAP *fundo = NULL;
+
 
 
 bool redraw = true;   
