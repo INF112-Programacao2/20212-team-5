@@ -25,9 +25,11 @@ ALLEGRO_BITMAP *droxo = NULL;
 ALLEGRO_BITMAP *dverde = NULL;
 ALLEGRO_BITMAP *dvermelho = NULL;
 ALLEGRO_BITMAP *dazul = NULL;
+ALLEGRO_BITMAP *fundo = NULL;
+ALLEGRO_BITMAP *logo = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 ALLEGRO_FONT *font = NULL;
-ALLEGRO_BITMAP *fundo = NULL;
+
 
 
 bool redraw = true;   
