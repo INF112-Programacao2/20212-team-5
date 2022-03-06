@@ -1,4 +1,3 @@
-# Para demonstração do trabalho final, adicionar a flag -mwindows
 cd src
 if [[ -d assets ]]; then
     if [[ -d ../release ]]; then
@@ -10,5 +9,3 @@ if [[ -d assets ]]; then
         mkdir ../release && cp -r ../src/assets ../release
     fi
 fi
-
-#Somente testado na estrutura de arquivos atual, e em apenas um ambiente de desenvolvimento específico
