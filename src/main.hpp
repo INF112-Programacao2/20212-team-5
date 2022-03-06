@@ -1,7 +1,7 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
-#include "allegro.h"
+#include "allegro.cpp"
 #include "inicializa.hpp"
 
 const float FPS = 10;

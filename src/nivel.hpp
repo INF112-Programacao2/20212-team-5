@@ -1,7 +1,7 @@
 #ifndef NIVEL_H
 #define NIVEL_H
 
-#include "allegro.h"
+#include "allegro.cpp"
 
 
 class Nivel {
