@@ -137,7 +137,7 @@ int inicializa() {
         al_destroy_mouse_cursor(cursor);
         return 0;
     }
-//------------------------------------------ Proposta
+//------------------------------------------ 
 
     //Doces Simples
 
