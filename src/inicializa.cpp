@@ -137,7 +137,77 @@ int inicializa() {
         al_destroy_mouse_cursor(cursor);
         return 0;
     }
+         Pirulito = al_load_bitmap("assets/Pirulito.bmp");
+    if(!Pirulito)
+    {
+        std::cout << "Falha ao carregar o pirulito!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
 
+    fundosugar = al_load_bitmap("assets/fundosugar.bmp");
+    if(!fundosugar)
+    {
+        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Festa = al_load_bitmap("assets/festa.bmp");
+    if(!Festa)
+    {
+        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+        fundorosa = al_load_bitmap("assets/fundorosa.bmp");
+    if(!fundorosa)
+    {
+        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
+    if(!Maozinha)
+    {
+        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Muda1 = al_load_bitmap("assets/Muda.bmp");
+    if(!Muda1)
+    {
+        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    Nave = al_load_bitmap("assets/Nave.bmp");
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundo = al_load_bitmap("assets/Fundo2.bmp");
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar fundo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    dverde = al_load_bitmap("assets/CandyCrushRecursos/dverde.tga"); //carrega a imagem da cabeca
+	if(!droxo)
+    {
+        std::cout << "Falha ao carregar o doce verde" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
