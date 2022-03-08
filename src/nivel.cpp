@@ -35,16 +35,16 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                     mouse_y=(ev.mouse.y);
 
             }
-            else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){ //se der o click no mouse
-                if(ev.mouse.button & 1){ // &1 = botão esquerdo
-                    pressao=true;   //pressionado= TRUE
+            else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){ 
+                if(ev.mouse.button & 1){ 
+                    pressao=true;  
                     std::cout<<"CLICK"<<std::endl;
                 }
             }
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP){
                     pressao=false;              
             }
-            if(redraw && al_is_event_queue_empty(event_queue)){ //se REDRAW (redesenhar for true e a fila estiver vazia)
+            if(redraw && al_is_event_queue_empty(event_queue)){
             
                 redraw = false;
                 al_clear_to_color(al_map_rgb(0,0,0));
@@ -55,30 +55,27 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
 
                 for (int i=0; i<8; i++){
                     for (int j=0; j<8; j++){
-                        if(MAPA[i][j]==0){ //Se for 0, desenha a peça laranha
-                            Doce.getDoce(1,i,j,q);//função desenha
+                        if(MAPA[i][j]==0){
+                            Doce.getDoce(1,i,j,q);
                         }
-                        if(MAPA[i][j]==1){ //Se for 1, desenha a peça roxa;
-                           Doce.getDoce(5,i,j,q); //função desenha
+                        if(MAPA[i][j]==1){
+                           Doce.getDoce(5,i,j,q); 
                         }
-                        if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
-                            Doce.getDoce(4,i,j,q); //função desenha
-                            
+                        if(MAPA[i][j]==2){
+                            Doce.getDoce(4,i,j,q); 
                         }
-                        if(MAPA[i][j]==3){//Se for 2, desenha a peça verde;
-                            Doce.getDoce(2,i,j,q); //função desenha
+                        if(MAPA[i][j]==3){
+                            Doce.getDoce(2,i,j,q); 
                         }
-                        if(MAPA[i][j]==4){//Se for 2, desenha a peça verde;
-                            Doce.getDoce(3,i,j,q); //função desenha
+                        if(MAPA[i][j]==4){
+                            Doce.getDoce(3,i,j,q); 
                         }
-                        if(MAPA[i][j]==5){//Se for 2, desenha a peça verde;
-                            Doce.getDoce(6,i,j,q); //função desenha
+                        if(MAPA[i][j]==5){
+                            Doce.getDoce(5,i,j,q);
                         }
-              
                     }
                 }
                 al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", pontuacao);
-		    	//al_draw_bitmap(dlaranja,j*q,i*q,0); //desenha a cabeca da cobra
                 al_flip_display();
 
             }
