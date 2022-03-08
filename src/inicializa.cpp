@@ -139,58 +139,6 @@ int inicializa() {
     }
 //------------------------------------------ Proposta
 
-    //pecas
-    ALLEGRO_BITMAP *docesimplesamarelo = NULL;
-    ALLEGRO_BITMAP *docesimplesazul = NULL;
-    ALLEGRO_BITMAP *docesimpleslaranja = NULL;
-    ALLEGRO_BITMAP *docesimplesroxo = NULL;
-    ALLEGRO_BITMAP *docesimplesverde = NULL;
-    ALLEGRO_BITMAP *docesimplesvermelho = NULL;
-
-    //bomba relogio
-    ALLEGRO_BITMAP *bombarelogioamarelo = NULL;
-    ALLEGRO_BITMAP *bombarelogioazul = NULL;
-    ALLEGRO_BITMAP *bombarelogiolaranja = NULL;
-    ALLEGRO_BITMAP *bombarelogioroxo = NULL;
-    ALLEGRO_BITMAP *bombarelogioverde = NULL;
-    ALLEGRO_BITMAP *bombarelogiovermelho = NULL;
-
-    //especial horizontal
-    ALLEGRO_BITMAP *especialhorizontalamarelo = NULL;
-    ALLEGRO_BITMAP *especialhorizontalazul = NULL;
-    ALLEGRO_BITMAP *especialhorizontallaranja = NULL;
-    ALLEGRO_BITMAP *especialhorizontalroxo = NULL;
-    ALLEGRO_BITMAP *especialhorizontalverde = NULL;
-    ALLEGRO_BITMAP *especialhorizontalvermelho = NULL;
-
-    //especial vertical
-    ALLEGRO_BITMAP *especialverticalamarelo = NULL;
-    ALLEGRO_BITMAP *especialverticalazul = NULL;
-    ALLEGRO_BITMAP *especialverticallaranja = NULL;
-    ALLEGRO_BITMAP *especialverticalroxo = NULL;
-    ALLEGRO_BITMAP *especialverticalverde = NULL;
-    ALLEGRO_BITMAP *especialverticalvermelho = NULL;
-
-    //pacote fish
-    ALLEGRO_BITMAP *pacotefishamarelo = NULL;
-    ALLEGRO_BITMAP *pacotefishazul = NULL;
-    ALLEGRO_BITMAP *pacotefishlaranja = NULL;
-    ALLEGRO_BITMAP *pacotefishroxo = NULL;
-    ALLEGRO_BITMAP *pacotefishverde = NULL;
-    ALLEGRO_BITMAP *pacotefishvermelho = NULL;
-
-    //peixe especial
-    ALLEGRO_BITMAP *peixeespecialamarelo = NULL;
-    ALLEGRO_BITMAP *peixeespecialazul = NULL;
-    ALLEGRO_BITMAP *peixeespeciallaranja = NULL;
-    ALLEGRO_BITMAP *peixeespecialroxo = NULL;
-    ALLEGRO_BITMAP *peixeespecialverde = NULL;
-    ALLEGRO_BITMAP *peixeespecialvermelho = NULL;
-
-    //especiais
-    ALLEGRO_BITMAP *rosquinharosaespecial = NULL;
-    ALLEGRO_BITMAP *brigadeiroespecial= NULL;
-
     //Doces Simples
 
     docessimplesamarelo = al_load_bitmap("docessimplesamarelo.bmp");
@@ -481,7 +429,30 @@ int inicializa() {
         return 0;
     }
 
+    al_register_event_source(event_queue, al_get_display_event_source(display));
+    al_register_event_source(event_queue, al_get_timer_event_source(timer));
+    al_register_event_source(event_queue, al_get_keyboard_event_source());
 
+    al_init_font_addon();    
+    al_init_ttf_addon();   
+
+    font = al_load_ttf_font("assets/candycrush.ttf", 26, 0); 
+    al_register_event_source(event_queue, al_get_mouse_event_source());
+
+    al_clear_to_color(al_map_rgb(0,0,0));
+    al_flip_display();
+    al_start_timer(timer);
+
+    return 1;
+}
+
+int desinicializa(){
+    al_destroy_bitmap(mapa);
+    al_destroy_bitmap(mouse);
+    al_destroy_timer(timer);
+    al_destroy_display(display);
+    al_destroy_event_queue(event_queue);
+    al_destroy_display(display);
 
     //pecas
     al_destroy_bitmap(docesimplesamarelo);
@@ -534,36 +505,6 @@ int inicializa() {
     //especiais
     al_destroy_bitmap(rosquinharosaespecial);
     al_destroy_bitmap(brigadeiroespecial);
-
-//Fim da Proposta----------------------------------------------------------------------------------------------
-
-    al_register_event_source(event_queue, al_get_display_event_source(display));
-    al_register_event_source(event_queue, al_get_timer_event_source(timer));
-    al_register_event_source(event_queue, al_get_keyboard_event_source());
-
-    al_init_font_addon();    
-    al_init_ttf_addon();   
-
-    font = al_load_ttf_font("assets/candycrush.ttf", 26, 0); 
-    al_register_event_source(event_queue, al_get_mouse_event_source());
-
-    al_clear_to_color(al_map_rgb(0,0,0));
-    al_flip_display();
-    al_start_timer(timer);
-
-    return 1;
-}
-
-int desinicializa(){
-    al_destroy_bitmap(mapa);
-    al_destroy_bitmap(mouse);
-    al_destroy_bitmap(dlaranja);
-    al_destroy_bitmap(droxo);
-    al_destroy_bitmap(dverde);
-    al_destroy_timer(timer);
-    al_destroy_display(display);
-    al_destroy_event_queue(event_queue);
-    al_destroy_display(display);
 
     return 0;
 }

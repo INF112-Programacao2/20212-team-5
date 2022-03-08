@@ -23,17 +23,63 @@ ALLEGRO_TIMER *timer = NULL;
 ALLEGRO_BITMAP *menu = NULL;
 ALLEGRO_BITMAP *mapa= NULL;
 ALLEGRO_BITMAP *mouse=NULL;
-ALLEGRO_BITMAP *dlaranja = NULL;
-ALLEGRO_BITMAP *droxo = NULL;
-ALLEGRO_BITMAP *dverde = NULL;
-ALLEGRO_BITMAP *dvermelho = NULL;
-ALLEGRO_BITMAP *dazul = NULL;
 ALLEGRO_BITMAP *fundo = NULL;
 ALLEGRO_BITMAP *logo = NULL;
 ALLEGRO_BITMAP *botao = NULL;
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 ALLEGRO_FONT *font = NULL;
 
+//pecas
+ALLEGRO_BITMAP *docesimplesamarelo = NULL;
+ALLEGRO_BITMAP *docesimplesazul = NULL;
+ALLEGRO_BITMAP *docesimpleslaranja = NULL;
+ALLEGRO_BITMAP *docesimplesroxo = NULL;
+ALLEGRO_BITMAP *docesimplesverde = NULL;
+ALLEGRO_BITMAP *docesimplesvermelho = NULL;
+
+//bomba relogio
+ALLEGRO_BITMAP *bombarelogioamarelo = NULL;
+ALLEGRO_BITMAP *bombarelogioazul = NULL;
+ALLEGRO_BITMAP *bombarelogiolaranja = NULL;
+ALLEGRO_BITMAP *bombarelogioroxo = NULL;
+ALLEGRO_BITMAP *bombarelogioverde = NULL;
+ALLEGRO_BITMAP *bombarelogiovermelho = NULL;
+
+//especial horizontal
+ALLEGRO_BITMAP *especialhorizontalamarelo = NULL;
+ALLEGRO_BITMAP *especialhorizontalazul = NULL;
+ALLEGRO_BITMAP *especialhorizontallaranja = NULL;
+ALLEGRO_BITMAP *especialhorizontalroxo = NULL;
+ALLEGRO_BITMAP *especialhorizontalverde = NULL;
+ALLEGRO_BITMAP *especialhorizontalvermelho = NULL;
+
+//especial vertical
+ALLEGRO_BITMAP *especialverticalamarelo = NULL;
+ALLEGRO_BITMAP *especialverticalazul = NULL;
+ALLEGRO_BITMAP *especialverticallaranja = NULL;
+ALLEGRO_BITMAP *especialverticalroxo = NULL;
+ALLEGRO_BITMAP *especialverticalverde = NULL;
+ALLEGRO_BITMAP *especialverticalvermelho = NULL;
+
+//pacote fish
+ALLEGRO_BITMAP *pacotefishamarelo = NULL;
+ALLEGRO_BITMAP *pacotefishazul = NULL;
+ALLEGRO_BITMAP *pacotefishlaranja = NULL;
+ALLEGRO_BITMAP *pacotefishroxo = NULL;
+ALLEGRO_BITMAP *pacotefishverde = NULL;
+ALLEGRO_BITMAP *pacotefishvermelho = NULL;
+
+//peixe especial
+ALLEGRO_BITMAP *peixeespecialamarelo = NULL;
+ALLEGRO_BITMAP *peixeespecialazul = NULL;
+ALLEGRO_BITMAP *peixeespeciallaranja = NULL;
+ALLEGRO_BITMAP *peixeespecialroxo = NULL;
+ALLEGRO_BITMAP *peixeespecialverde = NULL;
+ALLEGRO_BITMAP *peixeespecialvermelho = NULL;
+
+//especiais
+ALLEGRO_BITMAP *rosquinharosaespecial = NULL;
+ALLEGRO_BITMAP *brigadeiroespecial= NULL;
 
 
 bool redraw = true;   
