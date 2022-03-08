@@ -5,7 +5,11 @@
 
 #include "main.hpp"
 
-int mainmenu();
+class Menu {
+    public:
+        int mainmenu();
+};
+
 
 
 

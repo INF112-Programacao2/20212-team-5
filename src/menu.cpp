@@ -6,7 +6,7 @@
 #include "inicializa.cpp"
 
 
-int mainmenu(){
+int Menu::mainmenu(){
     /*
         ESTA ESTRUTURA PERMITE O JOGO INICIALIZAR UMA FILA DE EVENTOS QUE PODE SER QUEBRADA SEM DESLIGAR O JOGO
         EXEMPLO: O jogador inicia o tabuleiro e quando mandamos um BREAK na função jogo(), o programa retorna ao menu inicial, por conta da função Main, que está em um loop
