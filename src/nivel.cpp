@@ -11,7 +11,7 @@
 
 int Nivel::faseUm(ALLEGRO_EVENT &ev){
     Pontos Pontos;
-    DoceLaranja DoceLaranja;
+    Doce Doce;
     pontuacao += Pontos.getPontuacao();
     while(!sair){
             al_wait_for_event(event_queue, &ev);
@@ -56,29 +56,25 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                 for (int i=0; i<8; i++){
                     for (int j=0; j<8; j++){
                         if(MAPA[i][j]==0){ //Se for 0, desenha a peça laranha
-                            DoceLaranja.getDoceLaranja(i,j,q);//função desenha
+                            Doce.getDoce(1,i,j,q);//função desenha
                         }
                         if(MAPA[i][j]==1){ //Se for 1, desenha a peça roxa;
-                           al_draw_bitmap(droxo,j*q,i*q,0); //função desenha
+                           Doce.getDoce(5,i,j,q); //função desenha
                         }
-                        //if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                        //        al_draw_bitmap(dlaranja,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0);
-                        //   }
-                        //}
                         if(MAPA[i][j]==2){//Se for 2, desenha a peça verde;
-                            al_draw_bitmap(dverde,j*q,i*q,0); //função desenha
+                            Doce.getDoce(4,i,j,q); //função desenha
                             
                         }
                         if(MAPA[i][j]==3){//Se for 2, desenha a peça verde;
-                            al_draw_bitmap(dvermelho,j*q,i*q,0); //função desenha
+                            Doce.getDoce(2,i,j,q); //função desenha
                         }
                         if(MAPA[i][j]==4){//Se for 2, desenha a peça verde;
-                            al_draw_bitmap(dazul,j*q,i*q,0); //função desenha
+                            Doce.getDoce(3,i,j,q); //função desenha
                         }
-                        //    if(mouse_y/q==i && mouse_x/q==j && pressao==true){ //Se a posição do mouse for a mesma da peça desenhada---->desenha a peça laranja (testando)
-                        //        al_draw_bitmap(dlaranja,(j*q)+OFFSETX+3,(i*q)+OFFSETY+3,0);
-                        //    }                        
-                        
+                        if(MAPA[i][j]==5){//Se for 2, desenha a peça verde;
+                            Doce.getDoce(6,i,j,q); //função desenha
+                        }
+              
                     }
                 }
                 al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", pontuacao);

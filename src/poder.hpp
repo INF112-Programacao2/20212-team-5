@@ -5,34 +5,17 @@
 #include "main.hpp"
 #include "poder.hpp"
 
-class DoceLaranja{
+class Doce {
     public:
         ALLEGRO_BITMAP *doceLaranja = dlaranja;
-        void getDoceLaranja(int i, int j, int q);
-        
-
-};
-
-class DoceVermelho {
-    public:
         ALLEGRO_BITMAP *doceVermelho = dvermelho;
-        void getDoceVermelho(int i, int j, int q);
-
-};
-
-class DoceAzul {
-    public:
         ALLEGRO_BITMAP *doceAzul = dazul;
-        void getDoceAzul(int i, int j, int q);
-
-};
-
-class DoceVerde{
-    public:
         ALLEGRO_BITMAP *doceVerde = dverde;
-        void getDoceVerde(int i, int j, int q);
-
+        ALLEGRO_BITMAP *doceRoxo = droxo;
+        ALLEGRO_BITMAP *doceAmarelo = damarelo;
+        void getDoce(int cor,int i, int j, int q);
 };
+
 
 
 
