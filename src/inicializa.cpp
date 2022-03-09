@@ -39,12 +39,6 @@ int inicializa() {
     mouse=al_load_bitmap("assets/personagem.png"); 
     menu = al_load_bitmap("assets/menu.bmp");
     logo = al_load_bitmap("assets/logo.bmp");
-    dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
-    droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
-    dverde = al_load_bitmap("assets/dverde.tga");
-    dvermelho = al_load_bitmap("assets/dvermelho.tga");
-    dazul = al_load_bitmap("assets/dazul.tga");
-    damarelo = al_load_bitmap("assets/docesimplesamarelo.bmp");
     botao = al_load_bitmap("assets/botao.bmp");
     fundo = al_load_bitmap("assets/Fundo2.bmp");
     cursor = al_create_mouse_cursor(droxo, 0, 0);
@@ -92,44 +86,6 @@ int inicializa() {
 
         al_destroy_display(display);
         
-        return 0;
-    }
-    
-	if(!dlaranja)
-    {
-        std::cout << "Falha ao carregar o doce laranja!" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    
-    
-	if(!droxo)
-    {
-        std::cout << "Falha ao carregar o doce roxo" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-
-    
-    if(!dverde)
-    {
-        std::cout << "Falha ao carregar o doce verde" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-    
-    if(!dvermelho)
-    {
-        std::cout << "Falha ao carregar o doce vermelho" << std::endl;
-        al_destroy_display(display);
-        return 0;
-    }
-    
-    if(!dazul)
-    {
-        std::cout << "Falha ao carregar o doce azul" << std::endl;
-        al_destroy_display(display);
         return 0;
     }
     
