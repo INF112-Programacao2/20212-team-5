@@ -1,7 +1,7 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
-#include "allegro.h"
+#include "allegro.cpp"
 #include "inicializa.hpp"
 
 const float FPS = 10;
@@ -23,9 +23,11 @@ ALLEGRO_TIMER *timer = NULL;
 ALLEGRO_BITMAP *menu = NULL;
 ALLEGRO_BITMAP *mapa= NULL;
 ALLEGRO_BITMAP *mouse=NULL;
+
 ALLEGRO_BITMAP *fundo = NULL;
 ALLEGRO_BITMAP *logo = NULL;
 ALLEGRO_BITMAP *botao = NULL;
+
 ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 ALLEGRO_FONT *font = NULL;
 
@@ -80,6 +82,7 @@ ALLEGRO_BITMAP *peixeespecialvermelho = NULL;
 //especiais
 ALLEGRO_BITMAP *rosquinharosaespecial = NULL;
 ALLEGRO_BITMAP *brigadeiroespecial= NULL;
+
 
 
 bool redraw = true;   

@@ -1,11 +1,15 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "allegro.h"
+#include "allegro.cpp"
 
 #include "main.hpp"
 
-int mainmenu();
+class Menu {
+    public:
+        int mainmenu();
+};
+
 
 
 

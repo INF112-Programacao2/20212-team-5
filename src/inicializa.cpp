@@ -27,20 +27,36 @@ int inicializa() {
         std::cout << "Falha ao inicializar o temporizador" << std::endl;
         return 0;
     }
-
     if(!al_init_image_addon())
     {
         std::cout <<"Falha ao iniciar al_init_image_addon!" << std::endl;
         return 0;
     }
+    
     display = al_create_display(SCREEN_W, SCREEN_H);
+    event_queue = al_create_event_queue();
+    mapa = al_load_bitmap("assets/tabuleiro.bmp");
+    mouse=al_load_bitmap("assets/personagem.png"); 
+    menu = al_load_bitmap("assets/menu.bmp");
+    logo = al_load_bitmap("assets/logo.bmp");
+    dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
+    droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
+    dverde = al_load_bitmap("assets/dverde.tga");
+    dvermelho = al_load_bitmap("assets/dvermelho.tga");
+    dazul = al_load_bitmap("assets/dazul.tga");
+    damarelo = al_load_bitmap("assets/docesimplesamarelo.bmp");
+    botao = al_load_bitmap("assets/botao.bmp");
+    fundo = al_load_bitmap("assets/Fundo2.bmp");
+    cursor = al_create_mouse_cursor(droxo, 0, 0);
+
+
     if(!display)
     {
         std::cout << "Falha ao inicializar a tela" << std::endl;
         al_destroy_timer(timer);
         return 0;
     }
-    event_queue = al_create_event_queue();
+    
     if(!event_queue)
     {
         std::cout << "Falha ao criar a fila de eventos" << std::endl;
@@ -48,7 +64,7 @@ int inicializa() {
 
         return 0;
     }
-    mapa = al_load_bitmap("assets/tabuleiro.bmp");
+    
     if(!mapa)
     {
         std::cout << "Falha ao carregar o mapa!" << std::endl;
@@ -56,13 +72,13 @@ int inicializa() {
         return 0;
     }
 
-    mouse=al_load_bitmap("assets/personagem.png"); 
+    
     if(!al_install_mouse())
     {
         std::cout << "Falha ao inicializar o mouse" << std::endl;
         return 0;
     }
-    menu = al_load_bitmap("assets/menu.bmp");
+    
     if(!menu){
         std::cout << "FALHA AO CARREGAR O MENU" << std::endl;
 
@@ -70,7 +86,7 @@ int inicializa() {
         
         return 0;
     }
-    logo = al_load_bitmap("assets/logo.bmp");
+    
     if(!logo){
         std::cout << "FALHA AO CARREGAR O Logo" << std::endl;
 
@@ -78,7 +94,7 @@ int inicializa() {
         
         return 0;
     }
-    dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
+    
 	if(!dlaranja)
     {
         std::cout << "Falha ao carregar o doce laranja!" << std::endl;
@@ -87,7 +103,7 @@ int inicializa() {
     }
 
     
-    droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
+    
 	if(!droxo)
     {
         std::cout << "Falha ao carregar o doce roxo" << std::endl;
@@ -95,42 +111,42 @@ int inicializa() {
         return 0;
     }
 
-    dverde = al_load_bitmap("assets/dverde.tga");
+    
     if(!dverde)
     {
         std::cout << "Falha ao carregar o doce verde" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-    dvermelho = al_load_bitmap("assets/dvermelho.tga");
+    
     if(!dvermelho)
     {
         std::cout << "Falha ao carregar o doce vermelho" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-    dazul = al_load_bitmap("assets/dazul.tga");
+    
     if(!dazul)
     {
         std::cout << "Falha ao carregar o doce azul" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-    botao = al_load_bitmap("assets/botao.bmp");
+    
     if(!botao)
     {
         std::cout << "Falha ao carregar o botão" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-    fundo = al_load_bitmap("assets/Fundo2.bmp");
+    
     if(!fundo)
     {
         std::cout << "Falha ao carregar o fundo" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-    cursor = al_create_mouse_cursor(droxo, 0, 0);
+    
     if(!cursor)
     {
         std::cout << "Falha ao carregar o cursor" << std::endl;
@@ -429,6 +445,9 @@ int inicializa() {
         return 0;
     }
 
+
+
+    
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
@@ -512,7 +531,7 @@ int desinicializa(){
 int sorteia(int mapa[][8]){
     for(int i=0;i<8; i++){
         for(int j=0;j<8;j++){
-            mapa[i][j] = rand() % 5;
+            mapa[i][j] = rand() % 6;
         }
     }
 }

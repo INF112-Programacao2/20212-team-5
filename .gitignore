@@ -1,5 +1,5 @@
 *.dll
+*.o
 .vscode/
-.release/assets
-.release
+release
 *.exe
