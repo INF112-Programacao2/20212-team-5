@@ -52,6 +52,10 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                 al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
                 al_set_mouse_cursor(display, cursor);
                 
+                Pontos.escrevePontuacao(font);
+                Pontos.escreveMovRestantes(font);
+                Pontos.escreveObjRestantes(font);
+
 
                 for (int i=0; i<8; i++){
                     for (int j=0; j<8; j++){
@@ -75,7 +79,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                         }
                     }
                 }
-                al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", pontuacao);
+                
                 al_flip_display();
 
             }

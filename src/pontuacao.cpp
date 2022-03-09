@@ -41,12 +41,13 @@ void Pontos::escrevePontuacao(ALLEGRO_FONT *font){
 }
 
 void Pontos::escreveObjRestantes(ALLEGRO_FONT *font){
-    al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", this->pontuacao);   
+    al_draw_textf(font, al_map_rgb(255,0,0),300,520, 0, "%d", this->objrestantes);   
 }
 
 void Pontos::escreveMovRestantes(ALLEGRO_FONT *font){
-    al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", this->pontuacao);   
+    al_draw_textf(font, al_map_rgb(255,0,0),220,520, 0, "%d", this->movRestantes);   
 }
+
 
 
 
