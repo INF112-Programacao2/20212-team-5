@@ -218,14 +218,14 @@ int inicializa() {
 
     bombarelogioverde = al_load_bitmap("bombarelogioverde.bmp");
     if(!bombarelogioverde){
-        cout << "Falha ao carregar a bomba relogio verde" << endl;
+        cout << "Falha ao carregar a bomba relogio verde!" << endl;
         al_destroy_display(display);
         return 0;
     }
 
     bombarelogiovermelho = al_load_bitmap("bombarelogiovermelho.bmp");
     if(!bombarelogiovermelho){
-        cout << "Falha ao carregar a bomba relogio vermelho" << endl;
+        cout << "Falha ao carregar a bomba relogio vermelho!" << endl;
         al_destroy_display(display);
         return 0;
     }
@@ -233,44 +233,44 @@ int inicializa() {
 
     //Especiais Horizontais 
 
-    especialhorizontalamarelo = al_load_bitmap("especialhorizontal.bmp");
+    especialhorizontalamarelo = al_load_bitmap("especialhorizontalamarelo.bmp");
     if(!especialhorizontalamarelo){
-        cout << "Falha ao carregar especialhorizontal!" << endl;
+        cout << "Falha ao carregar especialhorizontalamarelo!" << endl;
         al_destroy_display(display);
         return 0;
     }
 
-    especialhorizontalazul = al_load_bitmap("especialhorizontal.bmp");
+    especialhorizontalazul = al_load_bitmap("especialhorizontalazul.bmp");
     if(!especialhorizontalazul){
-        cout << "Falha ao carregar especialhorizontal!" << endl;
+        cout << "Falha ao carregar especialhorizontalazul!" << endl;
         al_destroy_display(display);
         return 0;
     }
 
-    especialhorizontallaranja = al_load_bitmap("especialhorizontal.bmp");
+    especialhorizontallaranja = al_load_bitmap("especialhorizontallaranja.bmp");
     if(!especialhorizontallaranja){
-        cout << "Falha ao carregar especialhorizontal!" << endl;
+        cout << "Falha ao carregar especialhorizontallaranja!" << endl;
         al_destroy_display(display);
         return 0;
     }
 
-    especialhorizontalroxo = al_load_bitmap("especialhorizontal.bmp");
+    especialhorizontalroxo = al_load_bitmap("especialhorizontalroxo.bmp");
     if(!especialhorizontalroxo){
-        cout << "Falha ao carregar especialhorizontal!" << endl;
+        cout << "Falha ao carregar especialhorizontalroxo!" << endl;
         al_destroy_display(display);
         return 0;
     }
 
-    especialhorizontalverde = al_load_bitmap("especialhorizontal.bmp");
+    especialhorizontalverde = al_load_bitmap("especialhorizontalverde.bmp");
     if(!especialhorizontalverde){
-        cout << "Falha ao carregar especialhorizontal!" << endl;
+        cout << "Falha ao carregar especialhorizontalverde!" << endl;
         al_destroy_display(display);
         return 0;
     }
 
-    especialhorizontalvermelho = al_load_bitmap("especialhorizontal.bmp");
+    especialhorizontalvermelho = al_load_bitmap("especialhorizontalvermelho.bmp");
     if(!especialhorizontalvermelho){
-        cout << "Falha ao carregar especialhorizontal!" << endl;
+        cout << "Falha ao carregar especialhorizontalvermelho!" << endl;
         al_destroy_display(display);
         return 0;
     }
