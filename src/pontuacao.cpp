@@ -5,21 +5,25 @@
 #include "pontuacao.hpp"
 
 
-
+/* Pontuação geral */
 int Pontos::getPontuacao(){
     int pontuacao = this->pontuacao;
     return pontuacao;
 }
 
-int Pontos::addPontuacao(int i){
-    this->pontuacao += i;
-    return this->pontuacao;
+void Pontos::setPontuacao(int i){
+    this->pontuacao = i;
 }
 
-void Pontos::removePontuacao(int i){
+void Pontos::aumentarPontuacao(int i){
+    this->pontuacao += i;
+}
+
+void Pontos::diminuirPontuacao(int i){
     this->pontuacao -= i;
 }
 
+/* Objetivos restantes */
 int Pontos::getObjRestantes(){
     return this->objrestantes;
 }
@@ -28,12 +32,30 @@ void Pontos::setObjRestantes(int i){
     this->objrestantes = i;
 }
 
+void Pontos::aumentarObjRestantes(){
+    this->objrestantes += 1;
+}
+
 void Pontos::diminuirObjRestantes(){
     this->objrestantes -= 1;
 }
 
-void Pontos::aumentarObjRestantes(){
-    this->objrestantes += 1;
+/* Movimentos restantes */
+
+int Pontos::getMovRestantes(){
+    return this->movRestantes;
+}
+
+void Pontos::setMovRestantes(int i){
+    this->movRestantes = i;
+}
+
+void Pontos::aumentarMovRestantes(){
+    this->movRestantes += 1;
+}
+
+void Pontos::diminuirMovRestantes(){
+    this->movRestantes -= 1;
 }
 
 void Pontos::escrevePontuacao(ALLEGRO_FONT *font){
