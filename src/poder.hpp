@@ -4,6 +4,7 @@
 #include "allegro.cpp"
 #include "main.hpp"
 #include "poder.hpp"
+#include "pontuacao.cpp"
 
 class Doce {
     public:
@@ -14,7 +15,9 @@ class Doce {
         ALLEGRO_BITMAP *doceRoxo = droxo;
         ALLEGRO_BITMAP *doceAmarelo = damarelo;
         void getDoce(int cor,int i, int j, int q);
+        
 };
+
 
 
 

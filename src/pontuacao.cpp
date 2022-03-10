@@ -58,6 +58,7 @@ void Pontos::diminuirMovRestantes(){
     this->movRestantes -= 1;
 }
 
+/* Funções de escrita */
 void Pontos::escrevePontuacao(ALLEGRO_FONT *font){
     al_draw_textf(font, al_map_rgb(255,0,0),330,520, 0, "%d", this->pontuacao);   
 }
@@ -68,6 +69,27 @@ void Pontos::escreveObjRestantes(ALLEGRO_FONT *font){
 
 void Pontos::escreveMovRestantes(ALLEGRO_FONT *font){
     al_draw_textf(font, al_map_rgb(255,0,0),220,520, 0, "%d", this->movRestantes);   
+}
+
+void PontosDoce::pontosDoce(int escolha, int multiplicador){
+    switch(escolha){
+        case 0:
+            Pontos::aumentarPontuacao((this->pontosDoces[0])*this->multiplicador[multiplicador]);
+            break;
+        case 1:
+            Pontos::aumentarPontuacao((this->pontosDoces[1])*this->multiplicador[multiplicador]);
+            break;
+        case 2:
+            Pontos::aumentarPontuacao((this->pontosDoces[2])*this->multiplicador[multiplicador]);
+            break;
+        case 3:
+            Pontos::aumentarPontuacao((this->pontosDoces[3])*this->multiplicador[multiplicador]);
+            break;
+        case 4:
+            Pontos::aumentarPontuacao((this->pontosDoces[4])*this->multiplicador[multiplicador]);
+            break;
+
+    }
 }
 
 
