@@ -43,7 +43,7 @@ ALLEGRO_BITMAP *docesimplesvermelho = NULL;
 ALLEGRO_BITMAP *bombarelogioamarelo = NULL;
 ALLEGRO_BITMAP *bombarelogioazul = NULL;
 ALLEGRO_BITMAP *bombarelogiolaranja = NULL;
-ALLEGRO_BITMAP *bombarelogioroxo = NULL;
+ALLEGRO_BITMAP *bombarelogioroxa = NULL;
 ALLEGRO_BITMAP *bombarelogioverde = NULL;
 ALLEGRO_BITMAP *bombarelogiovermelho = NULL;
 

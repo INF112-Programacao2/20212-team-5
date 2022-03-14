@@ -113,44 +113,44 @@ int inicializa() {
 
     //Doces Simples
 
-    docessimplesamarelo = al_load_bitmap("docessimplesamarelo.bmp");
-    if(!docessimplesamarelo){
-        cout << "Falha ao carregar docessimplesamarelo!" << endl;
+    docesimplesamarelo = al_load_bitmap("docesimplesamarelo.bmp");
+    if(!docesimplesamarelo){
+        std::cout << "Falha ao carregar docesimplesamarelo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
-    docessimplesazul = al_load_bitmap("docessimpleszul.bmp");
-    if(!docessimplesazul){
-        cout << "Falha ao carregar docessimplesazul!" << endl;
+    docesimplesazul = al_load_bitmap("docesimpleszul.bmp");
+    if(!docesimplesazul){
+        std::cout << "Falha ao carregar docesimplesazul!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
-    docessimpleslaranja = al_load_bitmap("docessimpleslaranja.bmp");
-    if(!docessimpleslaranja){
-        cout << "Falha ao carregar docessimpleslaranja!" << endl;
+    docesimpleslaranja = al_load_bitmap("docesimpleslaranja.bmp");
+    if(!docesimpleslaranja){
+        std::cout << "Falha ao carregar docesimpleslaranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
-    docessimplesroxo = al_load_bitmap("docessimplesroxo.bmp");
-    if(!docessimplesroxo){
-        cout << "Falha ao carregar docessimplesroxo!" << endl;
+    docesimplesroxo = al_load_bitmap("docesimplesroxo.bmp");
+    if(!docesimplesroxo){
+        std::cout << "Falha ao carregar docesimplesroxo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
-    docessimplesverde = al_load_bitmap("docessimplesverde.bmp");
-    if(!docessimplesverde){
-        cout << "Falha ao carregar docessimplesverde!" << endl;
+    docesimplesverde = al_load_bitmap("docesimplesverde.bmp");
+    if(!docesimplesverde){
+        std::cout << "Falha ao carregar docesimplesverde!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
-    docessimplesvermelho = al_load_bitmap("docessimplesvermelho.bmp");
-    if(!docessimplesvermelho){
-        cout << "Falha ao carregar docessimplesvermelho!" << endl;
+    docesimplesvermelho = al_load_bitmap("docesimplesvermelho.bmp");
+    if(!docesimplesvermelho){
+        std::cout << "Falha ao carregar docesimplesvermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -161,43 +161,42 @@ int inicializa() {
 
     bombarelogioamarelo = al_load_bitmap("bombarelogioamarelo.bmp");
     if(!bombarelogioamarelo){
-        cout << "Falha ao carregar a bomba relogio amarela!" << endl;
+        std::cout << "Falha ao carregar a bomba relogio amarela!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
-    al_draw_bitmap(apple,macax*q,macay*q,0);
 
     bombarelogioazul = al_load_bitmap("bombarelogioazul.bmp");
     if(!bombarelogioazul){
-        cout << "Falha ao carregar a bomba relogio azul!" << endl;
+        std::cout << "Falha ao carregar a bomba relogio azul!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
     
     bombarelogiolaranja = al_load_bitmap("bombarelogiolaranja.bmp");
     if(!bombarelogiolaranja){
-        cout << "Falha ao carregar a bomba relogio laranja!" << endl;
+        std::cout << "Falha ao carregar a bomba relogio laranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     bombarelogioroxa = al_load_bitmap("bombarelogioroxa.bmp");
     if(!bombarelogioroxa){
-        cout << "Falha ao carregar a bomba relogio roxa!" << endl;
+        std::cout << "Falha ao carregar a bomba relogio roxa!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     bombarelogioverde = al_load_bitmap("bombarelogioverde.bmp");
     if(!bombarelogioverde){
-        cout << "Falha ao carregar a bomba relogio verde!" << endl;
+        std::cout << "Falha ao carregar a bomba relogio verde!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     bombarelogiovermelho = al_load_bitmap("bombarelogiovermelho.bmp");
     if(!bombarelogiovermelho){
-        cout << "Falha ao carregar a bomba relogio vermelho!" << endl;
+        std::cout << "Falha ao carregar a bomba relogio vermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -207,42 +206,42 @@ int inicializa() {
 
     especialhorizontalamarelo = al_load_bitmap("especialhorizontalamarelo.bmp");
     if(!especialhorizontalamarelo){
-        cout << "Falha ao carregar especialhorizontalamarelo!" << endl;
+        std::cout << "Falha ao carregar especialhorizontalamarelo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialhorizontalazul = al_load_bitmap("especialhorizontalazul.bmp");
     if(!especialhorizontalazul){
-        cout << "Falha ao carregar especialhorizontalazul!" << endl;
+        std::cout << "Falha ao carregar especialhorizontalazul!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialhorizontallaranja = al_load_bitmap("especialhorizontallaranja.bmp");
     if(!especialhorizontallaranja){
-        cout << "Falha ao carregar especialhorizontallaranja!" << endl;
+        std::cout << "Falha ao carregar especialhorizontallaranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialhorizontalroxo = al_load_bitmap("especialhorizontalroxo.bmp");
     if(!especialhorizontalroxo){
-        cout << "Falha ao carregar especialhorizontalroxo!" << endl;
+        std::cout << "Falha ao carregar especialhorizontalroxo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialhorizontalverde = al_load_bitmap("especialhorizontalverde.bmp");
     if(!especialhorizontalverde){
-        cout << "Falha ao carregar especialhorizontalverde!" << endl;
+        std::cout << "Falha ao carregar especialhorizontalverde!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialhorizontalvermelho = al_load_bitmap("especialhorizontalvermelho.bmp");
     if(!especialhorizontalvermelho){
-        cout << "Falha ao carregar especialhorizontalvermelho!" << endl;
+        std::cout << "Falha ao carregar especialhorizontalvermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -252,42 +251,42 @@ int inicializa() {
 
     especialverticalamarelo = al_load_bitmap("especialverticalamarelo.bmp");
     if(!especialverticalamarelo){
-        cout << "Falha ao carregar especialverticalamarelo!" << endl;
+        std::cout << "Falha ao carregar especialverticalamarelo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialverticalazul = al_load_bitmap("especialverticalazul.bmp");
     if(!especialverticalazul){
-        cout << "Falha ao carregar especialverticalazul!" << endl;
+        std::cout << "Falha ao carregar especialverticalazul!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialverticallaranja = al_load_bitmap("especialverticallaranja.bmp");
     if(!especialverticallaranja){
-        cout << "Falha ao carregar especialverticallaranja!" << endl;
+        std::cout << "Falha ao carregar especialverticallaranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialverticalroxo = al_load_bitmap("especialverticalroxo.bmp");
     if(!especialverticalroxo){
-        cout << "Falha ao carregar especialverticalroxo!" << endl;
+        std::cout << "Falha ao carregar especialverticalroxo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialverticalverde = al_load_bitmap("especialverticalverde.bmp");
     if(!especialverticalverde){
-        cout << "Falha ao carregar especialverticalverde!" << endl;
+        std::cout << "Falha ao carregar especialverticalverde!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     especialverticalvermelho = al_load_bitmap("especialverticalvermelho.bmp");
     if(!especialverticalvermelho){
-        cout << "Falha ao carregar especialverticalvermelho!" << endl;
+        std::cout << "Falha ao carregar especialverticalvermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -297,42 +296,42 @@ int inicializa() {
 
     pacotefishamarelo = al_load_bitmap("pacotefishamarelo.bmp");
     if(!pacotefishamarelo){
-        cout << "Falha ao carregar pacotefishamarelo!" << endl;
+        std::cout << "Falha ao carregar pacotefishamarelo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     pacotefishazul = al_load_bitmap("pacotefishazul.bmp");
     if(!pacotefishazul){
-        cout << "Falha ao carregar pacotefishazul!" << endl;
+        std::cout << "Falha ao carregar pacotefishazul!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     pacotefishlaranja = al_load_bitmap("pacotefishlaranja.bmp");
     if(!pacotefishlaranja){
-        cout << "Falha ao carregar pacotefishlaranja!" << endl;
+        std::cout << "Falha ao carregar pacotefishlaranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     pacotefishroxo = al_load_bitmap("pacotefishroxo.bmp");
     if(!pacotefishroxo){
-        cout << "Falha ao carregar pacotefishroxo!" << endl;
+        std::cout << "Falha ao carregar pacotefishroxo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     pacotefishverde = al_load_bitmap("pacotefishverde.bmp");
     if(!pacotefishverde){
-        cout << "Falha ao carregar pacotefishverde!" << endl;
+        std::cout << "Falha ao carregar pacotefishverde!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     pacotefishvermelho = al_load_bitmap("pacotefishvermelho.bmp");
     if(!pacotefishvermelho){
-        cout << "Falha ao carregar pacotefishvermelho!" << endl;
+        std::cout << "Falha ao carregar pacotefishvermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -343,42 +342,42 @@ int inicializa() {
 
     peixeespecialamarelo = al_load_bitmap("peixeespecialamarelo.bmp");
     if(!peixeespecialamarelo){
-        cout << "Falha ao carregar peixeespecialamarelo!" << endl;
+        std::cout << "Falha ao carregar peixeespecialamarelo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     peixeespecialazul = al_load_bitmap("peixeespecialazul.bmp");
     if(!peixeespecialazul){
-        cout << "Falha ao carregar peixeespecialazul!" << endl;
+        std::cout << "Falha ao carregar peixeespecialazul!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     peixeespeciallaranja = al_load_bitmap("peixeespeciallaranja.bmp");
     if(!peixeespeciallaranja){
-        cout << "Falha ao carregar peixeespeciallaranja!" << endl;
+        std::cout << "Falha ao carregar peixeespeciallaranja!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     peixeespecialroxo = al_load_bitmap("peixeespecialroxo.bmp");
     if(!peixeespecialroxo){
-        cout << "Falha ao carregar peixeespecialroxo!" << endl;
+        std::cout << "Falha ao carregar peixeespecialroxo!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     peixeespecialverde = al_load_bitmap("peixeespecialverde.bmp");
     if(!peixeespecialverde){
-        cout << "Falha ao carregar peixeespecialverde!" << endl;
+        std::cout << "Falha ao carregar peixeespecialverde!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     peixeespecialvermelho = al_load_bitmap("peixeespecialvermelho.bmp");
     if(!peixeespecialvermelho){
-        cout << "Falha ao carregar peixeespecialvermelho!" << endl;
+        std::cout << "Falha ao carregar peixeespecialvermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -389,14 +388,14 @@ int inicializa() {
 
     rosquinharosaespecial = al_load_bitmap("rosquinharosaespecial.bmp");
     if(!peixeespecialvermelho){
-        cout << "Falha ao carregar rosquinharosaespecial!" << endl;
+        std::cout << "Falha ao carregar rosquinharosaespecial!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
 
     brigadeiroespecial = al_load_bitmap("brigadeiroespecial.bmp");
     if(!brigadeiroespecial){
-        cout << "Falha ao carregar brigadeiroespecial!" << endl;
+        std::cout << "Falha ao carregar brigadeiroespecial!" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -441,7 +440,7 @@ int desinicializa(){
     al_destroy_bitmap(bombarelogioamarelo);
     al_destroy_bitmap(bombarelogioazul);
     al_destroy_bitmap(bombarelogiolaranja);
-    al_destroy_bitmap(bombarelogioroxo);
+    al_destroy_bitmap(bombarelogioroxa);
     al_destroy_bitmap(bombarelogioverde);
     al_destroy_bitmap(bombarelogiovermelho);
 
@@ -482,14 +481,6 @@ int desinicializa(){
     al_destroy_bitmap(brigadeiroespecial);
 
     return 0;
-}
-
-int sorteia(int mapa[][8]){
-    for(int i=0;i<8; i++){
-        for(int j=0;j<8;j++){
-            mapa[i][j] = rand() % 6;
-        }
-    }
 }
 
 #endif
