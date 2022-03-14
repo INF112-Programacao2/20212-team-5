@@ -9,4 +9,9 @@
     -> Click botão esquerdo, define a  primeira coordenada
     -> Click botão direito, define a segunda coordenada, faz a verificação das condições e faz a troca.    
     -> A troca é feita mudando o valor do MAPA[x][y] (0,1,2);
+
+
+7_Função Gravidade
+    '4' foi definido para quando não tiver uma peça,  o if(MAPA[i][j]==4) vai verificar se tem um espaço em branco, e assim, vai começar a "cair as peças"
+
     

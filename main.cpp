@@ -298,6 +298,20 @@ int main(int argc, char **argv){
                         al_draw_bitmap(dverde,j*q,i*q,0); //função desenha
                     }
 
+                     ///EFEITO GRAVIDADE DAS PEÇAS
+                    if(MAPA[i][j]==4){
+                        MAPA[i][j]=MAPA[i-1][j];
+                        MAPA[i-1][j]=MAPA[i-2][j];
+                        MAPA[i-2][j]=MAPA[i-3][j];
+                        MAPA[i-3][j]=MAPA[i-4][j];
+                        MAPA[i-4][j]=MAPA[i-5][j];
+                        MAPA[i-5][j]=MAPA[i-5][j];
+                        MAPA[i-5][j]=MAPA[i-6][j];
+                        MAPA[i-6][j]=MAPA[i-7][j];
+                        MAPA[i-7][j]=MAPA[i-8][j]; 
+                        MAPA[0][j]=rand()%3;                     
+                        
+                    }
                     
                    
                     
