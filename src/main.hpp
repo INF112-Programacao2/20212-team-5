@@ -43,7 +43,6 @@ bool redraw = true;
 bool sair = false;
 bool pressao=false;
 int mouse_x, mouse_y;
-int MAPA[8][8];
 int q = 62;
 int keyboardState = 0;
 int pontuacao = 0;

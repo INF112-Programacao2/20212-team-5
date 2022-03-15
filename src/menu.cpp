@@ -35,7 +35,6 @@ int Menu::mainmenu(){
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
-        sorteia(MAPA);
         nivel.faseUm(event);
         }
     }

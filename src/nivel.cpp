@@ -3,15 +3,22 @@
 
 #include "main.hpp"
 #include "nivel.hpp"
+#include "inicializa.hpp"
 #include "pontuacao.cpp"
 #include "poder.cpp"
 
 
 #include <iostream> //TEMPORARIO  -- SOMENTE DEBUG
 
+int Mapa::getCoordenada(int x, int i){
+    return this->MAPA[x][i];
+}
+
 int Nivel::faseUm(ALLEGRO_EVENT &ev){
     Pontos Pontos;
     Doce Doce;
+    Mapa Mapa;
+    sorteia(Mapa.MAPA);
     pontuacao += Pontos.getPontuacao();
     while(!sair){
             al_wait_for_event(event_queue, &ev);
@@ -59,31 +66,33 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
 
                 for (int i=0; i<8; i++){
                     for (int j=0; j<8; j++){
-                        if(MAPA[i][j]==0){
-                            Doce.getDoce(1,i,j,q);
-                        }
-                        if(MAPA[i][j]==1){
-                           Doce.getDoce(5,i,j,q); 
-                        }
-                        if(MAPA[i][j]==2){
-                            Doce.getDoce(4,i,j,q); 
-                        }
-                        if(MAPA[i][j]==3){
-                            Doce.getDoce(2,i,j,q); 
-                        }
-                        if(MAPA[i][j]==4){
-                            Doce.getDoce(3,i,j,q); 
-                        }
-                        if(MAPA[i][j]==5){
-                            Doce.getDoce(5,i,j,q);
-                        }
+                        switch(Mapa.getCoordenada(i,j)){
+                            case 0:
+                                Doce.getDoce(1,i,j,q);
+                                break;
+                            case 1:
+                                Doce.getDoce(5,i,j,q); 
+                                break;
+                            case 2:
+                                Doce.getDoce(4,i,j,q);
+                                break; 
+                            case 3:
+                                Doce.getDoce(2,i,j,q);
+                                break;
+                            case 4:
+                                Doce.getDoce(3,i,j,q);
+                                break;
+                            case 5:
+                                Doce.getDoce(5,i,j,q);
+                                break;
                     }
                 }
-                
                 al_flip_display();
-
             }
     }
 }
+
+
+
 
 #endif
