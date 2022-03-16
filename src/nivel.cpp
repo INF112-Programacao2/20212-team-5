@@ -3,7 +3,7 @@
 
 #include "main.hpp"
 #include "nivel.hpp"
-#include "inicializa.hpp"
+#include "inicializa.cpp"
 #include "pontuacao.cpp"
 #include "poder.cpp"
 
@@ -90,8 +90,8 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                 al_flip_display();
             }
     }
+    }
 }
-
 
 
 

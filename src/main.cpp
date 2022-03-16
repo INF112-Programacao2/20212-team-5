@@ -9,10 +9,21 @@
 #include "inicializa.cpp"
 #include "nivel.cpp"
 #include "menu.cpp"
+#include "json.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
 
+using json = nlohmann::json;
 
 int main(int argc, char **argv){
     Menu Menu;
+    json j;
+    std::ifstream file("save/test.txt");
+    std::string readFile;
+    if(file.is_open()){
+        file >> readFile;
+    }
 	if(!inicializa()) return -1;
     srand(time(NULL));
     while(!sair){
