@@ -31,6 +31,25 @@ void Doce::getDoce(int cor,int i, int j, int q){
 }
 
 void Poder::Troca(){
+    //colocar a funcao de clicar aqui 
+    
+
+
+
+}
+void Poder::Ovini(){
+
+
+}
+void Poder::Pincel_listrado(){
+
+
+}
+void Poder::Martelo_doce(){
+
+
+}
+void Poder::Booster(){
 
 
 }
