@@ -41,7 +41,7 @@ int inicializa() {
     logo = al_load_bitmap("assets/logo.bmp");
     botao = al_load_bitmap("assets/botao.bmp");
     fundo = al_load_bitmap("assets/Fundo2.bmp");
-    cursor = al_create_mouse_cursor(droxo, 0, 0);
+    cursor = al_create_mouse_cursor(docesimplesroxo, 0, 0);
 
 
     if(!display)

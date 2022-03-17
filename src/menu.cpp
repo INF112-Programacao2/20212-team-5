@@ -45,7 +45,7 @@ int Menu::mainmenu(){
             mouse_y <= botao1_y + al_get_bitmap_height(botao)-30)  mapeando primeiro botão, para ser o "INICIAR"*/
         std::cout << "Click no menu!" << std::endl;
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
-        sorteia(MAPA);
+        //sorteia(MAPA);
         nivel.faseUm(event);
         }
     }

@@ -30,7 +30,12 @@ void Doce::getDoce(int cor,int i, int j, int q){
     
 }
 
+void Poder::Troca(){
 
 
+}
 
 #endif
+
+
+
