@@ -12,10 +12,11 @@
 
 
 int main(int argc, char **argv){
+    Menu Menu;
 	if(!inicializa()) return -1;
     srand(time(NULL));
     while(!sair){
-        mainmenu();
+        Menu.mainmenu();
     }
     desinicializa();
     return 0;

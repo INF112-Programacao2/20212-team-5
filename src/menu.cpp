@@ -6,7 +6,7 @@
 #include "inicializa.cpp"
 
 
-int mainmenu(){
+int Menu::mainmenu(){
     /*
         ESTA ESTRUTURA PERMITE O JOGO INICIALIZAR UMA FILA DE EVENTOS QUE PODE SER QUEBRADA SEM DESLIGAR O JOGO
         EXEMPLO: O jogador inicia o tabuleiro e quando mandamos um BREAK na função jogo(), o programa retorna ao menu inicial, por conta da função Main, que está em um loop
@@ -23,6 +23,10 @@ int mainmenu(){
     al_draw_bitmap(logo,0,50,0);
     al_draw_bitmap(botao,botao_x,botao1_y,0);
     al_draw_bitmap(botao,botao_x,botao2_y,0);
+
+    al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+35, botao1_y+7, 0, "Iniciar");
+    al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+30, botao2_y+7, 0, "Config.");
+    //al_draw_textf( font, al_map_rgb(0,0,0) , botao_x, botao1_y, 0, "%s", this->Iniciar );
     
 
     al_flip_display();
@@ -39,11 +43,12 @@ int mainmenu(){
     }
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
-        /* if (mouse_x >= botao_x &&
-            mouse_x <= botao_x + al_get_bitmap_width(botao)-30 &&
-            mouse_y >= botao1_y &&
-            mouse_y <= botao1_y + al_get_bitmap_height(botao)-30)  mapeando primeiro botão, para ser o "INICIAR"*/
-        std::cout << "Click no menu!" << std::endl;
+        if (mouse_x > botao_x &&
+            mouse_x < botao_x + al_get_bitmap_width(botao)-30 &&
+            mouse_y > botao1_y &&
+            mouse_y < botao1_y + al_get_bitmap_height(botao)-30){  //mapeando primeiro botão, para ser o "INICIAR"
+            std::cout << "Click no menu!" << std::endl;
+        }
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
         sorteia(MAPA);
         nivel.faseUm(event);

@@ -5,8 +5,11 @@
 
 #include "main.hpp"
 
-int mainmenu();
-
-
+class Menu {
+    private:
+        //const char *Iniciar = "Iniciar";
+    public:
+        int mainmenu();
+};
 
 #endif
