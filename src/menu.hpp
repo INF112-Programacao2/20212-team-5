@@ -10,6 +10,7 @@ class Menu {
         //const char *Iniciar = "Iniciar";
     public:
         int mainmenu();
+        //void somDoJogo();
 };
 
 #endif

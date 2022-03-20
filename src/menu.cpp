@@ -14,8 +14,8 @@ int Menu::mainmenu(){
     ALLEGRO_EVENT event;                        //INICIA UMA ÚNICA FILA DE EVENTOS
     Nivel nivel;
     
-    int botao_x = 600;
-    int botao1_y = 220;
+    int botao_x = 600; //coordenada x do botao
+    int botao1_y = 220; // coordenada y do botao
     int botao2_y = 320;
     
 
@@ -26,7 +26,6 @@ int Menu::mainmenu(){
 
     al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+35, botao1_y+7, 0, "Iniciar");
     al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+30, botao2_y+7, 0, "Config.");
-    //al_draw_textf( font, al_map_rgb(0,0,0) , botao_x, botao1_y, 0, "%s", this->Iniciar );
     
 
     al_flip_display();
@@ -42,13 +41,25 @@ int Menu::mainmenu(){
         }
     }
 
-    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
-        if (mouse_x > botao_x &&
-            mouse_x < botao_x + al_get_bitmap_width(botao)-30 &&
-            mouse_y > botao1_y &&
-            mouse_y < botao1_y + al_get_bitmap_height(botao)-30){  //mapeando primeiro botão, para ser o "INICIAR"
-            std::cout << "Click no menu!" << std::endl;
+    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
+        //Botao Iniciar
+        if (event.mouse.button == 1 && 
+            event.mouse.x  > botao_x &&
+            event.mouse.x  < (botao_x + al_get_bitmap_width(botao)) &&
+            event.mouse.y > botao1_y &&
+            event.mouse.y < (botao1_y + al_get_bitmap_height(botao))){
+            std::cout << "Click no iniciar!" << std::endl;
         }
+
+        //Botao Configurações
+        if (event.mouse.button == 1 && 
+            event.mouse.x  > botao_x &&
+            event.mouse.x  < (botao_x + al_get_bitmap_width(botao)) &&
+            event.mouse.y > botao2_y &&
+            event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
+            std::cout << "Click no Configurações!" << std::endl;
+        }
+
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
         sorteia(MAPA);
         nivel.faseUm(event);
