@@ -17,7 +17,7 @@ using namespace std;
 int main(int argc, char **argv){
     Menu Menu;
     
-    escreveArquivo();
+    leArquivo();
  //   char save[] = R"(
  //       {
  //       "Save": {

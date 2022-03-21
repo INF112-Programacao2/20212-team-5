@@ -88,7 +88,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                 }
                 al_flip_display();
             }
-    }
+        }
     }
 }
 
