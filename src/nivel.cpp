@@ -7,8 +7,7 @@
 #include "pontuacao.cpp"
 #include "poder.cpp"
 
-
-#include <iostream> //TEMPORARIO  -- SOMENTE DEBUG
+ //TEMPORARIO  -- SOMENTE DEBUG
 
 int Mapa::getCoordenada(int x, int i){
     return this->MAPA[x][i];
