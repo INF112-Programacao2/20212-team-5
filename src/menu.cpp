@@ -70,6 +70,7 @@ int Menu::mainmenu(){
             event.mouse.y > botao2_y &&
             event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
             std::cout << "Click no Configurações!" << std::endl;
+
         }
     }
 
