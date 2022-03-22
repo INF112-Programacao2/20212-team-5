@@ -40,7 +40,11 @@ int Menu::mainmenu(){
             keyboardState -= 1;
         }
     }
-
+    //Encerra o Jogo
+    if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+        sair=true;
+    }
+    
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
         //Botao Iniciar
         if (event.mouse.button == 1 && 
@@ -48,8 +52,16 @@ int Menu::mainmenu(){
             event.mouse.x  < (botao_x + al_get_bitmap_width(botao)) &&
             event.mouse.y > botao1_y &&
             event.mouse.y < (botao1_y + al_get_bitmap_height(botao))){
-            std::cout << "Click no iniciar!" << std::endl;
+            /* std::cout << "Click no iniciar!" << std::endl; */
+
+            if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
+            sorteia(MAPA);
+            nivel.faseUm(event);
+            }
         }
+            //if keyboardState == 2 { segundaFase() }
+            //if keyboardState == 3 { terceiraFase() }
+            //if keyboardState == 4 { quartaFase() }
 
         //Botao Configurações
         if (event.mouse.button == 1 && 
@@ -59,28 +71,42 @@ int Menu::mainmenu(){
             event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
             std::cout << "Click no Configurações!" << std::endl;
         }
-
-        if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
-        sorteia(MAPA);
-        nivel.faseUm(event);
-        }
     }
-    //if keyboardState == 2 { segundaFase() }
-    //if keyboardState == 3 { terceiraFase() }
-    //if keyboardState == 4 { quartaFase() }
 
     else if(event.type == ALLEGRO_EVENT_KEY_UP){
         if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+                this->pausar();
+                /*
                 sair=true;
                 return sair;
+                */
         }
     }
     
 }
 
-int Menu::telaPause(){
+bool Menu::pausar(){
+    ALLEGRO_EVENT event;
 
+    al_draw_bitmap(fundo,0,0,0);
+    al_draw_bitmap(telaPause,  al_get_bitmap_width(fundo)/2 - al_get_bitmap_height(telaPause)/2,
+                    al_get_bitmap_height(fundo)/2 - al_get_bitmap_width(telaPause)/2, 0);
+    al_draw_bitmap(botaoSim, 10, 60, 0);
+    al_draw_bitmap(botaoNao, 30, 60, 0);
+
+    al_draw_text ( font, al_map_rgb(0,0,0) , 5, 40, 0, "Deseja sair?");
+
+    al_flip_display();
+    al_wait_for_event(event_queue, &event);
     
+    //while() //voltar pro menu ou voltar pra fase
+    if(event.type == ALLEGRO_EVENT_KEY_UP){
+        if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+                sair=true;
+                return sair;
+        }
+    
+    }
 }
 
 #endif

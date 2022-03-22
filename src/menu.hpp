@@ -11,7 +11,7 @@ class Menu {
         bool _sairJogo = false;
     public:
         int mainmenu();
-        int telaPause();
+        bool pausar();
         //void somDoJogo();
 };
 
