@@ -53,8 +53,8 @@ int Menu::mainmenu(){
 
         //Botao Configurações
         if (event.mouse.button == 1 && 
-            event.mouse.x  > botao_x &&
-            event.mouse.x  < (botao_x + al_get_bitmap_width(botao)) &&
+            event.mouse.x > botao_x &&
+            event.mouse.x < (botao_x + al_get_bitmap_width(botao)) &&
             event.mouse.y > botao2_y &&
             event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
             std::cout << "Click no Configurações!" << std::endl;
@@ -75,6 +75,11 @@ int Menu::mainmenu(){
                 return sair;
         }
     }
+    
+}
+
+int Menu::telaPause(){
+
     
 }
 
