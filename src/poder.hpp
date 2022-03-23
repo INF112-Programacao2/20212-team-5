@@ -8,12 +8,12 @@
 
 class Doce {
     public:
-        ALLEGRO_BITMAP *doceLaranja = dlaranja;
-        ALLEGRO_BITMAP *doceVermelho = dvermelho;
-        ALLEGRO_BITMAP *doceAzul = dazul;
-        ALLEGRO_BITMAP *doceVerde = dverde;
-        ALLEGRO_BITMAP *doceRoxo = droxo;
-        ALLEGRO_BITMAP *doceAmarelo = damarelo;
+        ALLEGRO_BITMAP *doceLaranja = doceLaranja;
+        ALLEGRO_BITMAP *doceVermelho = doceVermelho;
+        ALLEGRO_BITMAP *doceAzul = doceAzul;
+        ALLEGRO_BITMAP *doceVerde = doceVerde;
+        ALLEGRO_BITMAP *doceRoxo = doceRoxo;
+        ALLEGRO_BITMAP *doceAmarelo = doceAmarelo;
         void getDoce(int cor,int i, int j, int q);
         
 };
@@ -24,11 +24,16 @@ class Doce {
 
 class Poder {
     private:
-     ////////////////////////////////
+    int _Doce;
     protected:
      ////////////////////////////////
     public:
-     ////////////////////////////////
+    Poder();
+    void Troca();
+    void Ovini();
+    void Pincel_listrado();
+    void Martelo_doce();
+    void Booster();
 };
 
 #endif
