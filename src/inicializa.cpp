@@ -481,6 +481,13 @@ int desinicializa(){
     al_destroy_bitmap(brigadeiroespecial);
 
     return 0;
+
 }
+void sorteia(int mapa[][8]){
+    for(int i=0;i<8; i++){
+        for(int j=0;j<8;j++){
+            mapa[i][j] = rand() % 6;
+        }
+    }
 
 #endif
