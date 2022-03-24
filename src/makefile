@@ -1,11 +1,11 @@
 CC=g++
 CFLAGS=-o CandyCrush
 CPFLAGS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf
-DELETAVEIS=main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o escreve.o
+DELETAVEIS=main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o
 
 all: main
 
-main: main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o escreve.o
+main: main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o
 		${CC} ${CFLAGS} main.o ${CPFLAGS}
 
 main.o: main.cpp
@@ -31,8 +31,5 @@ pontuacao.o: pontuacao.hpp pontuacao.cpp
 
 tabuleiro.o: tabuleiro.hpp tabuleiro.cpp
 		${CC} -c tabuleiro.cpp
-
-escreve.o: escreve.hpp escreve.cpp
-		${CC} -c escreve.cpp
 clean:
 		-del ${DELETAVEIS}
