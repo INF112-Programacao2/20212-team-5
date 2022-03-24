@@ -37,6 +37,25 @@ ALLEGRO_MOUSE_CURSOR *cursor = NULL;
 ALLEGRO_FONT *font = NULL;
 
 
+//--------------auxiliares----------------------//
+int Y_click_esq=0;
+int X_click_esq=0;
+
+int Y_click_dir=0;
+int X_click_dir=0;
+int aux_map;
+
+int xtrio[64];
+int ytrio[64];
+
+bool vertical=false;
+bool horizontal=false;
+
+
+
+int moves=0;
+
+//-------------------------------------------//
 
 
 bool redraw = true;   

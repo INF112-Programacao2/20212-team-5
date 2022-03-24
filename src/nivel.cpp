@@ -44,7 +44,12 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){ 
                 if(ev.mouse.button & 1){ 
                     pressao=true;  
-                    std::cout<<"CLICK"<<std::endl;
+                     if(pressao==true){
+                    //cout<<Y_click_esq<<"OLHAesq "<< X_click_esq<<endl;
+                        Y_click_esq=mouse_y/q+11;  //auxiliar guarda a coordenada X do último click;*
+        
+                        X_click_esq=mouse_x/q; //auxiliar guarda a coordenada X do último click; *   
+                    }   
                 }
             }
             else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP){

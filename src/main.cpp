@@ -16,32 +16,6 @@ using namespace std;
 
 int main(int argc, char **argv){
     Menu Menu;
-    
-    leArquivo();
- //   char save[] = R"(
- //       {
- //       "Save": {
- //           "Fase":  4,
- //           "Pontuação": 0,
- //           "Movimentos":  [
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1,
- //               0, 1, 1, 1, 1, 1, 1, 1
- //           ],
- //           "Morreu": false,
- //           "Poderes": [Ovni, 2], [Pirulito, 2],
- //           "Data": [21, 03, 2022]
- //       }
- //   }
- //   )";
- //   Arquivo << save;
- //   Arquivo.close();
- //   
 	if(!inicializa()) return -1;
     srand(time(NULL));
     while(!sair){
