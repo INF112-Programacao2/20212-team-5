@@ -97,5 +97,4 @@ int pontuacao = 0;
 int jogo(ALLEGRO_EVENT &ev);
 
 
-
 #endif
