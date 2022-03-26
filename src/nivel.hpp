@@ -39,6 +39,12 @@ class Mapa {
             6, 1 ,2,6,6,1,0,
             6, 3 ,1,3,5,1,2,
         };
+        // Ordem de verificação da função check, (função especial vem antes) função 5 -> 4 -> 3
+        void funcao_check_5(int i, int j);
+        void funcao_check_4(int i, int j);
+        void funcao_check_3(int i,int j);
+        int  funcao_cair_doces(int check_type, int x, int y);
+
         void funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir);
         int getMapa();
         int getCoordenada(int x, int i);
