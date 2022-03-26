@@ -3,15 +3,11 @@
 
 #include "main.hpp"
 #include "nivel.hpp"
-#include "inicializa.cpp"
 #include "pontuacao.cpp"
 #include "poder.cpp"
 
- //TEMPORARIO  -- SOMENTE DEBUG
 
-int Mapa::getCoordenada(int x, int i){
-    return this->MAPA[x][i];
-}
+#include <iostream> //TEMPORARIO  -- SOMENTE DEBUG
 
 int Mapa::funcao_cair_doces(int check_type, int x, int y){
        
@@ -200,8 +196,10 @@ void Mapa::funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir){
 int Nivel::faseUm(ALLEGRO_EVENT &ev){
     Pontos Pontos;
     Doce Doce;
+
     Mapa Mapa;
     //sorteia(Mapa.MAPA);
+
     pontuacao += Pontos.getPontuacao();
     while(!sair){
             al_wait_for_event(event_queue, &ev);
@@ -298,12 +296,11 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                         
                     }
                 }
+                
                 al_flip_display();
+
             }
-        }
     }
-
-
 
 
 #endif

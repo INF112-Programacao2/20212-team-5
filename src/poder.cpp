@@ -38,7 +38,101 @@ void Doce::getDoce(int cor,int i, int j, int q){
 }
 
 void Poder::Troca(){
-    //colocar a funcao de clicar aqui 
+     if ((mapa[i][j]=1)&&(mapa[i][j]=2)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=1)&&(mapa[i][j]=3)){
+        al_draw_bitmap(this-> docesimplesvermelho ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=1)&&(mapa[i][j]=4)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=1)&&(mapa[i][j]=5)){
+        al_draw_bitmap(this-> docesimplesamarelo ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=1)&&(mapa[i][j]=6)){
+        al_draw_bitmap(this-> docesimplesazul ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=1)&&(mapa[i][j]=1)){
+        al_draw_bitmap(this-> docesimpleslaranja ,j*q,i*q,0);
+    }
+
+    if ((mapa[i][j]=2)&&(mapa[i][j]=2)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=2)&&(mapa[i][j]=3)){
+        al_draw_bitmap(this-> docesimplesvermelho ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=2)&&(mapa[i][j]=4)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=2)&&(mapa[i][j]=5)){
+        al_draw_bitmap(this-> docesimplesamarelo ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=2)&&(mapa[i][j]=6)){
+        al_draw_bitmap(this-> docesimplesazul ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=2)&&(mapa[i][j]=1)){
+        al_draw_bitmap(this-> docesimpleslaranja ,j*q,i*q,0);
+    }
+
+    if ((mapa[i][j]=3)&&(mapa[i][j]=2)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=3)&&(mapa[i][j]=3)){
+        al_draw_bitmap(this-> docesimplesvermelho ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=3)&&(mapa[i][j]=4)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=3)&&(mapa[i][j]=5)){
+        al_draw_bitmap(this-> docesimplesamarelo ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=3)&&(mapa[i][j]=6)){
+        al_draw_bitmap(this-> docesimplesazul ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=3)&&(mapa[i][j]=1)){
+        al_draw_bitmap(this-> docesimpleslaranja ,j*q,i*q,0);
+    }
+
+    if ((mapa[i][j]=5)&&(mapa[i][j]=2)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=5)&&(mapa[i][j]=3)){
+        al_draw_bitmap(this-> docesimplesvermelho ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=5)&&(mapa[i][j]=4)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=5)&&(mapa[i][j]=5)){
+        al_draw_bitmap(this-> docesimplesamarelo ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=5)&&(mapa[i][j]=6)){
+        al_draw_bitmap(this-> docesimplesazul ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=5)&&(mapa[i][j]=1)){
+        al_draw_bitmap(this-> docesimpleslaranja ,j*q,i*q,0);
+    }
+
+    if ((mapa[i][j]=6)&&(mapa[i][j]=2)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=6)&&(mapa[i][j]=3)){
+        al_draw_bitmap(this-> docesimplesvermelho ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=6)&&(mapa[i][j]=4)){
+        al_draw_bitmap(this-> docesimplesverde ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=6)&&(mapa[i][j]=5)){
+        al_draw_bitmap(this-> docesimplesamarelo ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=6)&&(mapa[i][j]=6)){
+        al_draw_bitmap(this-> docesimplesazul ,j*q,i*q,0);
+    }
+    if ((mapa[i][j]=6)&&(mapa[i][j]=1)){
+        al_draw_bitmap(this-> docesimpleslaranja ,j*q,i*q,0);
+    }
+
     
 
 
