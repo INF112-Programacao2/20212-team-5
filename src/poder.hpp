@@ -8,12 +8,12 @@
 
 class Doce {
     public:
-        ALLEGRO_BITMAP *doceLaranja = doceLaranja;
-        ALLEGRO_BITMAP *doceVermelho = doceVermelho;
-        ALLEGRO_BITMAP *doceAzul = doceAzul;
-        ALLEGRO_BITMAP *doceVerde = doceVerde;
-        ALLEGRO_BITMAP *doceRoxo = doceRoxo;
-        ALLEGRO_BITMAP *doceAmarelo = doceAmarelo;
+        ALLEGRO_BITMAP *doceLaranja = dlaranja;
+        ALLEGRO_BITMAP *doceVermelho = dvermelho;
+        ALLEGRO_BITMAP *doceAzul = dazul;
+        ALLEGRO_BITMAP *doceVerde = dverde;
+        ALLEGRO_BITMAP *doceRoxo = droxo;
+        ALLEGRO_BITMAP *doceAmarelo = damarelo;
         void getDoce(int cor,int i, int j, int q);
         
 };
