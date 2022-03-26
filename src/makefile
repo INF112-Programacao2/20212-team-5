@@ -31,5 +31,6 @@ pontuacao.o: pontuacao.hpp pontuacao.cpp
 
 tabuleiro.o: tabuleiro.hpp tabuleiro.cpp
 		${CC} -c tabuleiro.cpp
+
 clean:
 		-del ${DELETAVEIS}
