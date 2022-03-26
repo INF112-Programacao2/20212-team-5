@@ -32,20 +32,20 @@ int inicializa() {
         std::cout <<"Falha ao iniciar al_init_image_addon!" << std::endl;
         return 0;
     }
-    dlaranja = al_load_bitmap("assets/dlaranja.tga"); //carrega a imagem da cabeca
-    droxo = al_load_bitmap("assets/droxo.tga"); //carrega a imagem da cabeca
-    dverde = al_load_bitmap("assets/dverde.tga");
-    dvermelho = al_load_bitmap("assets/dvermelho.tga");
-    dazul = al_load_bitmap("assets/dazul.tga");
+    dlaranja = al_load_bitmap("assets/docesimpleslaranja.bmp"); //carrega a imagem da cabeca
+    droxo = al_load_bitmap("assets/docesimplesroxo.bmp"); //carrega a imagem da cabeca
+    dverde = al_load_bitmap("assets/docesimplesverde.bmp");
+    dvermelho = al_load_bitmap("assets/docesimplesvermelho.bmp");
+    dazul = al_load_bitmap("assets/docesimplesazul.bmp");
     damarelo = al_load_bitmap("assets/docesimplesamarelo.bmp");
     display = al_create_display(SCREEN_W, SCREEN_H);
     event_queue = al_create_event_queue();
-    mapa = al_load_bitmap("assets/tabuleiro.bmp");
+    mapa = al_load_bitmap("assets/tabuleiroExpande.bmp");
     mouse=al_load_bitmap("assets/personagem.png"); 
     menu = al_load_bitmap("assets/menu.bmp");
     logo = al_load_bitmap("assets/logo.bmp");
     botao = al_load_bitmap("assets/botao.bmp");
-    fundo = al_load_bitmap("assets/Fundo2.bmp");
+    fundo = al_load_bitmap("assets/Fundo3exp.bmp");
     cursor = al_create_mouse_cursor(droxo, 0, 0);
 
 
@@ -143,7 +143,7 @@ int desinicializa(){
     return 0;
 
 }
-void sorteia(int mapa[][8]){
+void sorteia(int mapa[][7]){
     for(int i=0;i<8; i++){
         for(int j=0;j<8;j++){
             mapa[i][j] = rand() % 6;

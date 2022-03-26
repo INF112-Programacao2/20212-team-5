@@ -32,12 +32,14 @@ int Menu::mainmenu(){
             keyboardState -= 1;
         }
     }
+    
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
         nivel.faseUm(event);
         }
     }
+    
     //if keyboardState == 2 { segundaFase() }
     //if keyboardState == 3 { terceiraFase() }
     //if keyboardState == 4 { quartaFase() }

@@ -5,10 +5,10 @@
 #include "inicializa.hpp"
 
 const float FPS = 10;
-const int SCREEN_W = 1000;
-const int SCREEN_H = 561;
+const int SCREEN_W = 1650;
+const int SCREEN_H = 980;
 const int QUAD_SIZE = 20;
-const int OFFSETX = 500;
+const int OFFSETX = 700;
 const int OFFSETY = 100;
 
 const char *nome = NULL;
@@ -52,19 +52,16 @@ int ytrio[64];
 bool vertical=false;
 bool horizontal=false;
 
-
-
 int moves=0;
-
-//-------------------------------------------//
-
 
 bool redraw = true;   
 bool sair = false;
 bool pressao=false;
 int mouse_x, mouse_y;
 int MAPA[8][8];
-int q = 62;
+int q = 110;
+bool pressao_dir = false;
+int definir_numero_de_movimentos_do_nivel = 50;
 int keyboardState = 0;
 int pontuacao = 0;
 
