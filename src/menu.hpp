@@ -12,7 +12,7 @@ class Menu {
         void mainmenu();
         void pausarMenu();
         //void pausarNivel();
-        //void somDoJogo();
+        void escolherNivel();
 };
 
 #endif

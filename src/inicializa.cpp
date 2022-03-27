@@ -43,6 +43,10 @@ int inicializa() {
     mapa = al_load_bitmap("assets/tabuleiroExpande.bmp");
     mouse=al_load_bitmap("assets/personagem.png"); 
     menu = al_load_bitmap("assets/menu.bmp");
+    telaPause = al_load_bitmap("assets/pauseexp.bmp");
+    botaoSim = al_load_bitmap("assets/botaosim.bmp");
+    botaoNao = al_load_bitmap("assets/botaonao.bmp");
+    fasesJogo = al_load_bitmap("assets/fasesjogo.bmp");
     logo = al_load_bitmap("assets/logo.bmp");
     botao = al_load_bitmap("assets/botao.bmp");
     fundo = al_load_bitmap("assets/Fundo3exp.bmp");
@@ -86,8 +90,6 @@ int inicializa() {
         return 0;
     }
 
-
-    telaPause = al_load_bitmap("assets/pause.bmp");
     if(!telaPause){
         std::cout << "FALHA AO CARREGAR O TELA PAUSE" << std::endl;
 
@@ -95,7 +97,7 @@ int inicializa() {
         
         return 0;
     }
-    botaoSim = al_load_bitmap("assets/botaosim.bmp");
+
     if(!botaoSim){
         std::cout << "FALHA AO CARREGAR O BOTAO SIM" << std::endl;
 
@@ -103,9 +105,17 @@ int inicializa() {
         
         return 0;
     }
-    botaoNao = al_load_bitmap("assets/botaonao.bmp");
+    
     if(!botaoNao){
         std::cout << "FALHA AO CARREGAR O BOTAO NAO" << std::endl;
+
+        al_destroy_display(display);
+        
+        return 0;
+    }
+
+    if(!fasesJogo){
+        std::cout << "FALHA AO CARREGAR O FASES JOGO" << std::endl;
 
         al_destroy_display(display);
         
@@ -161,6 +171,12 @@ int inicializa() {
 int desinicializa(){
     al_destroy_bitmap(mapa);
     al_destroy_bitmap(mouse);
+    al_destroy_bitmap(telaPause);
+    al_destroy_bitmap(botao);
+    al_destroy_bitmap(botaoSim);
+    al_destroy_bitmap(botaoNao);
+    al_destroy_bitmap(fasesJogo);
+    al_destroy_font(font);
     al_destroy_timer(timer);
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
