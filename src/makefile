@@ -3,6 +3,7 @@ CFLAGS=-o CandyCrush
 CPFLAGS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf
 DELETAVEIS=main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o
 
+
 all: main
 
 main: main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o
@@ -32,6 +33,9 @@ pontuacao.o: pontuacao.hpp pontuacao.cpp
 tabuleiro.o: tabuleiro.hpp tabuleiro.cpp
 		${CC} -c tabuleiro.cpp
 
+
+release:
+		powershell.exe ./release.sh
 
 clean:
 		-del ${DELETAVEIS}

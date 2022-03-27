@@ -122,7 +122,7 @@ int inicializa() {
     al_init_font_addon();    
     al_init_ttf_addon();   
 
-    font = al_load_ttf_font("assets/candycrush.ttf", 26, 0); 
+    font = al_load_ttf_font("assets/candycrush.ttf", 50, 0); 
     al_register_event_source(event_queue, al_get_mouse_event_source());
 
     al_clear_to_color(al_map_rgb(0,0,0));

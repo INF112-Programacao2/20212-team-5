@@ -174,10 +174,10 @@ void Mapa::funcao_check_3(int i,int j){
 
 }
 
-void Mapa::funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir){
+void Mapa::funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir, Pontos &pontos){
     if(abs(y_esq - y_dir)==1 || abs(x_esq-x_dir)==1 ){ //verifica se a diferença entre o primeiro click e o segundo click ==1;
             if(!(abs(y_esq - y_dir)==1 & abs(x_esq-x_dir)==1)){ //verifica se o segundo clkick está na diagonal, se as 2 coordenadas mudam ao mesmo tempo;
-                if(moves<=definir_numero_de_movimentos_do_nivel){
+                if(moves<=pontos.getMovRestantes()){
                     
                     std::cout << y_esq << " " << y_dir << std::endl;
 
@@ -185,8 +185,9 @@ void Mapa::funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir){
                     MAPA[y_esq][x_esq]=MAPA[y_dir][x_dir];//posição do click esquerdo vai ser igual a posição do click direito;*
                     MAPA[y_dir][x_dir]=aux_map;//posição do click direito vai ser igual a posição do auxiliar*
                     moves++;
+                    pontos.diminuirMovRestantes();
                 }
-                if(moves==definir_numero_de_movimentos_do_nivel){
+                if(moves==pontos.getMovRestantes()){
                                 std::cout<<"PERDEU"<<std::endl;
                                 sair=true;
                                 
@@ -246,7 +247,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                         
                             Y_click_dir=mouse_y/q+9; //2 adicionado ÀS 09:47
                             X_click_dir=mouse_x/q+1;
-                            Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir);
+                            Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir, Pontos);
 
 
                         }
@@ -269,7 +270,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev){
                 Pontos.escreveObjRestantes(font);
 
 
-                for (int i=10; i<17; i++){
+                for (int i=11; i<17; i++){
                     for (int j=0; j<7; j++){
                         if(Mapa.getCoordenada(i,j)==0){
                             Doce.getDoce(0,i,j,q); 

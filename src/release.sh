@@ -1,4 +1,3 @@
-cd src
 if [[ -d assets ]]; then
     if [[ -d ../release ]]; then
         cp -r ../src/assets ../release
