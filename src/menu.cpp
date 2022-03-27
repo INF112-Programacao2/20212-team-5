@@ -55,7 +55,7 @@ int Menu::mainmenu(){
             /* std::cout << "Click no iniciar!" << std::endl; */
 
             if(keyboardState == 1 /* temporário ->*/ || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
-            sorteia(MAPA);
+            //sorteia(MAPA);
             nivel.faseUm(event);
             }
         }

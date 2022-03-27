@@ -7,13 +7,12 @@
 
 class Menu {
     private:
-        //const char *Iniciar = "Iniciar";
-        bool _sairJogo = false;
+        bool som;
     public:
-        int mainmenu();
-        bool pausar();
+        void mainmenu();
+        void pausarMenu();
+        //void pausarNivel();
         //void somDoJogo();
 };
-
 
 #endif
