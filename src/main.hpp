@@ -69,4 +69,5 @@ int jogo(ALLEGRO_EVENT &ev);
 
 
 
+
 #endif

@@ -91,7 +91,8 @@ void PontosDoce::pontosDoce(int escolha, int multiplicador){
         case 4:
             Pontos::aumentarPontuacao((this->pontosDoces[4])*this->multiplicador[multiplicador]);
             break;
-    } 
+
+    }
 }
 
 

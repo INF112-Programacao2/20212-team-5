@@ -33,7 +33,6 @@ pontuacao.o: pontuacao.hpp pontuacao.cpp
 tabuleiro.o: tabuleiro.hpp tabuleiro.cpp
 		${CC} -c tabuleiro.cpp
 
-
 release:
 		powershell.exe ./release.sh
 

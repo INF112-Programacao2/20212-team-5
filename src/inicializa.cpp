@@ -141,8 +141,8 @@ int desinicializa(){
     al_destroy_display(display);
 
     return 0;
-
 }
+
 void sorteia(int mapa[][7]){
     for(int i=0;i<8; i++){
         for(int j=0;j<8;j++){
@@ -150,4 +150,5 @@ void sorteia(int mapa[][7]){
         }
     }
 }
+
 #endif

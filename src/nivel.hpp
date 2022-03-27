@@ -5,15 +5,17 @@
 #include "pontuacao.hpp"
 #include "poder.hpp"
 
-
 class Nivel {
-    
     public:
         int faseUm(ALLEGRO_EVENT &ev);
         
 };
 
 class Mapa {
+    private:
+     ////////////////////////////////
+    protected:
+     ////////////////////////////////
     public:
         int MAPA[18][7] = {
             0, 2 ,3,0,5,0,0,
@@ -49,7 +51,16 @@ class Mapa {
         int getMapa();
         int getCoordenada(int x, int i);
         void setMapa(int escolha);
+
 };
 
+class FaseDois : public Nivel {
+    private:
+     ////////////////////////////////
+    protected:
+     ////////////////////////////////
+    public:
+     ////////////////////////////////
+};
 
 #endif
