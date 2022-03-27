@@ -85,6 +85,32 @@ int inicializa() {
         
         return 0;
     }
+
+
+    telaPause = al_load_bitmap("assets/pause.bmp");
+    if(!telaPause){
+        std::cout << "FALHA AO CARREGAR O TELA PAUSE" << std::endl;
+
+        al_destroy_display(display);
+        
+        return 0;
+    }
+    botaoSim = al_load_bitmap("assets/botaosim.bmp");
+    if(!botaoSim){
+        std::cout << "FALHA AO CARREGAR O BOTAO SIM" << std::endl;
+
+        al_destroy_display(display);
+        
+        return 0;
+    }
+    botaoNao = al_load_bitmap("assets/botaonao.bmp");
+    if(!botaoNao){
+        std::cout << "FALHA AO CARREGAR O BOTAO NAO" << std::endl;
+
+        al_destroy_display(display);
+        
+        return 0;
+    }
     
     if(!logo){
         std::cout << "FALHA AO CARREGAR O Logo" << std::endl;

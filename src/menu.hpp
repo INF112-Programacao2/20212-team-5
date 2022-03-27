@@ -6,11 +6,13 @@
 #include "main.hpp"
 
 class Menu {
+    private:
+        bool som;
     public:
-        int mainmenu();
+        void mainmenu();
+        void pausarMenu();
+        //void pausarNivel();
+        //void somDoJogo();
 };
-
-
-
 
 #endif
