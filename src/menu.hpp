@@ -7,12 +7,14 @@
 
 class Menu {
     private:
-        bool som;
+        bool estadoMusica = true;
     public:
         void mainmenu();
         void pausarMenu();
         //void pausarNivel();
         void escolherNivel();
+        void somDoJogo();
+        
 };
 
 #endif

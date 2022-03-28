@@ -69,6 +69,7 @@ void Menu::mainmenu(){
             event.mouse.y > botao2_y &&
             event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
             std::cout << "Click no Configurações!" << std::endl;
+            this->somDoJogo();
         }
     }
 
@@ -188,6 +189,13 @@ void Menu::escolherNivel(){
         }
     
     }    
+}
+
+void Menu::somDoJogo(){
+    
+    al_set_sample_instance_playmode(inst_musica, ALLEGRO_PLAYMODE_LOOP);
+    al_attach_sample_instance_to_mixer(inst_musica, al_get_default_mixer());
+    al_play_sample_instance(inst_musica);
 }
 
 /*

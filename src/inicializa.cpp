@@ -32,6 +32,23 @@ int inicializa() {
         std::cout <<"Falha ao iniciar al_init_image_addon!" << std::endl;
         return 0;
     }
+    if(!al_init_acodec_addon())
+    {
+        std::cout <<"Falha ao iniciar al_init_acodec_addon!" << std::endl;
+        return 0;
+    }
+    if(!al_install_audio())
+    {
+        std::cout <<"Falha ao iniciar al_install_audio!" << std::endl;
+        return 0;
+    }
+
+    if (!al_reserve_samples(2))
+    {
+        std::cout <<"Falha ao iniciar al_reserve_samples!" << std::endl;
+        return 0;
+    }
+
     dlaranja = al_load_bitmap("assets/docesimpleslaranja.bmp"); //carrega a imagem da cabeca
     droxo = al_load_bitmap("assets/docesimplesroxo.bmp"); //carrega a imagem da cabeca
     dverde = al_load_bitmap("assets/docesimplesverde.bmp");
@@ -51,7 +68,8 @@ int inicializa() {
     botao = al_load_bitmap("assets/botao.bmp");
     fundo = al_load_bitmap("assets/Fundo3exp.bmp");
     cursor = al_create_mouse_cursor(droxo, 0, 0);
-
+    musica = al_load_sample("assets/musica.ogg");
+    inst_musica = al_create_sample_instance(musica);
 
     if(!display)
     {
@@ -150,6 +168,20 @@ int inicializa() {
         al_destroy_mouse_cursor(cursor);
         return 0;
     }
+    if(!musica){
+        std::cout << "FALHA AO CARREGAR A MUSICA" << std::endl;
+
+        al_destroy_sample(musica);
+        
+        return 0;
+    }
+    if(!inst_musica){
+        std::cout << "FALHA AO CARREGAR A ISTANCIA MUSICA" << std::endl;
+
+        al_destroy_sample(musica);
+        
+        return 0;
+    }
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -158,6 +190,7 @@ int inicializa() {
     al_init_font_addon();    
     al_init_ttf_addon();   
 
+    
     font = al_load_ttf_font("assets/candycrush.ttf", 50, 0); 
     al_register_event_source(event_queue, al_get_mouse_event_source());
 
@@ -181,6 +214,9 @@ int desinicializa(){
     al_destroy_display(display);
     al_destroy_event_queue(event_queue);
     al_destroy_display(display);
+
+    al_destroy_sample(musica);
+    //al_destroy_sample_instance(musicaInstancia);
 
     return 0;
 }
