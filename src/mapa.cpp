@@ -13,10 +13,10 @@ int Mapa::getCoordenada(int x, int i){
 
 int Mapa::clearCoordenada(){
     for (int i=11; i<17; i++){
-                for (int j=0; j<7; j++){
-                    this->MAPA[i][j] = 0;
-                }
-            }
+        for (int j=0; j<7; j++){
+            this->MAPA[i][j] = 0;
+        }
+    }
 }
 
 //int Mapa::setCoordenada(int escolha){
