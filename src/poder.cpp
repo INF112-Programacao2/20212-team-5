@@ -37,6 +37,15 @@ void Doce::getDoce(int cor,int i, int j, int q){
     
 }
 
+void Poder::DesenhoPoder(){
+    al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
+    al_draw_bitmap(fundorosa,380,450,100);
+    al_draw_bitmap(Maozinha,400,465,100);
+    al_draw_bitmap(Nave,440,465,100);
+    al_draw_bitmap(Pirulito,485,462,100);
+    al_draw_bitmap(Festa,530,469,100);
+}
+
 void Poder::Ovini(){
 
 

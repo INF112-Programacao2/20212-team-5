@@ -46,6 +46,15 @@ ALLEGRO_BITMAP *dvermelho = NULL;
 ALLEGRO_BITMAP *damarelo = NULL;
 ALLEGRO_BITMAP *dazul = NULL;
 
+//referente a poder
+ALLEGRO_BITMAP *Pirulito = NULL;
+ALLEGRO_BITMAP *fundosugar = NULL;
+ALLEGRO_BITMAP *Festa = NULL;
+ALLEGRO_BITMAP *fundorosa = NULL;
+ALLEGRO_BITMAP *Maozinha = NULL;
+ALLEGRO_BITMAP *Muda1 = NULL;
+ALLEGRO_BITMAP *Nave = NULL;
+
 //--------------auxiliares----------------------//
 int Y_click_esq=0;
 int X_click_esq=0;
@@ -73,6 +82,55 @@ int definir_numero_de_movimentos_do_nivel = 50;
 int keyboardState = 0;
 int pontuacao = 0;
 
+
+int mapaUm[18][7] = {
+            0, 2 ,3,0,5,0,0,
+            1, 5 ,3,5,6,5,6,
+            2, 1 ,6,0,5,3,6,
+        
+            3, 2 ,5,5,1,2,0,
+            3, 5 ,2,1,0,2,1,
+            5, 1 ,3,0,0,1,0,
+        
+            1, 2 ,1,0,1,2,1,
+            6, 1 ,2,6,6,5,0,
+            6, 3 ,1,3,5,1,2,
+            0, 2 ,3,0,5,0,0,
+            1, 5 ,3,5,6,5,6,
+            2, 1 ,6,0,5,3,6,
+        
+            3, 2 ,5,5,2,2,0,
+            3, 5 ,2,1,6,6,1,
+            5, 1 ,3,0,0,1,0,
+        
+            1, 2 ,1,0,1,2,1,
+            6, 1 ,2,6,6,1,0,
+            6, 3 ,1,3,5,1,2,
+            };
+
+int mapaDois[18][7] = {
+            2,2,1,4,4,4,4,
+            1,1,2,4,4,4,4,
+            2,2,3,4,4,4,4,
+
+            3,3,2,4,4,4,4,
+            3,1,6,4,4,4,4,
+            1,6,0,4,4,4,4,
+            1,1,6,4,4,4,4,
+            3,3,1,4,4,4,4,
+
+            2,3,6,4,4,4,4,
+            3,2,6,4,4,4,4,
+            2,3,3,4,4,4,4,
+            1,1,6,4,4,4,4,
+            6,6,1,4,4,4,4,
+
+            6,1,5,4,4,4,4,
+            1,6,2,4,4,4,4,
+            6,1,2,4,4,4,4,
+            3,3,1,4,4,4,4,
+            1,1,2,4,4,4,4,
+};
 
 int jogo(ALLEGRO_EVENT &ev);
 

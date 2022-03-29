@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-o CandyCrush
 
-CPFLAGS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf -lallegro_audio -lallegro_acodec -Wall -Wpedantic  -O3 
+CPFLAGS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf -lallegro_audio -lallegro_acodec
 DELETAVEIS=main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o mapa.o
 
 

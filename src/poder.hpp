@@ -62,7 +62,7 @@ class Poder {
     protected:
      ////////////////////////////////
     public:
-    Poder();
+    void DesenhoPoder();
     void Troca();
     void Ovini();
     void Pincel_listrado();

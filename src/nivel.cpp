@@ -39,11 +39,11 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
             6, 3 ,1,3,5,1,2,
     };
 
-    Pontos Pontos(0, obj, 15);
+    
     Doce Doce;
-
+    Poder Poder;
     Mapa Mapa(mapaUm);
-
+    Pontos Pontos(0, obj, 15);
 
     //sorteia(Mapa.MAPA);
 
@@ -103,11 +103,13 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
                     pressao=false;              
             }
             if(redraw && al_is_event_queue_empty(event_queue)){
-            
+                
                 redraw = false;
                 al_clear_to_color(al_map_rgb(0,0,0));
                 al_draw_bitmap(fundo,0,0,0);
-                al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
+                Poder.DesenhoPoder();
+                
+                //al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
                 al_set_mouse_cursor(display, cursor);
                 
                 Pontos.escrevePontuacao(font);
