@@ -95,7 +95,7 @@ void Menu::mainmenu(){
     if(event.type == ALLEGRO_EVENT_KEY_UP){
         if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
                 std::cout << "Aparecer tela de Pause" << std::endl;
-                //this->pausarInicio();
+                this->pausarInicio();
         }
     }
     
