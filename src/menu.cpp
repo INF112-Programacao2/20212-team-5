@@ -165,7 +165,8 @@ void Menu::escolherNivel(){
         if (event.mouse.button == 1 && 
             event.mouse.x > 761 && event.mouse.x < 916 &&
             event.mouse.y > 45 && event.mouse.y < 173){
-                std::cout << "Clicou no Nível 3" << std::endl;        
+                fase = 3;
+                nivel.faseTres(event, fase);      
         }
 
         //Para o nível 4
