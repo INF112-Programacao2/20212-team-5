@@ -33,11 +33,12 @@ pontuacao.o: pontuacao.hpp pontuacao.cpp
 tabuleiro.o: tabuleiro.hpp tabuleiro.cpp
 		${CC} -c tabuleiro.cpp
 
+
 mapa.o: mapa.hpp mapa.cpp
 		${CC} -c mapa.cpp
 
 release:
 		powershell.exe ./release.sh
-
+    
 clean:
 		-del ${DELETAVEIS}

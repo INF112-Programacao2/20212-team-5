@@ -14,7 +14,7 @@ class Doce {
         ALLEGRO_BITMAP *doceVerde = dverde;
         ALLEGRO_BITMAP *doceRoxo = droxo;
         ALLEGRO_BITMAP *doceAmarelo = damarelo;
-        
+
         void getDoce(int cor,int i, int j, int q);
         
 };

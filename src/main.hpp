@@ -65,7 +65,6 @@ int definir_numero_de_movimentos_do_nivel = 50;
 int keyboardState = 0;
 int pontuacao = 0;
 
-
 int mapaUm[18][7] = {
             0, 2 ,3,0,5,0,0,
             1, 5 ,3,5,6,5,6,

@@ -21,7 +21,9 @@ int Menu::mainmenu(){
     al_draw_bitmap(logo,0,50,0);
     al_draw_bitmap(botao,600,220,0);
     al_draw_bitmap(botao,600,320,0);
+
     EscreverFase.escreverFase(font, keyboardState);
+
     
 
     al_flip_display();
@@ -41,15 +43,17 @@ int Menu::mainmenu(){
     
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
+
         if(keyboardState == 1 /* temporário ->*/ || keyboardState == 3 || keyboardState == 0){
             fase=1;
             
             nivel.faseUm(event, fase);
+
         }
         if (keyboardState == 2){ fase=2;nivel.faseDois(event, fase);}
     }
     
-    
+
     //if keyboardState == 3 { terceiraFase() }
     //if keyboardState == 4 { quartaFase() }
 
