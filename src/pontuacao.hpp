@@ -10,11 +10,8 @@ class Pontos {
         int objetivosRestantes[6];
         int movRestantes = 0;
     public:
-        Pontos(int pontuacao,int obj[], int movimentos){
+        Pontos(int pontuacao, int movimentos){
             this->pontuacao = pontuacao;    
-            for(int i=0;i<6;i++){
-                this->objetivosRestantes[i]=obj[i];
-            }
             this->movRestantes=movimentos;
         }
         /* Pontuação geral */
