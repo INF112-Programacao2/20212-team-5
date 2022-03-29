@@ -38,7 +38,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     };
     Doce Doce;
     DoceListrado DoceListrado;
-    Pontos Pontos(0, 30);
+    Pontos Pontos(0, 5);
     Mapa Mapa(mapaUm);
     
 
@@ -195,7 +195,7 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
     };
     Doce Doce;
     DoceListrado DoceListrado;
-    Pontos Pontos(0, 30);
+    Pontos Pontos(0, 5);
     Mapa Mapa(mapaDois);
     
 
@@ -361,7 +361,7 @@ int Nivel::faseTres(ALLEGRO_EVENT &ev, int fase){
     
     Doce Doce;
     Poder Poder;
-    Pontos Pontos(0,35);
+    Pontos Pontos(0,5);
     Mapa Mapa(mapaTres);
     
 
