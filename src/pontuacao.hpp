@@ -26,6 +26,8 @@ class Pontos {
         void escrevePontuacao(ALLEGRO_FONT *font);
         void escreveObjRestantes(ALLEGRO_FONT *font);
         void escreveMovRestantes(ALLEGRO_FONT *font);
+        void escreverFase(ALLEGRO_FONT *font, int fase);
+        void escreverFaseMenu(ALLEGRO_FONT *font, int fase);
     
 };
 
@@ -34,7 +36,6 @@ class PontosDoce : public Pontos {
         int pontosDoces[6] = {2,2,2,2,2,2};
         double multiplicador[8] = {1, 1.2, 1.7, 1.9, 3.2, 4.5, 7.2, 10};
     public:
-        
         void pontosDoce(int escolha, int multiplicador);
 };
 
