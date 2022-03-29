@@ -128,6 +128,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
 
             }
     }
+}
 
 
 int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
