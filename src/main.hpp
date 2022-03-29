@@ -46,6 +46,15 @@ ALLEGRO_BITMAP *dvermelho = NULL;
 ALLEGRO_BITMAP *damarelo = NULL;
 ALLEGRO_BITMAP *dazul = NULL;
 
+//referente a poder
+ALLEGRO_BITMAP *Pirulito = NULL;
+ALLEGRO_BITMAP *fundosugar = NULL;
+ALLEGRO_BITMAP *Festa = NULL;
+ALLEGRO_BITMAP *fundorosa = NULL;
+ALLEGRO_BITMAP *Maozinha = NULL;
+ALLEGRO_BITMAP *Muda1 = NULL;
+ALLEGRO_BITMAP *Nave = NULL;
+
 //--------------auxiliares----------------------//
 int Y_click_esq=0;
 int X_click_esq=0;

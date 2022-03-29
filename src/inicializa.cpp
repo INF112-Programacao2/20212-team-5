@@ -73,6 +73,15 @@ int inicializa() {
     musica = al_load_sample("assets/musica.ogg");
     inst_musica = al_create_sample_instance(musica);
 
+    //referente a poder
+    Pirulito = al_load_bitmap("assets/Pirulito.bmp");
+    //fundosugar = al_load_bitmap("assets/fundosugar.bmp");
+    Festa = al_load_bitmap("assets/Festa.bmp");
+    fundorosa = al_load_bitmap("assets/fundorosa.bmp");
+    Maozinha = al_load_bitmap("assets/Maozinha.bmp");
+    Muda1 = al_load_bitmap("assets/Muda.bmp");
+    Nave = al_load_bitmap("assets/Nave.bmp");
+
 
     if(!display)
     {
@@ -155,7 +164,7 @@ int inicializa() {
     
     if(!botao)
     {
-        std::cout << "Falha ao carregar o botão" << std::endl;
+        std::cout << "Falha ao carregar o botÃ£o" << std::endl;
         al_destroy_display(display);
         return 0;
     }
@@ -186,6 +195,57 @@ int inicializa() {
 
         al_destroy_sample(musica);
         
+        return 0;
+    }
+
+    //referente a poder
+    if(!Pirulito)
+    {
+        std::cout << "Falha ao carregar o pirulo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+    /*
+    if(!fundosugar)
+    {
+        std::cout << "Falha ao carregar o Fundo do doce!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    */
+    if(!Festa)
+    {
+        std::cout << "Falha ao carregar ajuda festa!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    if(!fundorosa)
+    {
+        std::cout << "Falha ao carregar fundo das ajudas!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    if(!Maozinha)
+    {
+        std::cout << "Falha ao carregar ajuda mao!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    if(!Muda1)
+    {
+        std::cout << "Falha ao carregar ajuda que muda os doces!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    if(!Nave)
+    {
+        std::cout << "Falha ao carregar ajuda nave!" << std::endl;
+        al_destroy_display(display);
         return 0;
     }
 
@@ -223,6 +283,14 @@ int desinicializa(){
 
     al_destroy_sample(musica);
     //al_destroy_sample_instance(musicaInstancia);
+
+    //referente a poder
+    al_destroy_bitmap(fundorosa);
+    al_destroy_bitmap(Festa);
+    //al_destroy_bitmap(fundosugar);
+    al_destroy_bitmap(Maozinha);
+    al_destroy_bitmap(Muda1);
+    al_destroy_bitmap(Nave);
 
     return 0;
 }

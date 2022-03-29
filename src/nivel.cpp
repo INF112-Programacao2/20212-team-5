@@ -13,14 +13,37 @@
 
 int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
 
+    int obj[6] = {10,10,10,0,0,0};
+    int mapaUm[18][7] = {
+            0, 2 ,3,0,5,0,0,
+            1, 5 ,3,5,6,5,6,
+            2, 1 ,6,0,5,3,6,
+        
+            3, 2 ,5,5,1,2,0,
+            3, 5 ,2,1,0,2,1,
+            5, 1 ,3,0,0,1,0,
+        
+            1, 2 ,1,0,1,2,1,
+            6, 1 ,2,6,6,5,0,
+            6, 3 ,1,3,5,1,2,
+            0, 2 ,3,0,5,0,0,
+            1, 5 ,3,5,6,5,6,
+            2, 1 ,6,0,5,3,6,
+        
+            3, 2 ,5,5,2,2,0,
+            3, 5 ,2,1,6,6,1,
+            5, 1 ,3,0,0,1,0,
+        
+            1, 2 ,1,0,1,2,1,
+            6, 1 ,2,6,6,1,0,
+            6, 3 ,1,3,5,1,2,
+    };
 
-
-    Pontos Pontos;
+    
     Doce Doce;
-
-    Mapa Mapa;
-
-    Mapa.setCoordenada(1);
+    Poder Poder;
+    Mapa Mapa(mapaUm);
+    Pontos Pontos(0, obj, 15);
 
     //sorteia(Mapa.MAPA);
 
@@ -80,11 +103,13 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
                     pressao=false;              
             }
             if(redraw && al_is_event_queue_empty(event_queue)){
-            
+                
                 redraw = false;
                 al_clear_to_color(al_map_rgb(0,0,0));
                 al_draw_bitmap(fundo,0,0,0);
-                al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
+                Poder.DesenhoPoder();
+                
+                //al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
                 al_set_mouse_cursor(display, cursor);
                 
                 Pontos.escrevePontuacao(font);
@@ -132,12 +157,36 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
 
 
 int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
-    Pontos Pontos;
+    int obj[6] = {10,10,10,0,0,0};
+    int mapaDois[18][7] = {
+            2,2,1,4,4,4,4,
+            1,1,2,4,4,4,4,
+            2,2,3,4,4,4,4,
+
+            3,3,2,4,4,4,4,
+            3,1,6,4,4,4,4,
+            1,6,0,4,4,4,4,
+            1,1,6,4,4,4,4,
+            3,3,1,4,4,4,4,
+
+            2,3,6,4,4,4,4,
+            3,2,6,4,4,4,4,
+            2,3,3,4,4,4,4,
+            1,1,6,4,4,4,4,
+            6,6,1,4,4,4,4,
+
+            6,1,5,4,4,4,4,
+            1,6,2,4,4,4,4,
+            6,1,2,4,4,4,4,
+            3,3,1,4,4,4,4,
+            1,1,2,4,4,4,4,
+    };
     Doce Doce;
 
-    Mapa Mapa;
-    //sorteia(Mapa.MAPA);
-    Mapa.setCoordenada(2);
+    Mapa Mapa(mapaDois);
+    Pontos Pontos(0, obj, 15);
+
+    
     pontuacao += Pontos.getPontuacao();
     while(!sair){
         al_wait_for_event(event_queue, &ev);

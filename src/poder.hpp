@@ -6,17 +6,50 @@
 #include "poder.hpp"
 #include "pontuacao.cpp"
 
-class Doce {
+class Peca {
+    
+    int _pontoPeca;
     public:
-        ALLEGRO_BITMAP *doceLaranja = dlaranja;
-        ALLEGRO_BITMAP *doceVermelho = dvermelho;
-        ALLEGRO_BITMAP *doceAzul = dazul;
-        ALLEGRO_BITMAP *doceVerde = dverde;
-        ALLEGRO_BITMAP *doceRoxo = droxo;
-        ALLEGRO_BITMAP *doceAmarelo = damarelo;
+        ALLEGRO_BITMAP *doceLaranja = NULL;
+        ALLEGRO_BITMAP *doceVermelho = NULL;
+        ALLEGRO_BITMAP *doceAzul = NULL;
+        ALLEGRO_BITMAP *doceVerde = NULL;
+        ALLEGRO_BITMAP *doceRoxo = NULL;
+        ALLEGRO_BITMAP *doceAmarelo = NULL;
+        virtual int pontoPeca()=0;
+};
 
+class Doce : public Peca{
+    public:
+        
+        Doce (){
+        this->doceLaranja = dlaranja;
+        this->doceVermelho = dvermelho;
+        this->doceAzul = dazul;
+        this->doceVerde = dverde;
+        this->doceRoxo = droxo;
+        this->doceAmarelo = damarelo;
+        };
+        int _pontoPeca = 10;
+        int pontoPeca(){ return this->_pontoPeca; };
         void getDoce(int cor,int i, int j, int q);
         
+};
+
+class DoceListrado : Peca{
+    
+    public:
+        DoceListrado(){
+            this->doceLaranja = dlaranja;
+            this->doceVermelho = dvermelho;
+            this->doceAzul = dazul;
+            this->doceVerde = dverde;
+            this->doceRoxo = droxo;
+            this->doceAmarelo = damarelo;
+        };
+        int _pontoPeca = 30;
+        int pontoPeca(){ return this->_pontoPeca; };
+        void getDoce(int cor,int i, int j, int q);
 };
 
 
@@ -29,7 +62,7 @@ class Poder {
     protected:
      ////////////////////////////////
     public:
-    Poder();
+    void DesenhoPoder();
     void Troca();
     void Ovini();
     void Pincel_listrado();
