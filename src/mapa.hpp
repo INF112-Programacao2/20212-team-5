@@ -8,30 +8,9 @@
 
 class Mapa {
     public:
-        int MAPA[18][7] = {
-            0, 2 ,3,0,5,0,0,
-            1, 5 ,3,5,6,5,6,
-            2, 1 ,6,0,5,3,6,
-        
-            3, 2 ,5,5,1,2,0,
-            3, 5 ,2,1,0,2,1,
-            5, 1 ,3,0,0,1,0,
-        
-            1, 2 ,1,0,1,2,1,
-            6, 1 ,2,6,6,5,0,
-            6, 3 ,1,3,5,1,2,
-            0, 2 ,3,0,5,0,0,
-            1, 5 ,3,5,6,5,6,
-            2, 1 ,6,0,5,3,6,
-        
-            3, 2 ,5,5,2,2,0,
-            3, 5 ,2,1,6,6,1,
-            5, 1 ,3,0,0,1,0,
-        
-            1, 2 ,1,0,1,2,1,
-            6, 1 ,2,6,6,1,0,
-            6, 3 ,1,3,5,1,2,
-        };
+        int MAPA[18][7];
+        int setCoordenada(int escolha);
+        int clearCoordenada();
         // Ordem de verificação da função check, (função especial vem antes) função 5 -> 4 -> 3
         void funcao_check_5(int i, int j, Pontos &pontos);
         void funcao_check_4(int i, int j, Pontos &pontos);

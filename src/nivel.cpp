@@ -16,6 +16,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     Doce Doce;
 
     Mapa Mapa;
+    Mapa.setCoordenada(1);
     //sorteia(Mapa.MAPA);
 
     pontuacao += Pontos.getPontuacao();
@@ -128,7 +129,7 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
 
     Mapa Mapa;
     //sorteia(Mapa.MAPA);
-
+    Mapa.setCoordenada(2);
     pontuacao += Pontos.getPontuacao();
     while(!sair){
         al_wait_for_event(event_queue, &ev);
@@ -138,10 +139,12 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
         }
         else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 sair=true;
+                    Mapa.clearCoordenada();
                         break;
                     }
             else if(ev.type == ALLEGRO_EVENT_KEY_UP){
                 if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+                        Mapa.clearCoordenada();
                         break;
                     }
         }
