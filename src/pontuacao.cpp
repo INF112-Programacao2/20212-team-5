@@ -60,6 +60,20 @@ void Pontos::diminuirMovRestantes(){
 
 /* Funções de escrita */
 void Pontos::escrevePontuacao(ALLEGRO_FONT *font){
+/*
+    al_draw_textf(font, al_map_rgb(255,0,0),800,720, 0, "Pontuação:");
+    al_draw_textf(font, al_map_rgb(255,0,0),1300,720, 0, "%d", this->pontuacao);   
+}
+
+void Pontos::escreveObjRestantes(ALLEGRO_FONT *font){
+    al_draw_textf(font, al_map_rgb(255,0,0),800,780, 0, "Objetivos Restantes:");
+    al_draw_textf(font, al_map_rgb(255,0,0),1300,780, 0, "%d", this->objrestantes);   
+}
+
+void Pontos::escreveMovRestantes(ALLEGRO_FONT *font){
+    al_draw_textf(font, al_map_rgb(255,0,0),800,820, 0, "Movimentos Restantes:");
+    al_draw_textf(font, al_map_rgb(255,0,0),1300,820, 0, "%d", this->movRestantes);   
+*/
     al_draw_textf(font, al_map_rgb(255,255,255),50,220, 0, "Pontuação:");
     al_draw_textf(font, al_map_rgb(255,255,255),600,220, 0, "%d", this->pontuacao);   
 }
@@ -82,6 +96,7 @@ void Pontos::escreverFase(ALLEGRO_FONT *font, int fase){
 void Pontos::escreverFaseMenu(ALLEGRO_FONT *font, int fase){
     al_draw_textf(font, al_map_rgb(255,255,255),50,100, 0, "Fase:");
     al_draw_textf(font, al_map_rgb(255,255,255),600,100, 0, "%d", fase);   
+
 }
 
 void PontosDoce::pontosDoce(int escolha, int multiplicador){

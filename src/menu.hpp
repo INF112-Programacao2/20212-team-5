@@ -6,11 +6,15 @@
 #include "main.hpp"
 
 class Menu {
+    private:
+        bool estadoMusica = true;
     public:
-        int mainmenu();
+        void mainmenu();
+        void pausarMenu();
+        //void pausarNivel();
+        void escolherNivel();
+        void somDoJogo();
+        
 };
-
-
-
 
 #endif

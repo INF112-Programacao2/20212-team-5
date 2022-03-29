@@ -21,6 +21,14 @@ ALLEGRO_DISPLAY *display = NULL;
 ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 ALLEGRO_TIMER *timer = NULL;
 ALLEGRO_BITMAP *menu = NULL;
+
+ALLEGRO_BITMAP *telaPause = NULL;
+ALLEGRO_BITMAP *botaoSim = NULL;
+ALLEGRO_BITMAP *botaoNao = NULL;
+ALLEGRO_BITMAP *fasesJogo = NULL;
+ALLEGRO_SAMPLE *musica = NULL;
+ALLEGRO_SAMPLE_INSTANCE *inst_musica = NULL;
+
 ALLEGRO_BITMAP *mapa= NULL;
 ALLEGRO_BITMAP *mouse=NULL;
 
@@ -64,6 +72,7 @@ bool pressao_dir = false;
 int definir_numero_de_movimentos_do_nivel = 50;
 int keyboardState = 0;
 int pontuacao = 0;
+
 
 int mapaUm[18][7] = {
             0, 2 ,3,0,5,0,0,
@@ -113,7 +122,6 @@ int mapaDois[18][7] = {
             3,3,1,4,4,4,4,
             1,1,2,4,4,4,4,
 };
-
 
 int jogo(ALLEGRO_EVENT &ev);
 
