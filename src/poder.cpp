@@ -64,6 +64,3 @@ void Poder::Booster(){
 }
 
 #endif
-
-
-

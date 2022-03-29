@@ -64,7 +64,7 @@ int inicializa() {
     telaPause = al_load_bitmap("assets/pauseexp.bmp");
     botaoSim = al_load_bitmap("assets/botaosim.bmp");
     botaoNao = al_load_bitmap("assets/botaonao.bmp");
-    fasesJogo = al_load_bitmap("assets/fasesjogo.bmp");
+    fasesJogo = al_load_bitmap("assets/3fases.bmp");
     logo = al_load_bitmap("assets/logo.bmp");
     botao = al_load_bitmap("assets/botao.bmp");
     fundo = al_load_bitmap("assets/Fundo3exp.bmp");
@@ -164,7 +164,7 @@ int inicializa() {
     
     if(!botao)
     {
-        std::cout << "Falha ao carregar o botão" << std::endl;
+        std::cout << "Falha ao carregar o botÃ£o" << std::endl;
         al_destroy_display(display);
         return 0;
     }

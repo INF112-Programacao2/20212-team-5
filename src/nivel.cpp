@@ -44,6 +44,10 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     Pontos Pontos(0,35);
     Mapa Mapa(mapaUm);
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> d961599431c2e14161e020fd243b16b08a77ec8a
 
     //sorteia(Mapa.MAPA);
 
@@ -262,6 +266,7 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
 
                 for (int i=11; i<17; i++){
                     for (int j=0; j<3; j++){
+<<<<<<< HEAD
                         if(Mapa.getCoordenada(i,j)==0){
                             Doce.getDoce(0,i,j,q); 
                         }
@@ -401,6 +406,8 @@ int Nivel::faseTres(ALLEGRO_EVENT &ev, int fase){
 
                 for (int i=11; i<17; i++){
                     for (int j=0; j<3; j++){
+=======
+>>>>>>> d961599431c2e14161e020fd243b16b08a77ec8a
                         if(Mapa.getCoordenada(i,j)==0){
                             Doce.getDoce(0,i,j,q); 
                         }
