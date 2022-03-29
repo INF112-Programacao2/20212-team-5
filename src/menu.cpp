@@ -26,30 +26,16 @@ void Menu::mainmenu(){
     al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+35, botao1_y+7, 0, "Iniciar");
     al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+30, botao2_y+7, 0, "Config.");
 
-    Pontos EscreverFase;
 
     /*
     Nivel nivel;
     int fase = 0;
 
     */
-    
-    EscreverFase.escreverFase(font, keyboardState);
+
 
     al_flip_display();
     al_wait_for_event(event_queue, &event);     //ESPERA POR UM EVENTO (No caso da condição abaixo, iniciará o jogo). SE FOR QUEBRADO(receber um break), A CONDIÇÃO RETORNA O PROGRAMA AO MENU INICIAR
-    if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_UP){
-        if(keyboardState>0){
-            keyboardState -= 1;
-            EscreverFase.escreverFase(font, keyboardState);
-        }
-    }
-    if(event.type == ALLEGRO_EVENT_KEY_UP && event.keyboard.keycode==ALLEGRO_KEY_DOWN){
-        if(keyboardState<3){
-            keyboardState += 1;
-            EscreverFase.escreverFase(font, keyboardState);
-        }
-    }
 
     //Encerra o Jogo ao clicar no x da janela
     if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
@@ -147,8 +133,6 @@ void Menu::pausarInicio(){
 
 void Menu::escolherNivel(){
     ALLEGRO_EVENT event;
-
-    Pontos EscreverFase;
 
     Nivel nivel;
     int fase = 0;
