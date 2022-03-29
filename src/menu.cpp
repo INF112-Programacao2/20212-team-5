@@ -41,18 +41,13 @@ int Menu::mainmenu(){
     
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
-        if(keyboardState == 1 /* temporário ->*/ || keyboardState == 3 || keyboardState == 0){
-            fase=1;
-            
-            nivel.faseUm(event, fase);
-        }
-        if (keyboardState == 2){ fase=2;nivel.faseDois(event, fase);}
+        if(keyboardState == 0){ fase=1;nivel.faseUm(event, fase);}
+        if(keyboardState == 1){ fase=1;nivel.faseUm(event, fase);}
+        if(keyboardState == 2){ fase=2;nivel.faseDois(event, fase);}
+    //    if(keyboardState == 3){ fase=3;nivel.faseTres(event, fase);}
+    //    if(keyboardState == 4){ fase=4;nivel.faseQuatro(event, fase);}
+    //    if(keyboardState == 5){ fase=5;nivel.faseCinco(event, fase);}
     }
-    
-    
-    //if keyboardState == 3 { terceiraFase() }
-    //if keyboardState == 4 { quartaFase() }
-
     else if(event.type == ALLEGRO_EVENT_KEY_UP){
         if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
                 sair=true;

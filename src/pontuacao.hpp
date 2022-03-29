@@ -4,8 +4,9 @@
 class Pontos {
     private:
         int pontuacao = 0;
-        int objrestantes = 50;
-        int movRestantes = 50;
+        int movrestantes = 50;
+        int objRestantes[6] = {0,0,0,0,0,0};
+        bool objetivosTrue[6] = {0,0,0,0,0,0};
     public:
         /* Pontuação geral */
         int getPontuacao();
@@ -14,9 +15,8 @@ class Pontos {
         void diminuirPontuacao(int i);
         /* Objetivos restantes */
         int getObjRestantes();
-        void setObjRestantes(int i);
-        void aumentarObjRestantes();
-        void diminuirObjRestantes();
+        void setObjRestantes(int i, int mov);
+        void diminuirObjRestantes(int i);
         /* Movimentos restantes */
         int getMovRestantes();
         void setMovRestantes(int i);

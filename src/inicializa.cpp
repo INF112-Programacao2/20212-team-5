@@ -1,6 +1,8 @@
 #ifndef INICIALIZA_CPP
 #define INICIALIZA_CPP
 
+//Inicializa variáveis base do jogo e "instala" os componentes necessários do Allegro
+
 #include "inicializa.hpp"
 #include "main.hpp"
 
@@ -143,12 +145,6 @@ int desinicializa(){
     return 0;
 }
 
-void sorteia(int mapa[][7]){
-    for(int i=0;i<8; i++){
-        for(int j=0;j<8;j++){
-            mapa[i][j] = rand() % 6;
-        }
-    }
-}
+
 
 #endif

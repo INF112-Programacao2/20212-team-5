@@ -10,6 +10,10 @@
 #include "nivel.cpp"
 #include "menu.cpp"
 
+//Ponto de entrada do programa
+// Abre uma instância de Menu que irá ser usada globalmente nesse programa
+// Liga a função "inicializa", para montar a interface gráfica
+
 
 int main(int argc, char **argv){
     Menu Menu;

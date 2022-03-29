@@ -13,7 +13,6 @@ class Nivel{
         int faseTres(ALLEGRO_EVENT &ev, int fase);
         int faseQuatro(ALLEGRO_EVENT &ev, int fase);
         int faseCinco(ALLEGRO_EVENT &ev, int fase);
-        
 };
 
 
