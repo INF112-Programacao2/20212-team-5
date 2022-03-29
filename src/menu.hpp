@@ -10,7 +10,7 @@ class Menu {
         bool estadoMusica = true;
     public:
         void mainmenu();
-        void pausarMenu();
+        void pausarInicio();
         //void pausarNivel();
         void escolherNivel();
         void somDoJogo();

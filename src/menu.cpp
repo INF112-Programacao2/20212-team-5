@@ -28,18 +28,13 @@ void Menu::mainmenu(){
 
     Pontos EscreverFase;
 
+    /*
     Nivel nivel;
     int fase = 0;
-    
-    al_draw_bitmap(fundo,0,0,0);
-    al_draw_bitmap(logo,0,50,0);
-    al_draw_bitmap(botao,600,220,0);
-    al_draw_bitmap(botao,600,320,0);
 
+    */
+    
     EscreverFase.escreverFase(font, keyboardState);
-
-
-    
 
     al_flip_display();
     al_wait_for_event(event_queue, &event);     //ESPERA POR UM EVENTO (No caso da condição abaixo, iniciará o jogo). SE FOR QUEBRADO(receber um break), A CONDIÇÃO RETORNA O PROGRAMA AO MENU INICIAR
@@ -69,16 +64,7 @@ void Menu::mainmenu(){
             event.mouse.y > botao1_y &&
             event.mouse.y < (botao1_y + al_get_bitmap_height(botao))){
             this->escolherNivel();  
-        }
-
-            /**
-            if(keyboardState == 1 // temporário ->// || keyboardState == 2 || keyboardState == 3 || keyboardState == 0){
-                sorteia(MAPA);
-                nivel.faseUm(event);} 
-            if keyboardState == 2 { segundaFase() }
-            if keyboardState == 3 { terceiraFase() }
-            if keyboardState == 4 { quartaFase() }
-            */
+        } 
 
         //Botao Configurações
         if (event.mouse.button == 1 && 
@@ -88,31 +74,35 @@ void Menu::mainmenu(){
             event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
             std::cout << "Click no Configurações!" << std::endl;
             this->somDoJogo();
+        }
 
     /*
 
     if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
 
-        if(keyboardState == 1 /* temporário ->*/ || keyboardState == 3 || keyboardState == 0){
+        if(keyboardState == 1 /* temporário -> || keyboardState == 3 || keyboardState == 0){
             fase=1;
             
             nivel.faseUm(event, fase);
 
-    */
+    
         }
         if (keyboardState == 2){ fase=2;nivel.faseDois(event, fase);}
     }
+    */
+    }
 
-    else if(event.type == ALLEGRO_EVENT_KEY_UP){
+    if(event.type == ALLEGRO_EVENT_KEY_UP){
         if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
                 std::cout << "Aparecer tela de Pause" << std::endl;
-                this->pausarMenu();
+                //this->pausarInicio();
         }
     }
     
 }
 
-void Menu::pausarMenu(){
+void Menu::pausarInicio(){
+
     ALLEGRO_EVENT event;
 
     al_draw_bitmap(fundo,0,0,0);
@@ -157,7 +147,11 @@ void Menu::pausarMenu(){
 
 void Menu::escolherNivel(){
     ALLEGRO_EVENT event;
+
+    Pontos EscreverFase;
+
     Nivel nivel;
+    int fase = 0;
 
     while(1){
         al_draw_bitmap(fundo,0,0,0);
@@ -171,14 +165,17 @@ void Menu::escolherNivel(){
             event.mouse.x > 222 && event.mouse.x < 379 &&
             event.mouse.y > 555 && event.mouse.y < 690){
                 std::cout << "Clicou no Nível 1" << std::endl;
-                nivel.faseUm(event);
+                fase = 1;
+                nivel.faseUm(event, fase);
         }
 
         //Para o nível 2
         if (event.mouse.button == 1 && 
             event.mouse.x > 502 && event.mouse.x < 660 &&
             event.mouse.y > 320 && event.mouse.y < 448){
-                std::cout << "Clicou no Nível 2" << std::endl;        
+                std::cout << "Clicou no Nível 2" << std::endl;
+                fase=2;
+                nivel.faseDois(event, fase);        
         }
         //Para o nível 3
         if (event.mouse.button == 1 && 
