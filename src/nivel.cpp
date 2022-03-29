@@ -13,7 +13,6 @@
 
 int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
 
-    int obj[6] = {10,10,10,0,0,0};
     int mapaUm[18][7] = {
             0, 2 ,3,0,5,0,0,
             1, 5 ,3,5,6,5,6,
@@ -42,8 +41,10 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     
     Doce Doce;
     Poder Poder;
+    Pontos Pontos(0,35);
     Mapa Mapa(mapaUm);
-    Pontos Pontos(0, obj, 15);
+    
+
 
     //sorteia(Mapa.MAPA);
 
@@ -114,7 +115,6 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
                 
                 Pontos.escrevePontuacao(font);
                 Pontos.escreveMovRestantes(font);
-                Pontos.escreveObjRestantes(font);
                 Pontos.escreverFase(font,fase);
 
                 for (int i=11; i<17; i++){
@@ -157,7 +157,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
 
 
 int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
-    int obj[6] = {10,10,10,0,0,0};
+    
     int mapaDois[18][7] = {
             2,2,1,4,4,4,4,
             1,1,2,4,4,4,4,
@@ -182,9 +182,9 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
             1,1,2,4,4,4,4,
     };
     Doce Doce;
-
+    Pontos Pontos(0, 30);
     Mapa Mapa(mapaDois);
-    Pontos Pontos(0, obj, 15);
+    
 
     
     pontuacao += Pontos.getPontuacao();
@@ -196,12 +196,12 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
         }
         else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 sair=true;
-                    Mapa.clearCoordenada();
+                    
                         break;
                     }
             else if(ev.type == ALLEGRO_EVENT_KEY_UP){
                 if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
-                        Mapa.clearCoordenada();
+                        
                         break;
                     }
         }
@@ -257,12 +257,12 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
             //al_draw_bitmap(mapa,700,100,0);
                 Pontos.escrevePontuacao(font);
                 Pontos.escreveMovRestantes(font);
-                Pontos.escreveObjRestantes(font);
+                
                 Pontos.escreverFase(font,fase);
 
 
                 for (int i=11; i<17; i++){
-                    for (int j=0; j<7; j++){
+                    for (int j=0; j<3; j++){
                         if(Mapa.getCoordenada(i,j)==0){
                             Doce.getDoce(0,i,j,q); 
                         }
