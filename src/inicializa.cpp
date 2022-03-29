@@ -164,7 +164,7 @@ int inicializa() {
     
     if(!botao)
     {
-        std::cout << "Falha ao carregar o botão" << std::endl;
+        std::cout << "Falha ao carregar o botÃ£o" << std::endl;
         al_destroy_display(display);
         return 0;
     }

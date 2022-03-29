@@ -45,6 +45,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     Mapa Mapa(mapaUm);
     
 
+
     //sorteia(Mapa.MAPA);
 
     pontuacao += Pontos.getPontuacao();
