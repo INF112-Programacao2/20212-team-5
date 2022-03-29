@@ -58,7 +58,7 @@ ALLEGRO_BITMAP *Muda1 = NULL;
 ALLEGRO_BITMAP *Nave = NULL;
 
 ALLEGRO_BITMAP *brigadeiroespecial= NULL;
-
+ALLEGRO_BITMAP *fundoMaisReduzidoAinda = NULL;
 ALLEGRO_BITMAP *especialverticalamarelo = NULL;
 ALLEGRO_BITMAP *especialverticalazul = NULL;
 ALLEGRO_BITMAP *especialverticallaranja = NULL;
@@ -97,7 +97,7 @@ bool pressao_dir = false;
 int definir_numero_de_movimentos_do_nivel = 50;
 int keyboardState = 0;
 int pontuacao = 0;
-int aux_4, aux_5;
+int aux_4=0, aux_5=0;
 int n_doces_list_roxo=0, n_doces_list_verde=0, n_doces_list_vermelho=0, n_doces_list_lar=0, n_doces_list_amarelo=0, n_doces_list_azul=0;
 bool listrado = false;
 

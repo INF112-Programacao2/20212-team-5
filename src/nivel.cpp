@@ -38,7 +38,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     };
     Doce Doce;
     DoceListrado DoceListrado;
-    Pontos Pontos(0, 5);
+    Pontos Pontos(0, 30);
     Mapa Mapa(mapaUm);
     
 
@@ -108,7 +108,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
 
             al_clear_to_color(al_map_rgb(0,0,0));
             al_draw_bitmap(fundo,0,0,0);
-            al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
+            al_draw_bitmap(fundoMaisReduzidoAinda,0+OFFSETX,0+OFFSETY,0);
             al_set_mouse_cursor(display, cursor);
             //al_draw_bitmap(mapa,700,100,0);
                 Pontos.escrevePontuacao(font);
@@ -140,20 +140,26 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
                         if(Mapa.getCoordenada(i,j)==6){
                             Doce.getDoce(6,i,j,q);
                         }
+                        if(Mapa.getCoordenada(i,j)==-1){
+                            DoceListrado.getDoce(-1,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-3){
+                            DoceListrado.getDoce(-3,i,j,q);
+                        }
                         if(Mapa.getCoordenada(i,j)==-8){
                             DoceListrado.getDoce(-8,i,j,q);
                         }
                         if(Mapa.getCoordenada(i,j)==-2){
                             DoceListrado.getDoce(-2,i,j,q);
                         }
-                        if(Mapa.getCoordenada(i,j)==-3){
-                            DoceListrado.getDoce(-3,i,j,q);
-                        }
                         if(Mapa.getCoordenada(i,j)==-6){
                             DoceListrado.getDoce(-6,i,j,q);
                         }
                         if(Mapa.getCoordenada(i,j)==-5){
                             DoceListrado.getDoce(-5,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==10){
+                            DoceListrado.getDoce(10,i,j,q);
                         }
                         Mapa.funcao_check_5(i, j, Pontos);
                         Mapa.funcao_check_4(i, j, Pontos);
@@ -195,11 +201,10 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
     };
     Doce Doce;
     DoceListrado DoceListrado;
-    Pontos Pontos(0, 5);
+    Pontos Pontos(0, 30);
     Mapa Mapa(mapaDois);
     
-
-    listrado = true;
+    int moves;
     pontuacao += Pontos.getPontuacao();
     while(!sair){
         al_wait_for_event(event_queue, &ev);
@@ -248,6 +253,7 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
                     X_click_dir=mouse_x/q-6;
 
                     Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir,Pontos);
+                    moves++;
                 }
 
             } 
@@ -273,8 +279,8 @@ int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
                 
                 Pontos.escreverFase(font,fase);
 
-
-                for (int i=10; i<17; i++){
+                
+                for (int i=11; i<17; i++){
                     for (int j=0; j<5; j++){
                         if(Mapa.getCoordenada(i,j)==0){
                             Doce.getDoce(0,i,j,q); 
@@ -361,7 +367,7 @@ int Nivel::faseTres(ALLEGRO_EVENT &ev, int fase){
     
     Doce Doce;
     Poder Poder;
-    Pontos Pontos(0,5);
+    Pontos Pontos(0,15);
     Mapa Mapa(mapaTres);
     
 

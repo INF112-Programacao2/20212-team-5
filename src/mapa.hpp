@@ -24,7 +24,7 @@ class Mapa {
         void funcao_check_4(int i, int j, Pontos &pontos);
         void funcao_check_3(int i,int j, Pontos &pontos);
         int  funcao_cair_doces(int check_type, int x, int y);
-        void funcao_cair_doce_listrado_vertical(int x, int y);
+        void funcao_cair_doce_listrado_vertical(int aux_4,int x, int y);
         void funcao_cairDoce_listrado_horizontal(int aux_5,int y_dir, int x_dir);
         void funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir, Pontos &pontos);
 

@@ -252,7 +252,7 @@ int inicializa() {
     }
 
     fundoReduzido = al_load_bitmap("assets/tapNivel2_oficial.bmp");
-
+    fundoMaisReduzidoAinda = al_load_bitmap("assets/tabuleiroExpande6x3.bmp");
     brigadeiroespecial = al_load_bitmap("assets/brigadeiroespecial.bmp");
         if(!brigadeiroespecial){
             std::cout << "Falha ao carregar brigadeiroespecial!" << std::endl;
@@ -346,6 +346,7 @@ int inicializa() {
         al_destroy_display(display);
         return 0;
     }
+
 
     
     al_register_event_source(event_queue, al_get_display_event_source(display));

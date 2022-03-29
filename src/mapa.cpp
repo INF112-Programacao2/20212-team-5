@@ -47,7 +47,7 @@ int Mapa::clearCoordenada(){
 //    
 //}
 
-void Mapa::funcao_cair_doce_listrado_vertical(int x, int y){// 4 FAZ 1 LISTRADO
+void Mapa::funcao_cair_doce_listrado_vertical(int aux_4,int x, int y){// 4 FAZ 1 LISTRADO
     if(aux_4==0){MAPA[x+3][y]=8;}
     if(aux_4==1){MAPA[x+3][y]=-1;}
     if(aux_4==2){MAPA[x+3][y]=-2;}
@@ -290,7 +290,7 @@ void Mapa::funcao_check_4(int i, int j, Pontos &pontos){
         pontos.aumentarPontuacao(2);
         funcao_cair_doces(4,i,j);
         if(listrado){
-            funcao_cair_doce_listrado_vertical(i, j);  //fazendo o doce ficar listrado
+            funcao_cair_doce_listrado_vertical(aux_4,i, j);  //fazendo o doce ficar listrado
         }
 
     }
@@ -389,10 +389,15 @@ void Mapa::funcao_troca_doces(int y_esq, int x_esq, int y_dir, int x_dir, Pontos
                                 sair=true;
                                 
                             }
+                
      
             }
     }
 
+}
+
+void sairFalse(){
+    sair = false;
 }
 
 

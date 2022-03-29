@@ -7,9 +7,8 @@
 #include "pontuacao.cpp"
 
 class Peca {
-    
-    int _pontoPeca;
     public:
+        int _pontoPeca;
         ALLEGRO_BITMAP *doceLaranja = NULL;
         ALLEGRO_BITMAP *doceVermelho = NULL;
         ALLEGRO_BITMAP *doceAzul = NULL;
@@ -23,9 +22,8 @@ class Peca {
         ALLEGRO_BITMAP *doceEspecialVerticalAzul = NULL;
         ALLEGRO_BITMAP *doceEspecialVerticalAmarelo = NULL;
         ALLEGRO_BITMAP *brigadeiroEspecial= NULL;
-
-
-        virtual int pontoPeca()=0;
+        int pontoPeca();
+        int setPonto();
 };
 
 class Doce : public Peca{
@@ -39,14 +37,14 @@ class Doce : public Peca{
         this->doceRoxo = droxo;
         this->doceAmarelo = damarelo;
         };
-        int _pontoPeca = 10;
+        
         int pontoPeca(){ return this->_pontoPeca; };
+        int setPonto(){ this->_pontoPeca = 10;};
         void getDoce(int cor,int i, int j, int q);
         
 };
 
 class DoceListrado : Peca{
-    
     public:
         DoceListrado(){
             this->doceLaranja = dlaranja;
@@ -61,21 +59,17 @@ class DoceListrado : Peca{
             this->doceEspecialVerticalAzul = especialverticalazul;
             this->doceEspecialVerticalAmarelo = especialverticalamarelo;
             this->brigadeiroEspecial = brigadeiroespecial;
+            this->_pontoPeca = 30;
         };
-        int _pontoPeca = 30;
+        
         int pontoPeca(){ return this->_pontoPeca; };
+        int setPonto(int i){ this->_pontoPeca = (30*i);};
         void getDoce(int cor,int i, int j, int q);
 };
-
-
-
-
 
 class Poder {
     private:
     int _Doce;
-    protected:
-     ////////////////////////////////
     public:
     void DesenhoPoder();
     void Troca();
