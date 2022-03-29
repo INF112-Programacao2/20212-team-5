@@ -32,6 +32,7 @@ int inicializa() {
         std::cout <<"Falha ao iniciar al_init_image_addon!" << std::endl;
         return 0;
     }
+
     if(!al_init_acodec_addon())
     {
         std::cout <<"Falha ao iniciar al_init_acodec_addon!" << std::endl;
@@ -68,8 +69,10 @@ int inicializa() {
     botao = al_load_bitmap("assets/botao.bmp");
     fundo = al_load_bitmap("assets/Fundo3exp.bmp");
     cursor = al_create_mouse_cursor(droxo, 0, 0);
+
     musica = al_load_sample("assets/musica.ogg");
     inst_musica = al_create_sample_instance(musica);
+
 
     if(!display)
     {
@@ -108,6 +111,7 @@ int inicializa() {
         return 0;
     }
 
+
     if(!telaPause){
         std::cout << "FALHA AO CARREGAR O TELA PAUSE" << std::endl;
 
@@ -139,6 +143,7 @@ int inicializa() {
         
         return 0;
     }
+
     
     if(!logo){
         std::cout << "FALHA AO CARREGAR O Logo" << std::endl;
@@ -168,6 +173,7 @@ int inicializa() {
         al_destroy_mouse_cursor(cursor);
         return 0;
     }
+
     if(!musica){
         std::cout << "FALHA AO CARREGAR A MUSICA" << std::endl;
 
@@ -182,6 +188,7 @@ int inicializa() {
         
         return 0;
     }
+
     
     al_register_event_source(event_queue, al_get_display_event_source(display));
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -190,7 +197,6 @@ int inicializa() {
     al_init_font_addon();    
     al_init_ttf_addon();   
 
-    
     font = al_load_ttf_font("assets/candycrush.ttf", 50, 0); 
     al_register_event_source(event_queue, al_get_mouse_event_source());
 

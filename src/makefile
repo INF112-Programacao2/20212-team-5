@@ -1,12 +1,14 @@
 CC=g++
 CFLAGS=-o CandyCrush
+
 CPFLAGS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf -lallegro_audio -lallegro_acodec
-DELETAVEIS=main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o
+DELETAVEIS=main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o mapa.o
+
 
 
 all: main
 
-main: main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o
+main: main.o inicializa.o allegro.o menu.o nivel.o poder.o pontuacao.o tabuleiro.o mapa.o
 		${CC} ${CFLAGS} main.o ${CPFLAGS}
 
 main.o: main.cpp
@@ -33,8 +35,12 @@ pontuacao.o: pontuacao.hpp pontuacao.cpp
 tabuleiro.o: tabuleiro.hpp tabuleiro.cpp
 		${CC} -c tabuleiro.cpp
 
+
+mapa.o: mapa.hpp mapa.cpp
+		${CC} -c mapa.cpp
+
 release:
 		powershell.exe ./release.sh
-
+    
 clean:
 		-del ${DELETAVEIS}

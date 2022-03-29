@@ -5,12 +5,20 @@
 #include "pontuacao.hpp"
 #include "poder.hpp"
 
-class Nivel {
+#include "mapa.cpp"
+
+class Nivel{
+
     public:
-        int faseUm(ALLEGRO_EVENT &ev);
+        int faseUm(ALLEGRO_EVENT &ev, int fase);
+        int faseDois(ALLEGRO_EVENT &ev, int fase);
+        int faseTres(ALLEGRO_EVENT &ev, int fase);
+        int faseQuatro(ALLEGRO_EVENT &ev, int fase);
+        int faseCinco(ALLEGRO_EVENT &ev, int fase);
         
 };
 
+/*
 class Mapa {
     private:
      ////////////////////////////////
@@ -54,13 +62,7 @@ class Mapa {
 
 };
 
-class FaseDois : public Nivel {
-    private:
-     ////////////////////////////////
-    protected:
-     ////////////////////////////////
-    public:
-     ////////////////////////////////
-};
+*/
+
 
 #endif
