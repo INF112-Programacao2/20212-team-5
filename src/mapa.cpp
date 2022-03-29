@@ -19,33 +19,33 @@ int Mapa::clearCoordenada(){
             }
 }
 
-int Mapa::setCoordenada(int escolha){
-    switch(escolha){
-        case 1:
-            for (int i=11; i<17; i++){
-                for (int j=0; j<7; j++){
-                    this->MAPA[i][j] = mapaUm[i][j];
-                }
-            }
-            break;
-        case 2:
-            for (int i=11; i<17; i++){
-                for (int j=0; j<7; j++){
-                    this->MAPA[i][j] = mapaDois[i][j];
-                }
-            }
-            break;
-        default:
-            for (int i=11; i<17; i++){
-                for (int j=0; j<7; j++){
-                    this->MAPA[i][j] = mapaUm[i][j];
-                }
-            }
-            break;
-
-    }
-    
-}
+//int Mapa::setCoordenada(int escolha){
+//    switch(escolha){
+//        case 1:
+//            for (int i=11; i<17; i++){
+//                for (int j=0; j<7; j++){
+//                    this->MAPA[i][j] = mapaUm[i][j];
+//                }
+//            }
+//            break;
+//        case 2:
+//            for (int i=11; i<17; i++){
+//                for (int j=0; j<7; j++){
+//                    this->MAPA[i][j] = mapaDois[i][j];
+//                }
+//            }
+//            break;
+//        default:
+//            for (int i=11; i<17; i++){
+//                for (int j=0; j<7; j++){
+//                    this->MAPA[i][j] = mapaUm[i][j];
+//                }
+//            }
+//            break;
+//
+//    }
+//    
+//}
 
 int Mapa::funcao_cair_doces(int check_type, int x, int y){
        

@@ -7,8 +7,16 @@
 
 
 class Mapa {
-    public:
         int MAPA[18][7];
+    public:
+        Mapa(int Mapa[][7]){
+            for(int i=0;i<18;i++){
+                for(int j=0;j<7;j++){
+                    this->MAPA[i][j] = Mapa[i][j];
+                }
+            }
+        }
+        
         int setCoordenada(int escolha);
         int clearCoordenada();
         // Ordem de verificação da função check, (função especial vem antes) função 5 -> 4 -> 3

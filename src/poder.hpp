@@ -8,6 +8,7 @@
 
 class Doce {
     public:
+        int _pontoPeca = 10;
         ALLEGRO_BITMAP *doceLaranja = dlaranja;
         ALLEGRO_BITMAP *doceVermelho = dvermelho;
         ALLEGRO_BITMAP *doceAzul = dazul;
@@ -15,6 +16,7 @@ class Doce {
         ALLEGRO_BITMAP *doceRoxo = droxo;
         ALLEGRO_BITMAP *doceAmarelo = damarelo;
 
+        int pontoPeca(){ return this->_pontoPeca; };
         void getDoce(int cor,int i, int j, int q);
         
 };
