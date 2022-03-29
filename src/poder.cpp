@@ -30,11 +30,40 @@ void Doce::getDoce(int cor,int i, int j, int q){
             al_draw_bitmap(this->doceAzul, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
             
             break;
+        
         default:
             al_draw_bitmap(this->doceLaranja, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
             break;
     }
     
+}
+
+void DoceListrado::getDoce(int cor,int i, int j, int q){
+    switch(cor){
+        case 10:
+            al_draw_bitmap(this->brigadeiroEspecial, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+        case -8:
+            al_draw_bitmap(this->doceEspecialHorizontalLaranja, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+        case -2:
+            al_draw_bitmap(this->doceEspecialHorizontalVerde, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+        case -3:
+            al_draw_bitmap(this->doceEspecialHorizontalVermelho, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+        case -5:
+            al_draw_bitmap(this->doceEspecialVerticalAmarelo, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+        
+        case -6:
+            al_draw_bitmap(this->doceEspecialVerticalAzul, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+        //
+        case -1:
+            al_draw_bitmap(this->doceEspecialHorizontalRoxo, (j*q)+OFFSETX, ((i-11)*q)+OFFSETY, 0);
+            break;
+    }
 }
 
 void Poder::DesenhoPoder(){

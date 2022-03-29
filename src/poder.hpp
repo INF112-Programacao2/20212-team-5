@@ -16,6 +16,15 @@ class Peca {
         ALLEGRO_BITMAP *doceVerde = NULL;
         ALLEGRO_BITMAP *doceRoxo = NULL;
         ALLEGRO_BITMAP *doceAmarelo = NULL;
+        ALLEGRO_BITMAP *doceEspecialHorizontalLaranja = NULL;
+        ALLEGRO_BITMAP *doceEspecialHorizontalVerde = NULL;
+        ALLEGRO_BITMAP *doceEspecialHorizontalRoxo = NULL;
+        ALLEGRO_BITMAP *doceEspecialHorizontalVermelho = NULL;
+        ALLEGRO_BITMAP *doceEspecialVerticalAzul = NULL;
+        ALLEGRO_BITMAP *doceEspecialVerticalAmarelo = NULL;
+        ALLEGRO_BITMAP *brigadeiroEspecial= NULL;
+
+
         virtual int pontoPeca()=0;
 };
 
@@ -46,6 +55,12 @@ class DoceListrado : Peca{
             this->doceVerde = dverde;
             this->doceRoxo = droxo;
             this->doceAmarelo = damarelo;
+            this->doceEspecialHorizontalLaranja = especialhorizontallaranja;
+            this->doceEspecialHorizontalVerde = especialhorizontalvermelho;
+            this->doceEspecialHorizontalRoxo = especialhorizontalroxo;
+            this->doceEspecialVerticalAzul = especialverticalazul;
+            this->doceEspecialVerticalAmarelo = especialverticalamarelo;
+            this->brigadeiroEspecial = brigadeiroespecial;
         };
         int _pontoPeca = 30;
         int pontoPeca(){ return this->_pontoPeca; };

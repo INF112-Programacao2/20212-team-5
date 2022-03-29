@@ -81,6 +81,8 @@ int inicializa() {
     Maozinha = al_load_bitmap("assets/Maozinha.bmp");
     Muda1 = al_load_bitmap("assets/Muda.bmp");
     Nave = al_load_bitmap("assets/Nave.bmp");
+    
+
 
 
     if(!display)
@@ -245,6 +247,102 @@ int inicializa() {
     if(!Nave)
     {
         std::cout << "Falha ao carregar ajuda nave!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    fundoReduzido = al_load_bitmap("assets/tapNivel2_oficial.bmp");
+
+    brigadeiroespecial = al_load_bitmap("assets/brigadeiroespecial.bmp");
+        if(!brigadeiroespecial){
+            std::cout << "Falha ao carregar brigadeiroespecial!" << std::endl;
+            al_destroy_display(display);
+            return 0;
+        }
+
+        //Especiais Verticais 
+
+    especialverticalamarelo = al_load_bitmap("assets/especialverticalamarelo.bmp");
+    if(!especialverticalamarelo){
+        std::cout << "Falha ao carregar especialverticalamarelo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialverticalazul = al_load_bitmap("assets/especialverticalazul.bmp");
+    if(!especialverticalazul){
+        std::cout << "Falha ao carregar especialverticalazul!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialverticallaranja = al_load_bitmap("assets/especialverticallaranja.bmp");
+    if(!especialverticallaranja){
+        std::cout << "Falha ao carregar especialverticallaranja!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialverticalroxo = al_load_bitmap("assets/especialverticalroxo.bmp");
+    if(!especialverticalroxo){
+        std::cout << "Falha ao carregar especialverticalroxo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialverticalverde = al_load_bitmap("assets/especialverticalverde.bmp");
+    if(!especialverticalverde){
+        std::cout << "Falha ao carregar especialverticalverde!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialverticalvermelho = al_load_bitmap("assets/especialverticalvermelho.bmp");
+    if(!especialverticalvermelho){
+        std::cout << "Falha ao carregar especialverticalvermelho!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+        //Especiais Horizontais 
+
+    especialhorizontalamarelo = al_load_bitmap("assets/especialhorizontalamarelo.bmp");
+    if(!especialhorizontalamarelo){
+        std::cout << "Falha ao carregar especialhorizontalamarelo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialhorizontalazul = al_load_bitmap("assets/especialhorizontalazul.bmp");
+    if(!especialhorizontalazul){
+        std::cout << "Falha ao carregar especialhorizontalazul!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialhorizontallaranja = al_load_bitmap("assets/especialhorizontallaranja.bmp");
+    if(!especialhorizontallaranja){
+        std::cout << "Falha ao carregar especialhorizontallaranja!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialhorizontalroxo = al_load_bitmap("assets/especialhorizontalroxo.bmp");
+    if(!especialhorizontalroxo){
+        std::cout << "Falha ao carregar especialhorizontalroxo!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialhorizontalverde = al_load_bitmap("assets/especialhorizontalverde.bmp");
+    if(!especialhorizontalverde){
+        std::cout << "Falha ao carregar especialhorizontalverde!" << std::endl;
+        al_destroy_display(display);
+        return 0;
+    }
+
+    especialhorizontalvermelho = al_load_bitmap("assets/especialhorizontalvermelho.bmp");
+    if(!especialhorizontalvermelho){
+        std::cout << "Falha ao carregar especialhorizontalvermelho!" << std::endl;
         al_destroy_display(display);
         return 0;
     }

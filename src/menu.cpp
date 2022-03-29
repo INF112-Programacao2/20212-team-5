@@ -168,7 +168,6 @@ void Menu::escolherNivel(){
                 fase=2;
                 nivel.faseDois(event, fase);        
         }
-<<<<<<< HEAD
         //Para o nível 3
         if (event.mouse.button == 1 && 
             event.mouse.x > 761 && event.mouse.x < 916 &&
@@ -176,21 +175,21 @@ void Menu::escolherNivel(){
                 fase = 3;
                 nivel.faseTres(event, fase);      
         }
-=======
->>>>>>> d961599431c2e14161e020fd243b16b08a77ec8a
 
         //Para o nível imagem 2
         if (event.mouse.button == 1 && 
             event.mouse.x > 1023 && event.mouse.x < 1169 &&
             event.mouse.y > 320 && event.mouse.y < 439){
-                std::cout << "Clicou no Nível imagem 2" << std::endl;        
+                fase=2;
+                nivel.faseDois(event, fase);         
         }
 
         //Para o nível 3
         if (event.mouse.button == 1 && 
             event.mouse.x > 1244 && event.mouse.x < 1419 &&
             event.mouse.y > 552 && event.mouse.y < 695){
-                std::cout << "Clicou no Nível 3" << std::endl;
+                fase=3;
+                nivel.faseTres(event, fase); 
         }
 
         /*if(event.type == ALLEGRO_EVENT_MOUSE_AXES)

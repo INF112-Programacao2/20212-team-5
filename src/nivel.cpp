@@ -12,8 +12,328 @@
 
 
 int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
-
+    
     int mapaUm[18][7] = {
+            2,2,1,4,4,4,4,
+            1,1,2,4,4,4,4,
+            2,2,3,4,4,4,4,
+
+            3,3,2,4,4,4,4,
+            3,1,6,4,4,4,4,
+            1,6,0,4,4,4,4,
+            1,1,6,4,4,4,4,
+            3,3,1,4,4,4,4,
+
+            2,3,6,4,4,4,4,
+            3,2,6,4,4,4,4,
+            2,3,3,4,4,4,4,
+            1,1,6,4,4,4,4,
+            6,6,1,4,4,4,4,
+
+            6,1,5,4,4,4,4,
+            1,6,2,4,4,4,4,
+            6,1,2,4,4,4,4,
+            3,3,1,4,4,4,4,
+            1,1,2,4,4,4,4,
+    };
+    Doce Doce;
+    DoceListrado DoceListrado;
+    Pontos Pontos(0, 30);
+    Mapa Mapa(mapaUm);
+    
+
+    
+    pontuacao += Pontos.getPontuacao();
+    while(!sair){
+        al_wait_for_event(event_queue, &ev);
+         if(ev.type == ALLEGRO_EVENT_TIMER)
+        {
+            redraw = true;
+        }
+        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+                sair=true;
+                    
+                        break;
+                    }
+            else if(ev.type == ALLEGRO_EVENT_KEY_UP){
+                if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+                        
+                        break;
+                    }
+        }
+
+
+        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
+        {
+                mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
+                mouse_y=(ev.mouse.y);                
+        }
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
+        {
+            if(ev.mouse.button & 1){ // &1 = botão esquerdo
+                pressao=true;   //pressionado= TRUE
+                if(pressao==true){
+                    //cout<<Y_click_esq<<"OLHAesq "<< X_click_esq<<endl;
+                   Y_click_esq=mouse_y/q+10;  //auxiliar guarda a coordenada X do último click;*
+                   X_click_esq=mouse_x/q-6; //auxiliar guarda a coordenada X do último click; *   
+
+                }
+
+
+            }
+            if(ev.mouse.button & 2){ // &1 = botão direito
+
+                pressao_dir=true;   //Se pressionar o botão direito, pressão dir= true
+
+                if(pressao_dir==true){  
+
+                    Y_click_dir=mouse_y/q+10; //2 adicionado ÀS 09:47
+                    X_click_dir=mouse_x/q-6;
+
+                    Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir,Pontos);
+                }
+
+            } 
+        }
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+        {       
+                pressao=false;
+                pressao_dir=false;
+
+
+        }
+        if(redraw && al_is_event_queue_empty(event_queue)) //se REDRAW (redesenhar for true e a fila estiver vazia)
+        {
+            redraw = false;
+
+            al_clear_to_color(al_map_rgb(0,0,0));
+            al_draw_bitmap(fundo,0,0,0);
+            al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
+            al_set_mouse_cursor(display, cursor);
+            //al_draw_bitmap(mapa,700,100,0);
+                Pontos.escrevePontuacao(font);
+                Pontos.escreveMovRestantes(font);
+                
+                Pontos.escreverFase(font,fase);
+
+
+                for (int i=11; i<17; i++){
+                    for (int j=0; j<3; j++){
+                        if(Mapa.getCoordenada(i,j)==0){
+                            Doce.getDoce(0,i,j,q); 
+                        }
+                        if(Mapa.getCoordenada(i,j)==1){
+                            Doce.getDoce(1,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==2){
+                            Doce.getDoce(2,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==3){
+                            Doce.getDoce(3,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==4){
+                            Doce.getDoce(4,i,j,q);
+                        } 
+                        if(Mapa.getCoordenada(i,j)==5){
+                            Doce.getDoce(5,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==6){
+                            Doce.getDoce(6,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-8){
+                            DoceListrado.getDoce(-8,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-2){
+                            DoceListrado.getDoce(-2,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-3){
+                            DoceListrado.getDoce(-3,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-6){
+                            DoceListrado.getDoce(-6,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-5){
+                            DoceListrado.getDoce(-5,i,j,q);
+                        }
+                        Mapa.funcao_check_5(i, j, Pontos);
+                        Mapa.funcao_check_4(i, j, Pontos);
+                        Mapa.funcao_check_3(i, j, Pontos);
+                        
+                    }
+                }
+        al_flip_display();
+        } 
+    }
+}
+
+
+int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
+    
+    int mapaDois[18][7] = {
+            0, 2 ,3,0,5,0,0,
+            1, 5 ,3,5,6,5,6,
+            2, 1 ,6,0,5,3,6,
+        
+            3, 2 ,5,5,1,2,0,
+            3, 5 ,2,1,0,2,1,
+            5, 1 ,3,0,0,1,0,
+        
+            1, 2 ,1,0, 1, 2,1,
+            6, 1 ,2,6, 6, 5,0,
+            6, 3 ,1,3, 5, 1,2,
+            0, 2 ,3,0, 5, 0,0,
+            1, 5 ,3,5, 6, 5,6,
+            2, -1 ,6,1, 5, 3,6,
+        
+            2, 2 ,5,0,1,0,0,
+            3, -1 ,2,1,0,6,1,
+            2, 1 ,3,10,-8,5,0,
+        
+            2, 2 ,1,0,1,2,1,
+            6, 1 ,2,5,-8,1,0,
+            6, 3 ,1,3,5,1,2,
+    };
+    Doce Doce;
+    DoceListrado DoceListrado;
+    Pontos Pontos(0, 30);
+    Mapa Mapa(mapaDois);
+    
+
+    listrado = true;
+    pontuacao += Pontos.getPontuacao();
+    while(!sair){
+        al_wait_for_event(event_queue, &ev);
+         if(ev.type == ALLEGRO_EVENT_TIMER)
+        {
+            redraw = true;
+        }
+        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+                sair=true;
+                    
+                        break;
+                    }
+            else if(ev.type == ALLEGRO_EVENT_KEY_UP){
+                if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+                        
+                        break;
+                    }
+        }
+
+
+        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
+        {
+                mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
+                mouse_y=(ev.mouse.y);                
+        }
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
+        {
+            if(ev.mouse.button & 1){ // &1 = botão esquerdo
+                pressao=true;   //pressionado= TRUE
+                if(pressao==true){
+                    //cout<<Y_click_esq<<"OLHAesq "<< X_click_esq<<endl;
+                   Y_click_esq=mouse_y/q+10;  //auxiliar guarda a coordenada X do último click;*
+                   X_click_esq=mouse_x/q-6; //auxiliar guarda a coordenada X do último click; *   
+
+                }
+
+
+            }
+            if(ev.mouse.button & 2){ // &1 = botão direito
+
+                pressao_dir=true;   //Se pressionar o botão direito, pressão dir= true
+
+                if(pressao_dir==true){  
+
+                    Y_click_dir=mouse_y/q+10; //2 adicionado ÀS 09:47
+                    X_click_dir=mouse_x/q-6;
+
+                    Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir,Pontos);
+                }
+
+            } 
+        }
+        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+        {       
+                pressao=false;
+                pressao_dir=false;
+
+
+        }
+        if(redraw && al_is_event_queue_empty(event_queue)) //se REDRAW (redesenhar for true e a fila estiver vazia)
+        {
+            redraw = false;
+
+            al_clear_to_color(al_map_rgb(0,0,0));
+            al_draw_bitmap(fundo,0,0,0);
+            al_draw_bitmap(fundoReduzido,0+OFFSETX,0+OFFSETY,0);
+            al_set_mouse_cursor(display, cursor);
+            //al_draw_bitmap(mapa,700,100,0);
+                Pontos.escrevePontuacao(font);
+                Pontos.escreveMovRestantes(font);
+                
+                Pontos.escreverFase(font,fase);
+
+
+                for (int i=10; i<17; i++){
+                    for (int j=0; j<5; j++){
+                        if(Mapa.getCoordenada(i,j)==0){
+                            Doce.getDoce(0,i,j,q); 
+                        }
+                        if(Mapa.getCoordenada(i,j)==1){
+                            Doce.getDoce(1,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==2){
+                            Doce.getDoce(2,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==3){
+                            Doce.getDoce(3,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==4){
+                            Doce.getDoce(4,i,j,q);
+                        } 
+                        if(Mapa.getCoordenada(i,j)==5){
+                            Doce.getDoce(5,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==6){
+                            Doce.getDoce(6,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-1){
+                            DoceListrado.getDoce(-1,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-3){
+                            DoceListrado.getDoce(-3,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-8){
+                            DoceListrado.getDoce(-8,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-2){
+                            DoceListrado.getDoce(-2,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-6){
+                            DoceListrado.getDoce(-6,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==-5){
+                            DoceListrado.getDoce(-5,i,j,q);
+                        }
+                        if(Mapa.getCoordenada(i,j)==10){
+                            DoceListrado.getDoce(10,i,j,q);
+                        }
+                        Mapa.funcao_check_especial(i,j);
+                        Mapa.funcao_check_5(i, j, Pontos);
+                        Mapa.funcao_check_4(i, j, Pontos);
+                        Mapa.funcao_check_3(i, j, Pontos);
+                        
+                    }
+                }
+        al_flip_display();
+        } 
+    }
+}
+
+
+int Nivel::faseTres(ALLEGRO_EVENT &ev, int fase){
+
+    int mapaTres[18][7] = {
             0, 2 ,3,0,5,0,0,
             1, 5 ,3,5,6,5,6,
             2, 1 ,6,0,5,3,6,
@@ -42,12 +362,8 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     Doce Doce;
     Poder Poder;
     Pontos Pontos(0,35);
-    Mapa Mapa(mapaUm);
+    Mapa Mapa(mapaTres);
     
-<<<<<<< HEAD
-=======
-
->>>>>>> d961599431c2e14161e020fd243b16b08a77ec8a
 
     //sorteia(Mapa.MAPA);
 
@@ -144,6 +460,7 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
                         if(Mapa.getCoordenada(i,j)==6){
                             Doce.getDoce(6,i,j,q);
                         }
+                        Mapa.funcao_check_especial(i,j);
                         Mapa.funcao_check_5(i, j, Pontos);
                         Mapa.funcao_check_4(i, j, Pontos);
                         Mapa.funcao_check_3(i, j, Pontos);
@@ -158,286 +475,5 @@ int Nivel::faseUm(ALLEGRO_EVENT &ev, int fase){
     }
 }
 
-
-int Nivel::faseDois(ALLEGRO_EVENT &ev, int fase){
-    
-    int mapaDois[18][7] = {
-            2,2,1,4,4,4,4,
-            1,1,2,4,4,4,4,
-            2,2,3,4,4,4,4,
-
-            3,3,2,4,4,4,4,
-            3,1,6,4,4,4,4,
-            1,6,0,4,4,4,4,
-            1,1,6,4,4,4,4,
-            3,3,1,4,4,4,4,
-
-            2,3,6,4,4,4,4,
-            3,2,6,4,4,4,4,
-            2,3,3,4,4,4,4,
-            1,1,6,4,4,4,4,
-            6,6,1,4,4,4,4,
-
-            6,1,5,4,4,4,4,
-            1,6,2,4,4,4,4,
-            6,1,2,4,4,4,4,
-            3,3,1,4,4,4,4,
-            1,1,2,4,4,4,4,
-    };
-    Doce Doce;
-    Pontos Pontos(0, 30);
-    Mapa Mapa(mapaDois);
-    
-
-    
-    pontuacao += Pontos.getPontuacao();
-    while(!sair){
-        al_wait_for_event(event_queue, &ev);
-         if(ev.type == ALLEGRO_EVENT_TIMER)
-        {
-            redraw = true;
-        }
-        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
-                sair=true;
-                    
-                        break;
-                    }
-            else if(ev.type == ALLEGRO_EVENT_KEY_UP){
-                if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
-                        
-                        break;
-                    }
-        }
-
-
-        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
-        {
-                mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
-                mouse_y=(ev.mouse.y);                
-        }
-        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
-        {
-            if(ev.mouse.button & 1){ // &1 = botão esquerdo
-                pressao=true;   //pressionado= TRUE
-                if(pressao==true){
-                    //cout<<Y_click_esq<<"OLHAesq "<< X_click_esq<<endl;
-                   Y_click_esq=mouse_y/q+11;  //auxiliar guarda a coordenada X do último click;*
-                   X_click_esq=mouse_x/q-6; //auxiliar guarda a coordenada X do último click; *   
-
-                }
-
-
-            }
-            if(ev.mouse.button & 2){ // &1 = botão direito
-
-                pressao_dir=true;   //Se pressionar o botão direito, pressão dir= true
-
-                if(pressao_dir==true){  
-
-                    Y_click_dir=mouse_y/q+11; //2 adicionado ÀS 09:47
-                    X_click_dir=mouse_x/q-6;
-
-                    Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir,Pontos);
-                }
-
-            } 
-        }
-        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
-        {       
-                pressao=false;
-                pressao_dir=false;
-
-
-        }
-        if(redraw && al_is_event_queue_empty(event_queue)) //se REDRAW (redesenhar for true e a fila estiver vazia)
-        {
-            redraw = false;
-
-            al_clear_to_color(al_map_rgb(0,0,0));
-            al_draw_bitmap(fundo,0,0,0);
-            al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
-            al_set_mouse_cursor(display, cursor);
-            //al_draw_bitmap(mapa,700,100,0);
-                Pontos.escrevePontuacao(font);
-                Pontos.escreveMovRestantes(font);
-                
-                Pontos.escreverFase(font,fase);
-
-
-                for (int i=11; i<17; i++){
-                    for (int j=0; j<3; j++){
-<<<<<<< HEAD
-                        if(Mapa.getCoordenada(i,j)==0){
-                            Doce.getDoce(0,i,j,q); 
-                        }
-                        if(Mapa.getCoordenada(i,j)==1){
-                            Doce.getDoce(1,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==2){
-                            Doce.getDoce(2,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==3){
-                            Doce.getDoce(3,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==4){
-                            Doce.getDoce(4,i,j,q);
-                        } 
-                        if(Mapa.getCoordenada(i,j)==5){
-                            Doce.getDoce(5,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==6){
-                            Doce.getDoce(6,i,j,q);
-                        }
-                        Mapa.funcao_check_5(i, j, Pontos);
-                        Mapa.funcao_check_4(i, j, Pontos);
-                        Mapa.funcao_check_3(i, j, Pontos);
-                        
-                    }
-                }
-        al_flip_display();
-        } 
-    }
-}
-
-int Nivel::faseTres(ALLEGRO_EVENT &ev, int fase){
-    
-    int mapaTres[18][7] = {
-            2,2,1,4,4,4,4,
-            1,1,2,4,4,4,4,
-            2,2,3,4,4,4,4,
-
-            3,3,2,4,4,4,4,
-            3,1,6,4,4,4,4,
-            1,6,0,4,4,4,4,
-            1,1,6,4,4,4,4,
-            3,3,1,4,4,4,4,
-
-            2,3,6,4,4,4,4,
-            3,2,6,4,4,4,4,
-            2,3,3,4,4,4,4,
-            1,1,6,4,4,4,4,
-            6,6,1,4,4,4,4,
-
-            6,1,5,4,4,4,4,
-            1,6,2,4,4,4,4,
-            6,1,2,4,4,4,4,
-            3,3,1,4,4,4,4,
-            1,1,2,4,4,4,4,
-    };
-    Doce Doce;
-    Pontos Pontos(0, 30);
-    Mapa Mapa(mapaTres);
-    
-
-    
-    pontuacao += Pontos.getPontuacao();
-    while(!sair){
-        al_wait_for_event(event_queue, &ev);
-         if(ev.type == ALLEGRO_EVENT_TIMER)
-        {
-            redraw = true;
-        }
-        else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
-                sair=true;
-                    
-                        break;
-                    }
-            else if(ev.type == ALLEGRO_EVENT_KEY_UP){
-                if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
-                        
-                        break;
-                    }
-        }
-
-
-        else if(ev.type== ALLEGRO_EVENT_MOUSE_AXES) //SE PASSAR O PONTEIRO EM CIMA DO DISPLAY
-        {
-                mouse_x=(ev.mouse.x); //atribui os valores mouse_x e mouse_y ás coordenadas do mouse no display
-                mouse_y=(ev.mouse.y);                
-        }
-        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) //se der o click no mouse
-        {
-            if(ev.mouse.button & 1){ // &1 = botão esquerdo
-                pressao=true;   //pressionado= TRUE
-                if(pressao==true){
-                    //cout<<Y_click_esq<<"OLHAesq "<< X_click_esq<<endl;
-                   Y_click_esq=mouse_y/q+11;  //auxiliar guarda a coordenada X do último click;*
-                   X_click_esq=mouse_x/q-6; //auxiliar guarda a coordenada X do último click; *   
-
-                }
-
-
-            }
-            if(ev.mouse.button & 2){ // &1 = botão direito
-
-                pressao_dir=true;   //Se pressionar o botão direito, pressão dir= true
-
-                if(pressao_dir==true){  
-
-                    Y_click_dir=mouse_y/q+11; //2 adicionado ÀS 09:47
-                    X_click_dir=mouse_x/q-6;
-
-                    Mapa.funcao_troca_doces(Y_click_esq,X_click_esq,Y_click_dir,X_click_dir,Pontos);
-                }
-
-            } 
-        }
-        else if (ev.type== ALLEGRO_EVENT_MOUSE_BUTTON_UP)
-        {       
-                pressao=false;
-                pressao_dir=false;
-
-
-        }
-        if(redraw && al_is_event_queue_empty(event_queue)) //se REDRAW (redesenhar for true e a fila estiver vazia)
-        {
-            redraw = false;
-
-            al_clear_to_color(al_map_rgb(0,0,0));
-            al_draw_bitmap(fundo,0,0,0);
-            al_draw_bitmap(mapa,0+OFFSETX,0+OFFSETY,0);
-            al_set_mouse_cursor(display, cursor);
-            //al_draw_bitmap(mapa,700,100,0);
-                Pontos.escrevePontuacao(font);
-                Pontos.escreveMovRestantes(font);
-                
-                Pontos.escreverFase(font,fase);
-
-
-                for (int i=11; i<17; i++){
-                    for (int j=0; j<3; j++){
-=======
->>>>>>> d961599431c2e14161e020fd243b16b08a77ec8a
-                        if(Mapa.getCoordenada(i,j)==0){
-                            Doce.getDoce(0,i,j,q); 
-                        }
-                        if(Mapa.getCoordenada(i,j)==1){
-                            Doce.getDoce(1,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==2){
-                            Doce.getDoce(2,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==3){
-                            Doce.getDoce(3,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==4){
-                            Doce.getDoce(4,i,j,q);
-                        } 
-                        if(Mapa.getCoordenada(i,j)==5){
-                            Doce.getDoce(5,i,j,q);
-                        }
-                        if(Mapa.getCoordenada(i,j)==6){
-                            Doce.getDoce(6,i,j,q);
-                        }
-                        Mapa.funcao_check_5(i, j, Pontos);
-                        Mapa.funcao_check_4(i, j, Pontos);
-                        Mapa.funcao_check_3(i, j, Pontos);
-                        
-                    }
-                }
-        al_flip_display();
-        } 
-    }
-}
 
 #endif
