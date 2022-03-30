@@ -21,3 +21,19 @@
   <h4><a href="https://github.com/pedroohm"><em>Pedro Moura</em></a></h4>
 
 </div>
+  
+   <h1 align="center">
+  Requisitos para funcionamento
+</h1>
+  
++ É necessário ter a biblioteca Allegro 5 para a execução do jogo. Pode ser obtida em https://liballeg.org/download.html
++ Resolução mínima: 1920 x 1200
+  
+  <h1 align="center">
+  Como executar o projeto
+</h1>
+  
++ Baixe ou clone o repositório em sua máquina.
++ Abra o terminal na pasta src.
++ Digite o comando: make all
++ Digite o comando: ./CandyCrush
