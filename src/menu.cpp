@@ -11,27 +11,20 @@ void Menu::mainmenu(){
     */
     ALLEGRO_EVENT event;                        //INICIA UMA ÚNICA FILA DE EVENTOS
 
-    //Nivel nivel;
     
     int botao_x = SCREEN_W/2; //coordenada x do botao
     int botao1_y = 320; // coordenada y do botao
     int botao2_y = 520;
     
-
+    //Desenha os botoes e imagens do jogo na tela
     al_draw_bitmap(fundo,0,0,0);
     al_draw_bitmap(logo,0,50,0);
     al_draw_bitmap(botao,botao_x,botao1_y,0);
     al_draw_bitmap(botao,botao_x,botao2_y,0);
 
     al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+35, botao1_y+7, 0, "Iniciar");
-    al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+30, botao2_y+7, 0, "Config.");
+    al_draw_text ( font, al_map_rgb(0,0,0) , botao_x+30, botao2_y+7, 0, "Musica");
 
-
-    /*
-    Nivel nivel;
-    int fase = 0;
-
-    */
 
 
     al_flip_display();
@@ -58,29 +51,15 @@ void Menu::mainmenu(){
             event.mouse.x < (botao_x + al_get_bitmap_width(botao)) &&
             event.mouse.y > botao2_y &&
             event.mouse.y < (botao2_y + al_get_bitmap_height(botao))){  
-            std::cout << "Click no Configurações!" << std::endl;
             this->somDoJogo();
         }
 
-    /*
-
-    if(event.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN && event.mouse.button == 1){
-
-        if(keyboardState == 1 /* temporário -> || keyboardState == 3 || keyboardState == 0){
-            fase=1;
-            
-            nivel.faseUm(event, fase);
-
     
-        }
-        if (keyboardState == 2){ fase=2;nivel.faseDois(event, fase);}
-    }
-    */
     }
 
+    //Aparecer confirmacao de saida do jogo, caso tente sair com ESC
     if(event.type == ALLEGRO_EVENT_KEY_UP){
         if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
-                std::cout << "Aparecer tela de Pause" << std::endl;
                 this->pausarInicio();
         }
     }
@@ -148,41 +127,17 @@ void Menu::escolherNivel(){
         if (event.mouse.button == 1 && 
             event.mouse.x > 222 && event.mouse.x < 379 &&
             event.mouse.y > 555 && event.mouse.y < 690){
-                std::cout << "Clicou no Nível 1" << std::endl;
                 fase = 1;
                 nivel.faseUm(event, fase);
         }
 
-        //Para o nível imagem 1
-        if (event.mouse.button == 1 && 
-            event.mouse.x > 502 && event.mouse.x < 660 &&
-            event.mouse.y > 320 && event.mouse.y < 448){
-                std::cout << "Clicou no Nível imagem 1" << std::endl;
-                        
-        }
         //Para o nível 2
         if (event.mouse.button == 1 && 
             event.mouse.x > 761 && event.mouse.x < 916 &&
             event.mouse.y > 45 && event.mouse.y < 173){
-                std::cout << "Clicou no Nível 2" << std::endl;
                 fase=2;
                 nivel.faseDois(event, fase);        
-        }
-        //Para o nível 3
-        if (event.mouse.button == 1 && 
-            event.mouse.x > 761 && event.mouse.x < 916 &&
-            event.mouse.y > 45 && event.mouse.y < 173){
-                fase = 3;
-                nivel.faseTres(event, fase);      
-        }
-
-        //Para o nível imagem 2
-        if (event.mouse.button == 1 && 
-            event.mouse.x > 1023 && event.mouse.x < 1169 &&
-            event.mouse.y > 320 && event.mouse.y < 439){
-                fase=2;
-                nivel.faseDois(event, fase);         
-        }
+        }         
 
         //Para o nível 3
         if (event.mouse.button == 1 && 
@@ -192,18 +147,12 @@ void Menu::escolherNivel(){
                 nivel.faseTres(event, fase); 
         }
 
-        /*if(event.type == ALLEGRO_EVENT_MOUSE_AXES)
-            std::cout << event.mouse.x << " " << event.mouse.y << std::endl;
-        */
-
         if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
             sair=true;
             break;
         }
         if(event.type == ALLEGRO_EVENT_KEY_UP){
             if(event.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
-                //std::cout << "Aparecer tela de Pause" << std::endl;
-                //this->pausarMenu();
                 break;
             }
         }
@@ -213,54 +162,18 @@ void Menu::escolherNivel(){
 
 void Menu::somDoJogo(){
     
-    al_set_sample_instance_playmode(inst_musica, ALLEGRO_PLAYMODE_LOOP);
-    al_attach_sample_instance_to_mixer(inst_musica, al_get_default_mixer());
-    al_play_sample_instance(inst_musica);
-}
-
-/*
-//Fazer chamada em cada nível quando der ESC
-void Menu::pausarNivel(){
-    ALLEGRO_EVENT event;
-
-    al_draw_bitmap(fundo,0,0,0);
-    al_draw_bitmap(telaPause,  al_get_bitmap_width(fundo)/2 - al_get_bitmap_height(telaPause)/2,
-                    al_get_bitmap_height(fundo)/2 - al_get_bitmap_width(telaPause)/2, 0);
-    al_draw_bitmap(botaoSim, SCREEN_W/2+50, SCREEN_H/2, 0);
-    al_draw_bitmap(botaoNao, SCREEN_W/2-100, SCREEN_H/2, 0);
-
-    al_draw_text (font, al_map_rgb(0,0,0) , SCREEN_W/2-40, SCREEN_H/2-50 ,0, "Deseja abandonar\no nivel atual?");
-
-    al_flip_display();
-
-    
-    while(1){
-        al_wait_for_event(event_queue, &event);
-
-        //Botao Sim para sair do nível
-        if (event.mouse.button == 1 && 
-            event.mouse.x > SCREEN_W/2+50 &&
-            event.mouse.x < (SCREEN_W/2+50 + al_get_bitmap_width(botaoSim)) &&
-            event.mouse.y > SCREEN_H/2 &&
-            event.mouse.y < (SCREEN_H/2 + al_get_bitmap_height(botaoSim))){  
-                return mainmenu();
-        }
-        //Encerra o Jogo
-        if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
-            sair=true;
-            break;
-        }
-
-        //Botao Não, para manter no nivel atual
-        if (event.mouse.button == 1 && 
-            event.mouse.x > SCREEN_W/2-100 &&
-            event.mouse.x < (SCREEN_W/2-100 + al_get_bitmap_width(botaoSim)) &&
-            event.mouse.y > SCREEN_H/2 &&
-            event.mouse.y < (SCREEN_H/2 + al_get_bitmap_height(botaoSim))){  
-                //return mainmenu();
-        }
+    if (estadoMusica){
+        al_set_sample_instance_playmode(inst_musica, ALLEGRO_PLAYMODE_LOOP);
+        al_attach_sample_instance_to_mixer(inst_musica, al_get_default_mixer());
+        al_play_sample_instance(inst_musica);
+        estadoMusica = false;
+    } 
+    else if(!estadoMusica){
+        al_stop_sample_instance(inst_musica);
+        estadoMusica = true;
     }
+
 }
-*/
+
 
 
