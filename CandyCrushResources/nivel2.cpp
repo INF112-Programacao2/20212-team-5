@@ -1146,6 +1146,24 @@ int main(int argc, char **argv){
     //especiais
     al_destroy_bitmap(rosquinharosaespecial);
     al_destroy_bitmap(brigadeiroespecial);
+
+    //Tratamento de excecao
+    try{
+        if(abs(y_esq - y_dir)>1 || abs(x_esq-x_dir)>1 ){
+            throw 10;
+        } 
+    }catch(int x){
+            std::cout<< "As pecas não estao lado a lado e nao podem ser movidas, ERROR NUMBER: " << x << std::endl;
+            }
+
+    try{
+        if((abs(y_esq - y_dir)!=1 & abs(x_esq-x_dir)!=1)){
+            throw 11.5;
+        }
+    }catch(double y){
+            std::cout<< "As pecas estao na diagonal e nao podem ser movidas, ERROR NUMBER: " << y << std::endl;
+            }
+
     
     return 0;
 }
