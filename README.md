@@ -26,7 +26,7 @@
   Requisitos para funcionamento
 </h1>
   
-+ É necessário ter a biblioteca Allegro 5 para a execução do jogo. Pode ser obtida em https://liballeg.org/download.html
++ É necessário ter a biblioteca Allegro 5 para compilar e executar o jogo. Pode ser obtida em https://liballeg.org/download.html
 + Resolução mínima de tela: 1920 x 1200
   
   <h1 align="center">
