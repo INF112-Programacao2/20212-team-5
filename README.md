@@ -27,7 +27,7 @@
 </h1>
   
 + É necessário ter a biblioteca Allegro 5 para a execução do jogo. Pode ser obtida em https://liballeg.org/download.html
-+ Resolução mínima: 1920 x 1200
++ Resolução mínima de tela: 1920 x 1200
   
   <h1 align="center">
   Como executar o projeto
